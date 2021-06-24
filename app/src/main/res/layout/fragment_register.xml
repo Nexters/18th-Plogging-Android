@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.auth.register.RegisterFragment">
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/base_tapbar_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/register_left"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="24dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/register_right"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="24dp" />
+
+    <EditText
+        android:id="@+id/et_register_email"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/bg_round_border_gray_4"
+        android:hint="@string/hint_id"
+        android:inputType="textEmailAddress"
+        android:paddingStart="16dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/brown_gray"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/register_right"
+        app:layout_constraintStart_toStartOf="@+id/register_left"
+        app:layout_constraintTop_toBottomOf="@+id/include"
+        tools:ignore="RtlSymmetry" />
+
+    <EditText
+        android:id="@+id/et_register_pw"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/bg_round_border_gray_4"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:paddingStart="16dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/brown_gray"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/register_right"
+        app:layout_constraintStart_toStartOf="@+id/register_left"
+        app:layout_constraintTop_toBottomOf="@+id/et_register_email"
+        tools:ignore="RtlSymmetry" />
+
+    <EditText
+        android:id="@+id/et_register_pw_confirm"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/bg_round_border_gray_4"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:paddingStart="16dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/brown_gray"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/register_right"
+        app:layout_constraintStart_toStartOf="@+id/register_left"
+        app:layout_constraintTop_toBottomOf="@+id/et_register_pw"
+        tools:ignore="RtlSymmetry" />
+
+    <TextView
+        android:id="@+id/tv_register_email_err"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/wrong_type_email"
+        android:textColor="@color/strawberry"
+        android:textSize="14dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/register_right"
+        app:layout_constraintStart_toStartOf="@+id/register_left"
+        app:layout_constraintTop_toBottomOf="@+id/et_register_email" />
+
+    <TextView
+        android:id="@+id/tv_register_pw_err"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/wrong_pw_type"
+        android:textSize="14dp"
+        android:textColor="@color/brown_gray"
+        app:layout_constraintEnd_toStartOf="@+id/register_right"
+        app:layout_constraintStart_toStartOf="@+id/register_left"
+        app:layout_constraintTop_toBottomOf="@+id/et_register_pw" />
+
+    <TextView
+        android:id="@+id/tv_register_pw_confirm_err"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/not_match_pw"
+        android:textColor="@color/strawberry"
+        android:textSize="14dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/register_right"
+        app:layout_constraintStart_toStartOf="@+id/register_left"
+        app:layout_constraintTop_toBottomOf="@+id/et_register_pw_confirm" />
+
+    <ImageView
+        android:id="@+id/iv_register_email_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:padding="8dp"
+        android:src="@drawable/ic_cancel"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/et_register_email"
+        app:layout_constraintEnd_toStartOf="@+id/register_right"
+        app:layout_constraintTop_toTopOf="@+id/et_register_email" />
+
+    <ImageView
+        android:id="@+id/iv_register_pw_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:padding="8dp"
+        android:src="@drawable/ic_cancel"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/et_register_pw"
+        app:layout_constraintEnd_toStartOf="@+id/register_right"
+        app:layout_constraintTop_toTopOf="@+id/et_register_pw" />
+
+    <ImageView
+        android:id="@+id/iv_register_pw_confirm_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:padding="8dp"
+        android:src="@drawable/ic_cancel"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/et_register_pw_confirm"
+        app:layout_constraintEnd_toStartOf="@+id/register_right"
+        app:layout_constraintTop_toTopOf="@+id/et_register_pw_confirm" />
+
+    <TextView
+        android:id="@+id/btn_register_next"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/btn_selector"
+        android:enabled="false"
+        android:gravity="center"
+        android:padding="18dp"
+        android:text="@string/next"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/register_right"
+        app:layout_constraintStart_toStartOf="@+id/register_left" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

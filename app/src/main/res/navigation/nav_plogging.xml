@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/graph_plogging"
+    app:startDestination="@+id/nav_plogging_running">
+
+    <fragment
+        android:id="@+id/nav_plogging_running"
+        android:name="com.plogging.ecorun.ui.running.active.RunningFragment"
+        tools:layout="@layout/fragment_running">
+
+        <action
+            android:id="@+id/action_plogging_running_to_running_finish"
+            app:destination="@id/nav_running_finish" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/nav_running_finish"
+        android:name="com.plogging.ecorun.ui.running.active.RunningFinishDialog"
+        tools:layout="@layout/fragment_dialog">
+        <action
+            android:id="@+id/action_running_finish_to_save"
+            app:destination="@id/nav_running_save"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+    </dialog>
+
+    <fragment
+        android:id="@+id/nav_running_save"
+        android:name="com.plogging.ecorun.ui.running.save.SaveFragment"
+        tools:layout="@layout/fragment_save">
+        <action
+            android:id="@+id/action_save_to_dialog_no_image"
+            app:destination="@id/nav_running_dialog_saved_no_image" />
+        <action
+            android:id="@+id/action_save_to_dialog_delete"
+            app:destination="@id/nav_running_dialog_delete" />
+        <action
+            android:id="@+id/action_save_to_dialog_score"
+            app:destination="@id/nav_running_dialog_score" />
+        <action
+            android:id="@+id/action_save_to_camera"
+            app:destination="@id/nav_running_camera"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+    </fragment>
+    <dialog
+        android:id="@+id/nav_running_dialog_saved_no_image"
+        android:name="com.plogging.ecorun.ui.running.save.dialog.SavedNoImageDialog"
+        tools:layout="@layout/fragment_dialog"/>
+    <dialog
+        android:id="@+id/nav_running_dialog_delete"
+        android:name="com.plogging.ecorun.ui.running.save.dialog.DeleteDialog"
+        tools:layout="@layout/fragment_dialog"/>
+    <dialog
+        android:id="@+id/nav_running_dialog_score"
+        android:name="com.plogging.ecorun.ui.running.save.dialog.ScoreDialog"
+        tools:layout="@layout/fragment_dialog"/>
+    <fragment
+        android:id="@+id/nav_running_camera"
+        android:name="com.plogging.ecorun.ui.running.save.CameraFragment"
+        tools:layout="@layout/fragment_camera">
+    </fragment>
+
+
+</navigation>

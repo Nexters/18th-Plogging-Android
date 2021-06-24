@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        android:id="@+id/transition_disappear_ready"
+        motion:constraintSetEnd="@+id/end_count_disappear"
+        motion:constraintSetStart="@id/start_count_disappear"
+        motion:duration="400">
+
+    </Transition>
+    <Transition
+        android:id="@+id/transition_show_trash_dialog"
+        motion:constraintSetEnd="@+id/end_show_trash_dialog"
+        motion:constraintSetStart="@id/start_show_trash_dialog"
+        motion:duration="400">
+        <OnClick
+            motion:clickAction="transitionToEnd"
+            motion:targetId="@+id/cl_running_trash_dialog_log"/>
+
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start_count_disappear">
+        <Constraint
+            android:id="@+id/cl_running_ready"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible" />
+    </ConstraintSet>
+
+    <ConstraintSet
+        android:id="@+id/end_count_disappear">
+        <Constraint
+            android:id="@+id/cl_running_ready"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="300dp"
+            android:visibility="invisible" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/start_show_trash_dialog">
+        <Constraint
+            android:id="@+id/cl_running_trash_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="700dp"
+            motion:layout_constraintTop_toBottomOf="parent" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end_show_trash_dialog">
+        <Constraint
+            android:id="@+id/cl_running_trash_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="700dp"
+            motion:layout_constraintBottom_toBottomOf="parent" />
+    </ConstraintSet>
+</MotionScene>

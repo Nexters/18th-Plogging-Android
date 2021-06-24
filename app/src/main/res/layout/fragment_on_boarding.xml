@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    app:navGraph="@navigation/nav_on_boarding"
+    tools:context=".ui.main.onboarding.OnBoardingFragment">
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/pager_main_on_board"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/iv_on_board_dot_second"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_on_board_dot_first"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="12dp"
+        android:src="@drawable/rectangle_green"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_on_board_dot_second"
+        app:layout_constraintEnd_toStartOf="@+id/iv_on_board_dot_second" />
+
+    <ImageView
+        android:id="@+id/iv_on_board_dot_second"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/oval_light_green"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_main_on_board"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_on_board_dot_third"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="12dp"
+        android:src="@drawable/oval_light_green"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_on_board_dot_second"
+        app:layout_constraintStart_toEndOf="@+id/iv_on_board_dot_second" />
+
+    <TextView
+        android:id="@+id/tv_main_on_board"
+        android:layout_width="136dp"
+        android:layout_height="78dp"
+        android:layout_marginVertical="40dp"
+        android:background="@drawable/selector_on_boarding_button"
+        android:gravity="center"
+        android:text="@string/next_page"
+        android:textColor="@color/brown_gray"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

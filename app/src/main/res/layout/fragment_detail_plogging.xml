@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_gray"
+    tools:context=".ui.plogging.UserDetailPloggingFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_plogging_detail_left"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="24dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_plogging_detail_right"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="24dp" />
+
+        <View
+            android:id="@+id/v_plogging_detail_top"
+            android:layout_width="match_parent"
+            android:layout_height="132dp"
+            android:background="@drawable/bg_round_bottom_green"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_plogging_detail_user_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:backgroundTint="@color/white"
+            android:padding="8dp"
+            android:src="@drawable/ic_back_arrow_white"
+            app:layout_constraintStart_toStartOf="@+id/gl_plogging_detail_left"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_plogging_detail_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="22dp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_plogging_detail_user_back"
+            app:layout_constraintStart_toEndOf="@+id/iv_plogging_detail_user_back"
+            app:layout_constraintTop_toTopOf="@+id/iv_plogging_detail_user_back" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_plogging_detail_user_profile"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/bg_default"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_plogging_detail_name"
+            app:layout_constraintEnd_toStartOf="@+id/gl_plogging_detail_right"
+            app:layout_constraintTop_toTopOf="@+id/tv_plogging_detail_name"
+            app:shapeAppearanceOverlay="@style/roundedImageViewRounded" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_plogging_detail_left_contain"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="24dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_plogging_detail_right_contain"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="24dp" />
+
+            <TextView
+                android:id="@+id/tv_plogging_detail_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:text="@string/date"
+                android:textColor="@color/brown_gray"
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="@+id/gl_plogging_detail_left_contain"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_plogging_detail_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="삭제"
+                android:textColor="@color/brown_gray"
+                android:textSize="14dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_plogging_detail_date"
+                app:layout_constraintEnd_toStartOf="@+id/gl_plogging_detail_right_contain"
+                app:layout_constraintTop_toTopOf="@+id/tv_plogging_detail_date" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_plogging_detail"
+                android:layout_width="0dp"
+                android:layout_height="360dp"
+                app:cardCornerRadius="26dp"
+                android:layout_marginTop="24dp"
+                app:layout_constraintEnd_toStartOf="@+id/gl_plogging_detail_right_contain"
+                app:layout_constraintStart_toStartOf="@+id/gl_plogging_detail_left_contain"
+                app:layout_constraintTop_toBottomOf="@+id/tv_plogging_detail_date">
+
+                <ImageView
+                    android:id="@+id/iv_plogging_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_round_12"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/bg_default"
+                    app:layout_constraintEnd_toStartOf="@+id/gl_plogging_detail_right_contain"
+                    app:layout_constraintStart_toStartOf="@+id/gl_plogging_detail_left_contain"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_plogging_detail_date" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_plogging_detail_score"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="12dp"
+                android:layout_marginTop="36dp"
+                app:layout_constraintEnd_toStartOf="@+id/gl_plogging_detail_right_contain"
+                app:layout_constraintStart_toStartOf="@+id/gl_plogging_detail_left_contain"
+                app:layout_constraintTop_toBottomOf="@+id/cv_plogging_detail">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_plogging_detail_score"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingVertical="32dp">
+
+                    <TextView
+                        android:id="@+id/tv_plogging_detail_score_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:textSize="26dp"
+                        android:layout_marginStart="24dp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toStartOf="@+id/view"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_plogging_detail_score"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="플로깅 점수"
+                        android:textColor="@color/brown_gray"
+                        android:textSize="14dp"
+                        app:layout_constraintEnd_toEndOf="@+id/tv_plogging_detail_score_number"
+                        app:layout_constraintStart_toStartOf="@+id/tv_plogging_detail_score_number"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_plogging_detail_score_number" />
+
+                    <View
+                        android:id="@+id/view"
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:background="@color/tint_green"
+                        android:layout_marginStart="20dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/tv_plogging_detail_distance_number"
+                        app:layout_constraintStart_toEndOf="@+id/tv_plogging_detail_score_number"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_plogging_detail_distance_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:textColor="@color/black"
+                        android:textSize="22dp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_plogging_detail_score_number"
+                        app:layout_constraintEnd_toStartOf="@+id/tv_plogging_detail_time_number"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/view"
+                        app:layout_constraintTop_toTopOf="@+id/tv_plogging_detail_score_number" />
+
+                    <TextView
+                        android:id="@+id/tv_plogging_detail_distance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="킬로미터"
+                        android:textColor="@color/brown_gray"
+                        android:textSize="14dp"
+                        app:layout_constraintEnd_toEndOf="@+id/tv_plogging_detail_distance_number"
+                        app:layout_constraintStart_toStartOf="@+id/tv_plogging_detail_distance_number"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_plogging_detail_distance_number" />
+
+
+                    <TextView
+                        android:id="@+id/tv_plogging_detail_time_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:textSize="22dp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_plogging_detail_distance_number"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/tv_plogging_detail_distance_number"
+                        app:layout_constraintTop_toTopOf="@+id/tv_plogging_detail_distance_number"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                    <TextView
+                        android:id="@+id/tv_plogging_detail_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="시간"
+                        android:textColor="@color/brown_gray"
+                        android:textSize="14dp"
+                        app:layout_constraintEnd_toEndOf="@+id/tv_plogging_detail_time_number"
+                        app:layout_constraintStart_toStartOf="@+id/tv_plogging_detail_time_number"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_plogging_detail_distance_number" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/tv_plogging_detail_total_trash_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="54dp"
+                android:text="총 19개의 쓰레기를 주웠어요!"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/gl_plogging_detail_left_contain"
+                app:layout_constraintTop_toBottomOf="@+id/cv_plogging_detail_score" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cv_plogging_detail_trash_type"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="12dp"
+                app:layout_constraintEnd_toStartOf="@+id/gl_plogging_detail_right_contain"
+                app:layout_constraintStart_toStartOf="@+id/gl_plogging_detail_left_contain"
+                app:layout_constraintTop_toBottomOf="@+id/tv_plogging_detail_total_trash_title">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_plogging_detail_trash_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingBottom="24dp">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_plogging_detail_trash"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="24dp"
+                        android:layout_marginTop="12dp"
+                        android:elevation="1dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/cl_plogging_detail_trash_type"
+                        tools:itemCount="6"
+                        tools:listitem="@layout/item_trash" />
+
+                    <TextView
+                        android:id="@+id/tv_plogging_detail_trash_total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="12dp"
+                        android:elevation="1dp"
+                        android:text="총"
+                        android:textColor="@color/black"
+                        android:textSize="22dp"
+                        app:layout_constraintStart_toStartOf="@+id/rv_plogging_detail_trash"
+                        app:layout_constraintTop_toBottomOf="@+id/rv_plogging_detail_trash" />
+
+                    <TextView
+                        android:id="@+id/tv_plogging_detail_trash_total_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginEnd="8dp"
+                        android:elevation="1dp"
+                        android:textColor="@color/black"
+                        android:textSize="22dp"
+                        app:layout_constraintEnd_toEndOf="@+id/rv_plogging_detail_trash"
+                        app:layout_constraintTop_toBottomOf="@+id/rv_plogging_detail_trash" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/btn_plogging_detail_saving"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/bg_round_8"
+                android:backgroundTint="@color/tint_green"
+                android:gravity="center"
+                android:text="공유하기"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:layout_marginBottom="24dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/gl_plogging_detail_right_contain"
+                app:layout_constraintStart_toStartOf="@+id/gl_plogging_detail_left_contain"
+                app:layout_constraintTop_toBottomOf="@+id/cv_plogging_detail_trash_type" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/graph_auth"
+    app:startDestination="@+id/nav_auth_home">
+
+    <include app:graph="@navigation/nav_on_boarding" />
+    <include app:graph="@navigation/nav_plogging" />
+
+    <fragment
+        android:id="@+id/nav_auth_home"
+        android:name="com.plogging.ecorun.ui.auth.home.AuthHomeFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_auth">
+        <action
+            android:id="@+id/action_auth_to_policy_dialog"
+            app:destination="@+id/nav_dialog_policy" />
+
+        <action
+            android:id="@+id/action_auth_to_register"
+            app:destination="@+id/nav_auth_register"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_auth_to_sign_in"
+            app:destination="@+id/nav_auth_sign_in"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_auth_to_on_boarding"
+            app:destination="@+id/graph_on_boarding"
+            app:popUpTo="@id/nav_auth_home"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_auth_to_main"
+            app:destination="@+id/main"
+            app:popUpTo="@id/nav_auth_home"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_auth_home_to_auth_nick_name"
+            app:destination="@id/nav_auth_nick_name" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/main"
+        android:name="com.plogging.ecorun.ui.main.MainFragment"
+        tools:layout="@layout/fragment_main" />
+
+    <fragment
+        android:id="@+id/nav_auth_register"
+        android:name="com.plogging.ecorun.ui.auth.register.RegisterFragment"
+        tools:layout="@layout/fragment_register">
+
+        <action
+            android:id="@+id/action_register_to_nick_name"
+            app:destination="@+id/nav_auth_nick_name"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_auth_nick_name"
+        android:name="com.plogging.ecorun.ui.auth.nickname.NickNameFragment"
+        tools:layout="@layout/fragment_nick_name">
+        <action
+            android:id="@+id/action_register_to_main"
+            app:destination="@+id/main"
+            app:popUpTo="@id/nav_auth_find_pw"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_register_to_on_boarding"
+            app:destination="@+id/graph_on_boarding"
+            app:popUpTo="@id/nav_auth_find_pw"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_auth_sign_in"
+        android:name="com.plogging.ecorun.ui.auth.signin.SignInFragment"
+        tools:layout="@layout/fragment_sign_in">
+
+        <action
+            android:id="@+id/action_sign_in_to_main"
+            app:destination="@+id/main"
+            app:popUpTo="@id/nav_auth_home"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_sign_in_to_find_pw"
+            app:destination="@+id/nav_auth_find_pw"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_auth_find_pw"
+        android:name="com.plogging.ecorun.ui.auth.password.FindPasswordFragment"
+        tools:layout="@layout/fragment_find_password">
+
+    </fragment>
+
+    <dialog
+        android:id="@+id/nav_dialog_policy"
+        android:name="com.plogging.ecorun.ui.auth.home.AuthPolicyDialogFragment"
+        android:label="DialogPolicyDialogFragment"
+        tools:layout="@layout/fragment_dialog_auth_policy">
+    </dialog>
+
+</navigation>

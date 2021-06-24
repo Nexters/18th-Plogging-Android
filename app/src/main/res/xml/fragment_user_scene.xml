@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="1000">
+        <OnSwipe
+            motion:dragDirection="dragUp"
+            motion:touchAnchorId="@+id/rv_user_plogging"
+            motion:touchAnchorSide="top" />
+        <KeyFrameSet>
+            <KeyAttribute
+                android:alpha="0.0"
+                motion:framePosition="20"
+                motion:motionTarget="@+id/cl_user_plogging_score" />
+            <KeyAttribute
+                android:alpha="0.0"
+                motion:framePosition="20"
+                motion:motionTarget="@+id/cl_user_plogging_distance" />
+            <KeyAttribute
+                android:alpha="0.0"
+                motion:framePosition="20"
+                motion:motionTarget="@+id/cl_user_plogging_count" />
+            <KeyAttribute
+                motion:framePosition="50"
+                motion:motionTarget="@+id/tv_user_plogging_name" />
+        </KeyFrameSet>
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/tv_user_plogging_name"
+            android:layout_width="220dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="12dp"
+            motion:layout_constraintStart_toStartOf="@+id/gl_user_plogging_left"
+            motion:layout_constraintTop_toBottomOf="@+id/iv_user_plogging_setting" >
+            <CustomAttribute
+                motion:attributeName="textSize"
+                motion:customFloatValue="36" />
+        </Constraint>
+        <Constraint
+            motion:layout_constraintEnd_toEndOf="@+id/spinner_user_plogging_order"
+            android:id="@+id/rv_user_plogging"
+            motion:layout_constraintStart_toStartOf="@+id/cl_user_plogging_score"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/spinner_user_plogging_order" />
+        <Constraint
+            motion:layout_constraintEnd_toEndOf="@+id/rv_user_plogging"
+            android:id="@+id/imageView" />
+        <Constraint
+            motion:layout_constraintBottom_toBottomOf="@+id/rv_user_plogging"
+            android:id="@+id/imageView2" />
+        <Constraint
+            motion:layout_constraintBottom_toBottomOf="@+id/rv_user_plogging"
+            android:id="@+id/imageView3" />
+        <Constraint
+            motion:layout_constraintEnd_toEndOf="@+id/rv_user_plogging"
+            android:id="@+id/imageView4" />
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/v_user_plogging_top"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintHorizontal_bias="1.0"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/cl_user_plogging_score"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:visibility="invisible"
+            motion:layout_constraintBottom_toBottomOf="@+id/cl_user_plogging_distance"
+            motion:layout_constraintEnd_toStartOf="@+id/cl_user_plogging_distance"
+            motion:layout_constraintHorizontal_bias="0.5"
+            motion:layout_constraintHorizontal_chainStyle="spread"
+            motion:layout_constraintStart_toStartOf="@+id/gl_user_plogging_left"
+            motion:layout_constraintTop_toTopOf="@+id/cl_user_plogging_distance" />
+        <Constraint
+            android:id="@+id/cl_user_plogging_distance"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginHorizontal="6dp"
+            android:visibility="invisible"
+            motion:layout_constraintBottom_toBottomOf="@+id/v_user_plogging_top"
+            motion:layout_constraintEnd_toStartOf="@+id/cl_user_plogging_count"
+            motion:layout_constraintHorizontal_bias="0.5"
+            motion:layout_constraintStart_toEndOf="@+id/cl_user_plogging_score"
+            motion:layout_constraintTop_toBottomOf="@+id/tv_user_plogging_name"
+            motion:layout_constraintVertical_bias="0.6" />
+        <Constraint
+            android:id="@+id/cl_user_plogging_count"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:visibility="invisible"
+            motion:layout_constraintBottom_toBottomOf="@+id/cl_user_plogging_distance"
+            motion:layout_constraintEnd_toStartOf="@+id/gl_user_plogging_right"
+            motion:layout_constraintHorizontal_bias="0.5"
+            motion:layout_constraintStart_toEndOf="@+id/cl_user_plogging_distance"
+            motion:layout_constraintTop_toTopOf="@+id/cl_user_plogging_distance" />
+        <Constraint
+            android:id="@+id/tv_user_plogging_name"
+            android:layout_width="180dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="24dp"
+            motion:layout_constraintBottom_toBottomOf="@+id/iv_user_plogging_setting"
+            motion:layout_constraintStart_toEndOf="@+id/iv_user_plogging_setting"
+            motion:layout_constraintTop_toTopOf="@+id/iv_user_plogging_setting">
+            <CustomAttribute
+                motion:attributeName="textSize"
+                motion:customFloatValue="24" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/iv_user_plogging_profile"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            motion:layout_constraintBottom_toBottomOf="@+id/tv_user_plogging_name"
+            motion:layout_constraintEnd_toStartOf="@+id/gl_user_plogging_right"
+            motion:layout_constraintTop_toTopOf="@+id/tv_user_plogging_name" />
+
+    </ConstraintSet>
+</MotionScene>

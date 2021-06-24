@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cv_rank_item"
+    android:layout_width="match_parent"
+    android:layout_marginHorizontal="24dp"
+    android:layout_marginVertical="4dp"
+    app:cardCornerRadius="8dp"
+    android:layout_height="72dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_rank_item"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/iv_rank_item_top"
+            android:layout_width="28dp"
+            android:layout_height="26dp"
+            android:layout_marginStart="24dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_second"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_rank_item_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:text="1"
+            android:textColor="@color/dark_gray"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/iv_rank_item_top"
+            app:layout_constraintStart_toStartOf="@+id/iv_rank_item_top"
+            app:layout_constraintTop_toTopOf="@+id/iv_rank_item_top" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_rank_item_profile"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="20dp"
+            android:padding="2dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/bg_default"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_rank_item_top"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
+            app:strokeColor="@color/light_gray"
+            app:strokeWidth="4dp" />
+
+        <TextView
+            android:id="@+id/tv_rank_item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="프로플로거"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_rank_item_profile"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_rank_item_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:text="1224점"
+            android:textColor="@color/dark_gray"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

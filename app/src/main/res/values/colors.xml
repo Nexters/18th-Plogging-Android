@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="strawberry">#ff2943</color>
+    <color name="tint_green">#37d5ab</color>
+    <color name="brown_gray">#898989</color>
+    <color name="very_light_pink_two">#eaeaea</color>
+    <color name="gray">#b6b6b6</color>
+    <color name="light_green">#d5f6e9</color>
+    <color name="green_blue">#00b890</color>
+    <color name="light_gray">#cecece</color>
+    <color name="rank_first_dark_pink">#ff6a7c</color>
+    <color name="dark_gray">#6e6e6e</color>
+    <color name="deep_green">#008f70</color>
+    <color name="transparent20">#33000000</color>
+    <color name="red_black">#ff697a</color>
+    <color name="blush_pink">#ff8090</color>
+    <color name="mari_gold">#ffbf00</color>
+    <color name="transparent40">#66000000</color>
+    <color name="bg_gray">#EAEAEA</color>
+    <color name="bg_google">#D5DBF6</color>
+    <color name="pale_gray">#f8fafc</color>
+    <color name="rank_first">#fee5e7</color>
+    <color name="rank_second">#d5f6e9</color>
+    <color name="rank_third">#fdf4d9</color>
+</resources>

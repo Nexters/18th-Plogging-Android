@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "196574192829",
+    "project_id": "ecorun-dc18b",
+    "storage_bucket": "ecorun-dc18b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:196574192829:android:fb5587f2841c976dde83d4",
+        "android_client_info": {
+          "package_name": "com.plogging.ecorun"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "196574192829-mjlpbt9bv6arsfsqup47sqo465k8ie5o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.plogging.ecorun",
+            "certificate_hash": "03c55af63beaf98842e2d4be9551ae41ec1617a8"
+          }
+        },
+        {
+          "client_id": "196574192829-hefbh4nef6tjq4spuo6oate55qm0me9m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxEyoahxzKs_w1Ackq058Ho88qTmg7yMg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "196574192829-hefbh4nef6tjq4spuo6oate55qm0me9m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

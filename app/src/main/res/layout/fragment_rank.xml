@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pale_gray"
+    tools:context=".ui.main.rank.RankFragment">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/tv_rank_left"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="24dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/tv_rank_right"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="24dp" />
+
+    <TextView
+        android:id="@+id/tv_rank_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:text="@string/rank_title"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toStartOf="@+id/tv_rank_right"
+        app:layout_constraintStart_toStartOf="@+id/tv_rank_left"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_rank"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="32dp"
+        android:background="@color/pale_gray"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_rank_title"
+        app:tabIndicatorColor="@color/green_blue"
+        app:tabIndicatorFullWidth="false"
+        app:tabIndicatorHeight="4dp"
+        app:tabSelectedTextColor="@color/green_blue"
+        app:tabTextAppearance="@style/TapStyle"
+        app:tabTextColor="@color/light_gray">
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_rank_my_rank"
+        android:layout_width="0dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_my_ranking"
+        app:layout_constraintEnd_toStartOf="@+id/tv_rank_right"
+        app:layout_constraintStart_toStartOf="@+id/tv_rank_left"
+        app:layout_constraintTop_toBottomOf="@+id/tab_rank">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_rank_my_profile"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginStart="24dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/sample"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/roundedImageViewRounded" />
+
+        <ImageView
+            android:id="@+id/iv_rank_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:src="@drawable/ic_question"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_rank_my_rank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="_ 위"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/v_rank"
+            app:layout_constraintStart_toEndOf="@+id/iv_rank_my_profile"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/v_rank"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_marginVertical="24dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_rank_my_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="24dp"
+            android:text="0 점"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/v_rank"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vp_rank"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal"
+        android:layout_marginBottom="82dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tv_rank_right"
+        app:layout_constraintStart_toStartOf="@+id/tv_rank_left"
+        app:layout_constraintTop_toBottomOf="@+id/cl_rank_my_rank" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

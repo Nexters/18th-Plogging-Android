@@ -1,0 +1,193 @@
+<resources>
+    <string name="app_name">Ecorun</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="policy"><font size="28">서비스 이용약관</font>\n\n 제 1조(목적)\n
+이 약관은 넥스터즈 연쇄쓰담마팀이 제공하는 에코런 서비스를 이용함에 있어 회사와 회원간의 권리, 의무 및 책임사항관 절차 등을 정하기 위해 만들어졌습니다.\n
+\n
+제 2조(정의)\n
+이 약관에서는 용어를 다음과 같이 정의하여 사용합니다.\n
+1. "서비스"란 회원의 단말기(iOS 단말)를 통하여 회사가 제공하는 에코런 서비스 일체를 말합니다.\n
+2. "회원"이란 서비스에 접속하여 이 약관에 따라 회사와 이용계약을 체결함으로써 서비스를 이용하는 고객 여러분을 말합니다.\n
+3. "아이디"란 회원의 식별과 서비스 제공을 위하여 회원이 정하고 회사가 승인한 문자와 숫자의 조합입니다.\n
+\n
+제 3조(약관의 게시와 개정)\n
+1. 이 약관은 회원이 쉽게 알 수 있도록 앱 하단 및 초기화면에 게시합니다.\n
+2. 회사는 필요에 따라 "약관의규제에관한법률", "정보통신망이용촉친및정보보호등에관한법률"등 관련 법령을 위반하지 않는 범위 내에서 이 약관을 개정할 수 있습니다.\n
+3. 회사가 약관을 개정하는 경우 적용일자 및 개정 사항을 명시하여 적용일 14일 전에 웹사이트 기타 공지사항 게시판 또는 이메일을 통해 공지합니다.\n
+4. 공지일로부터 14일 이내에 회원이 명시적으로 거부하지 않는 경우 개정 약관에 동의하신 것으로 봅니다.\n
+5. 회원이 개정에 동의하지 않는다는 의사를 표시한 경우 회사는 개정된 약관을 적용할 수 없으며, 회원은 개정 약관의 효력 발생일로 부터 서비스를 이용하실 수 없습니다.\n
+\n
+제 4조(이용계약의 체결)\n
+1. 서비스 이용계약은 회원이 되고자 하는 사람(이하 "가입신청자")이 약관에 동의하고 가입을 신청한 다음 회사가 이를 수락함으로써 체결됩니다.\n
+필요한 경우 회사는 본인확인기관을 통한 실명확인 및 본인인증을 요청할 수 있습니다.\n
+2. 가입신청자는 가입신청 시 진실한 정보를 기재해야 하며, 허위의 정보를 기재함으로 인한 불이익 및 법적 책임은 가입신청자에게 있습니다.\n
+3. 가입신청자가 이전에 회원자격을 상실한 적이 있는 경우, 호위의 명의 또는 타인의 명이를 이용한 경우, 기타 승낙이 불가능한 사유가 있는 경우 승낙이 거부될 수 있습니다.\n
+4. 회사는 서비스 관련설비의 여유 기타 기술상 또는 업무상의 이유로 승낙을 유보할 수 있으며, 그 결과를 가입 신청자에게 알려드립니다.\n
+\n
+제 6조(회원정보의 변경)\n
+1. 회원은 서비스 내 마이페이지 화면을 통하여 본인의 개인정보를 열람하고 수정할 수 있습니다.\n
+단, 서비스 관리를 위하여 ID(이메일 주소)는 수정할 수 없습니다.\n
+2. 가입신청시에 기재한 회원정보에 변동이 생긴 경우 이를 수정하거나 회사에 통지하여야 하며 미수정 또는 통지하지 않음으로 인한 불이익에 대하여 회사는 책임지지 않습니다.\n
+\n
+제 7조(서비스의 변경)\n
+1. 회사는 운영상, 기술상의 필요에 따라 제공하는 서비스의 전부 또는 일부를 변경할 수 있으며, 이에 대하여 약관에 다른 규정이 없는 한 회원에게 별도의 보상을 하지 않습니다.\n
+2. 서비스를 변경하는 경우 변경사유 및 일자, 변경내용을 변경 7일 전 공지사항 게시판에 공지합니다. 단, 변경사유 또는 내용을 구체적으로 공지하기 어려운 경우네는 그 이유를 밝힙니다.\n
+\n
+제 8조(서비스의 일시중단)\n
+1. 회사는 서비스관련설비 보수점검, 교체 및 고장, 통신두절 등 기술상 업무상의 이유로 서비스의 제공을 일시적으로 중단할 수 있습니다. 이 경우 사전에 통지함을 원칙으로 하지만, 부득이한 사유가 있는 경우\n
+사후에 통지할 수 있습니다.\n
+2. 서비스 일시 중단은 이메일 또는 서비스 내 공지사항, 서비스 웹 사이트에 게시하는 방법으로 공지합니다.\n
+\n
+제 9조 (회원 ID 및 비밀번호)\n
+1. 회원ID와 비밀번호에 관한 관리책임은 회원 본인에게 있으며, 회원은 제 3자에게 자신의 ID및 비밀번호를 알려주거나 이용하게 해서는 안됩니다.\n
+2. 회원이 자신의 ID 또는 비밀번호를 도난 당하거나 제3자가 사용하고 있음을 인지한 경우 즉시, 회사에 통지하고 회사의 안내를 따라야 합니다.\n
+3. 제2항의 경우 회사에 통지하지 않거나, 안내에 따르지 않아 발생한 불이익에 대하여 회사는 책임지지 않습니다.\n
+\n
+부칙\n
+1. 이 약관은 2021년 2월 14일 (서비스 출시예정일자)부터 적용됩니다.\n
+\n
+\n
+==========================================\n
+\n
+개인정보 처리 방침 (개인정보 제공 동의, 개인정보 수집이용 동의)\n
+1. 총칙\n
+  넥스터즈 연쇄쓰담마팀은 이용자의 개인정보를 매우 소중하게 생각합니다. 회사는 "정보통신망 이용촉진 및 정보보호 등에 관한 법률", "개인정보보호법"을 비롯한 개인 정보 관련 법령을 준수하고 있습니다.\n
+이용자께서 알려주신 개인정보는 수집, 이용 동의를 받은 범위 내에서, 단말기 정보 등에 접근한다는 것을 고지, 승인 후 수집되며, 별도의 동의없이는 결코 제 3자에게 제공되지 않습니다. 또한 기본적 인권 침해의 우려가 있는\n
+민감한 개인정보는 수집하지 않습니다. 본 개인정보처리방침은 개인정보를 안전하게 처리하기 위한 회사의 정책관련 자세한 사항을 알려드리기 위해 마련되었으며 에코런 앱에서 언제든지 확인하실 수 있습니다.\n
+\n
+2. 수집하는 개인정보의 항목\n
+ 가. 회사는 회원가입, 플로깅 서비스 제공 등을 위해 아래와 같은 개인정보를 수집하고 있습니다.\n
+ 해당 서비스의 본질적 기능을 수행하기 위한 정보는 필수항목으로서 수집하며 이용자가 그 정보를 회사에 제공하지 않는 경우 서비스 이용에 제한이 가해질 수 있습니다.\n
+ 나. 수집항목, 이용목적, 보유기간\n
+  1) 회사는 회원기반 서비스 제공을 위해 가입시 다음과 같이 개인정보를 수집, 이용, 파기합니다.\n
+     필수 : 아이디(이메일), 닉네임, 비밀번호\n
+     보유기간 : 회원 탈퇴시 즉시 파기\n
+ 다. 개인정보 수집방법\n
+  회사는 회원가입을 통해 개인정보를 수집합니다. 이용자의 사상, 신념, 과거의 병력 등 개인의 권리, 이익이나 사생활을 뚜렷하게 침해할 우려가 있는 민감한 정보는 수집하지 않으며, 회사는 이용자의 개인정보를 수집할 때, 사전에 해당\n
+  사실을 이용자에게 알리고 동의를 구합니다.\n
+3. 개인정보의 제 3자에 대한 제공\n
+ 회사는 회원이 이용과정 등에서 따로 동의하는 경우나 법령에 규정된 경우를 제외하고는 목적 범위를 초과하여 회원의 개인정보를 이용하거나 제 3자에게 제공 또는 공유하지 않습니다. 그러나 제휴컨텐츠 구매 등 회사 서비스에 제3자의 서비스가 연결되어\n
+ 제공되는 경우에는 이용을 위하 최소한의 범위 내에서 여러분의 동의를 얻은 후에 개인정보를 제3자에게 제공할 수 있습니다.\n
+4. 개인정보의 파기 절차 및 방법\n
+ 회사는 원칙적으로 개인정보 수집 및 이용목적이 달성된 후에는 해당 정보를 지체없이 파기합니다. 파기절차 및 방법은 다음과 같습니다.\n
+  가. 파기절차\n
+    이용자가 회원가입 등을 위해 입력하신 정보는 목적이 달성된 후 즉시 파기됩니다.\n
+  나. 파기기한\n
+    이용자가 회원 탈퇴를 했을시 즉시, 파기됩니다.\n
+  다. 파기방법\n
+    DB에 저장되어있던 이용자의 정보를 삭제합니다.\n
+  라. 장기 미이용자의 개인정보 파기\n
+    정보통신망법에 따라 회원가입 후 서비스 이용이 없는 고객 및 12개월 이상 로그인하지 않은 경우 해당 이용자 ID 및 개인정보를 유효기간 경과 후 즉시, 파기하거나, 분리하여 보관합니다.\n
+</string>
+    <string name="auth_policy">로그인하여 <u>에코런 서비스 이용약관, 에코런 개인정보수집이용, 에코런 개인정보제공</u>에 동의합니다.</string>
+    <string name="wrong_type_email">옳바르지 않은 형식의 이메일입니다.</string>
+    <string name="wrong_pw_type">대/소문자, 숫자, 특수문자중 2가지 이상의 조합으로 8자이상</string>
+    <string name="not_match_pw">입력하신 비밀번호와 일치하지 않습니다.</string>
+    <string name="next">다음</string>
+    <string name="nick_name_empty"><b>공백포함</b> 9자까지</string>
+    <string name="already_nick_name">이미 사용중인 닉네임입니다.</string>
+    <string name="register">회원가입</string>
+    <string name="title">타이틀</string>
+    <string name="hint_id">아이디 (이메일)</string>
+    <string name="password">비밀번호</string>
+    <string name="wrong_sign_in">가입되지 않은 정보이거나 비밀번호가 다릅니다.</string>
+    <string name="find_password">비밀번호 찾기</string>
+    <string name="sign_in">로그인</string>
+    <string name="social_question">소셜 로그인 회원이세요?</string>
+    <string name="find_pw_alert">회원가입에 사용한 이메일 계정을 작성해주세요.</string>
+    <string name="complete">완료</string>
+    <string name="already_id">이미 사용중인 아이디입니다.</string>
+    <string name="rank">랭킹</string>
+    <string name="plogging">플로깅</string>
+    <string name="user_info">사용자 정보</string>
+    <string name="next_page">건너뛰기</string>
+    <string name="confirm">확인</string>
+    <string name="on_board_title_0"><b>SNS</b>를 통해\n<b>플로깅 기록</b>을 공유해요!</string>
+    <string name="on_board_sub_0">모든 기록은 마이페이지에 저장되며\n 언제든 공유가 가능해요.</string>
+    <string name="on_board_title_1"><b>플로깅</b>이 끝난 후\n내 <b>랭킹</b>을 확인해요!</string>
+    <string name="on_board_sub_1">운동점수와 환경점수를 합산한 총점이\n랭킹에 반영돼요.</string>
+    <string name="on_board_title_2"><b>조깅</b>하며\n<b>쓰레기</b>를 주워요!</string>
+    <string name="on_board_sub_2">플로깅하며 주운 쓰레기를 기록하고\n총 거리와 시간, 칼로리를 확인해요.</string>
+    <string name="rank_title"><b>연쇄쓰담마님</b>의\n랭킹을 확인하세요!</string>
+    <string name="total_plogging_score">누적 플로깅 점수</string>
+    <string name="running_distance">달린 거리</string>
+    <string name="setting">설정</string>
+    <string name="picture">사진</string>
+    <string name="nickname">닉네임</string>
+    <string name="change_password">비밀번호 변경</string>
+    <string name="sign_out">로그아웃</string>
+    <string name="withdraw">회원탈퇴</string>
+    <string name="change_nickname">닉네임 변경</string>
+    <string name="save">저장</string>
+    <string name="withdraw_warning">탈퇴 시 주의사항</string>
+    <string name="withdraw_context">탈퇴 시 회원님의 플로깅 기록을 포함하여 회원님의 계정에 저장된 모든 정보가 영구적으로 삭제되며, 다시는 복구할 수 없습니다.</string>
+    <string name="withdraw_btn">동의 후 탈퇴하기</string>
+    <string name="confirm_password">변경 비밀번호 확인</string>
+    <string name="change_pw">변경 비밀번호</string>
+    <string name="current_pw">현재 비밀번호</string>
+    <string name="base_score">* 운동점수 (~10km)\n- 플로깅 300m 이상부터 거리점수 제공\n- 킬로미터마다 추가 점수 제공\n\n* 환경 점수\n쓰레기 수 당 점수 획득</string>
+    <string name="complete_change_pw">비밀번호 변경완료</string>
+    <string name="complete_change_pw_sub">비밀번호가 정상적으로 변경되었습니다.</string>
+    <string name="sign_out_title">로그아웃 하시겠어요?</string>
+    <string name="sign_out_sub_title">사용중인 에코런 앱에서\n로그아웃 하려고 합니다.</string>
+    <string name="temp_email_sub_title">작성하신 이메일 계정으로 임시 비밀번호를\n보내드렸어요.</string>
+    <string name="temp_sign_in_title">임시 비밀번호 발급 완료</string>
+    <string name="fail_google_sign_in">구글 로그인에 실패하였습니다.</string>
+    <string name="find_user_place">사용자 위치 찾기</string>
+    <string name="plogging_guide_3">플로깅을 마친 후에는,\n모은 쓰레기를 종류별로 분리수거 해주세요.</string>
+    <string name="plogging_guide_2">조깅하며 쓰레기를 주워주세요.\n하체운동으로 더 큰 칼로리를 소모할 수 있어요.</string>
+    <string name="plogging_guide_1">쓰레기를 담을 때 사용할 봉투와 집게\n또는 재사용이 가능한 장갑을 준비해주세요.</string>
+    <string name="plogging_finish">진행중인 플로깅을 종료하고\n모은 쓰레기와 조깅 기록을 정산하시겠어요?</string>
+    <string name="plogging_finish_title">플로깅을 종료합니다.</string>
+    <string name="saving">정산하기</string>
+    <string name="save_picture_title"><![CDATA[카메라&사진 접근 권한 사용]]></string>
+    <string name="dialog_save_title">사진 없이 기록을 저장하시겠어요?</string>
+    <string name="dialog_save_sub_title">앱 내의 기본 이미지로 저장되며\n저장한 기록은 수정이 불가합니다.</string>
+    <string name="dialog_delete_title">정산 기록을 삭제하시겠어요?</string>
+    <string name="dialog_delete_sub_title">진행한 플로깅을 삭제한 후에는\n기록을 복구할 수 없습니다.</string>
+    <string name="running_out">플로깅을 중지하고 나가시겠습니까?</string>
+    <string name="retry">다시 시도</string>
+    <string name="name">연쇄쓰담마</string>
+    <string name="date">2021.01.11</string>
+    <string name="empty_list">기록이 없습니다.😓</string>
+    <string name="score">점</string>
+    <string name="delete">삭제</string>
+    <string name="dialog_rank_title">총점 산정기준</string>
+    <string name="dialog_rank_subtitle">*총점\n-거리 기반 운동점수+쓰레기 갯수 기반 환경점수\n\n*주간, 월간 랭킹\n-이번 주와 이번 달 기준</string>
+    <string name="btn_google">구글 로그인</string>
+    <string name="success_withdraw">회원탈퇴 되었습니다.</string>
+    <string name="fail_withdraw">회원탈퇴가 실패되었습니다.</string>
+    <string name="distance">distance</string>
+    <string name="trash_type">trashType</string>
+    <string name="running_time">runningTime</string>
+    <string name="trash_num">trashNum</string>
+    <string name="plogging_id">ploggingId</string>
+    <string name="plogging_img_name">ploggingImgName</string>
+    <string name="fail_naver_sign_in">네이버 로그인 실패하였습니다.</string>
+    <string name="fail_kakao_sign_in">카카오 로그인 실패</string>
+    <string name="alert_title_profile">프로필 사진 선택</string>
+    <string name="cannot_change_password">소셜로그인은 비밀번호를 변경할 수 없습니다.</string>
+    <string name="success_sign_out">로그아웃 되었습니다.</string>
+    <string name="fail_sign_out">로그아웃에 실패했습니다.</string>
+    <string name="chaged_nickname">닉네임이 변경되었습니다.</string>
+    <string name="deny_permission">권한이 거부되었습니다.</string>
+    <string name="no_data">아직 데이터가 없습니다.</string>
+    <string name="turn_off_gps">GPS가 꺼져 있거나 위치정보 허락이 거부되었습니다.</string>
+    <string name="no_email">이메일을 찾을 수 없습니다.</string>
+    <string name="success_register">회원가입이 되었습니다.</string>
+    <string name="setting_nickname">닉네임 설정</string>
+    <string name="request_kakao_account">카카오 계정에 동의를 해야합니다.</string>
+    <string name="fail_require_user_info">사용자 정보 요청 실패</string>
+    <string name="plogging_param">ploggingImg</string>
+    <string name="profile_img">profileImg</string>
+    <string name="error_network">네트워크 연결에 실패했습니다.</string>
+    <string name="default_plogging_path">app/src/main/res/drawable/ic_default_plogging.png</string>
+    <string name="fail_sign_in">로그인에 실패하였습니다.</string>
+    <string name="error_server">서버 연결 실패</string>
+    <string name="no_monthly_data">월간 데이터가 아직 없습니다.</string>
+    <string name="no_weekly_data">주간 데이터가 아직 없습니다.</string>
+    <string name="need_camera_permission">카메라 권한 설정이 필요합니다.</string>
+    <string name="error_disconnect">연결 끊기 실패</string>
+
+</resources>

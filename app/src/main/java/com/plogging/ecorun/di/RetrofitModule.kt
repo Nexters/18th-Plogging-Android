@@ -1,0 +1,107 @@
+package com.plogging.ecorun.di
+
+import android.content.Context
+import com.plogging.ecorun.network.NetworkConnectionInterceptor
+import com.plogging.ecorun.network.PloggingApiService
+import com.plogging.ecorun.network.RankingApiService
+import com.plogging.ecorun.network.UserApiService
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.components.SingletonComponent
+import okhttp3.JavaNetCookieJar
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
+import retrofit2.converter.gson.GsonConverterFactory
+import java.net.CookieManager
+import javax.inject.Qualifier
+import javax.inject.Singleton
+
+@Qualifier
+annotation class NaverRetrofit
+
+@Qualifier
+annotation class AuthRetrofit
+
+@Module
+@InstallIn(SingletonComponent::class)
+object RetrofitModule {
+
+    private const val BASE_URL = "https://nexters.plogging.kro.kr:20000/"
+    private const val TEST_URL = "http://192.168.219.103:20000/"
+    private const val NAVER_URL = "https://openapi.naver.com/"
+
+    @Provides
+    fun okHttpClient(@ApplicationContext context: Context): OkHttpClient {
+        val logger = HttpLoggingInterceptor()
+        val networkCheck = NetworkConnectionInterceptor(context)
+        logger.level = HttpLoggingInterceptor.Level.BASIC
+        return OkHttpClient.Builder()
+            .cookieJar(JavaNetCookieJar(CookieManager()))
+            .addInterceptor { chain ->
+                val newRequest = chain.request().newBuilder()
+                    .addHeader("Authorization", "what")
+                    .build()
+                chain.proceed(newRequest)
+            }
+            .addInterceptor(networkCheck)
+            .addInterceptor(logger)
+            .build()
+    }
+
+    @NaverRetrofit
+    @Provides
+    @Singleton
+    fun provideNaverService(@ApplicationContext context: Context): UserApiService {
+        val interceptor = HttpLoggingInterceptor()
+        interceptor.setLevel(HttpLoggingInterceptor.Level.HEADERS)
+        val okHttpClient = OkHttpClient.Builder()
+            .cookieJar(JavaNetCookieJar(CookieManager()))
+            .addInterceptor { chain ->
+                val newRequest = chain.request().newBuilder()
+                    .build()
+                chain.proceed(newRequest)
+            }
+            .addInterceptor(interceptor)
+            .addInterceptor(NetworkConnectionInterceptor(context))
+            .build()
+
+        return Retrofit.Builder()
+            .baseUrl(NAVER_URL)
+            .client(okHttpClient)
+            .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .build()
+            .create(UserApiService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideRetrofitService(okHttpClient: OkHttpClient): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl(TEST_URL)
+            .client(okHttpClient)
+            .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .build()
+    }
+
+    @AuthRetrofit
+    @Provides
+    @Singleton
+    fun provideUserApiService(retrofit: Retrofit): UserApiService =
+        retrofit.create(UserApiService::class.java)
+
+    @Provides
+    @Singleton
+    fun ploggingApiService(retrofit: Retrofit): PloggingApiService =
+        retrofit.create(PloggingApiService::class.java)
+
+    @Provides
+    @Singleton
+    fun rankingApiService(retrofit: Retrofit): RankingApiService =
+        retrofit.create(RankingApiService::class.java)
+}

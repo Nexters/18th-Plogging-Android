@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_rank"
+        android:contentDescription="@string/rank"
+        android:icon="@drawable/selector_nav_rank"
+        android:title="@string/rank" />
+    <item
+        android:id="@+id/nav_map"
+        android:contentDescription="@string/plogging"
+        android:icon="@drawable/selector_nav_plogging"
+        android:title="@string/plogging" />
+    <item
+        android:id="@+id/nav_user"
+        android:contentDescription="@string/user_info"
+        android:icon="@drawable/selector_nav_user"
+        android:title="@string/user_info" />
+</menu>

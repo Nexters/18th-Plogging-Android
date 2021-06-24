@@ -1,0 +1,761 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ml_running"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    app:layoutDescription="@xml/fragment_running_scene"
+    tools:context=".ui.running.active.RunningFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_running_trash"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/map_running"
+        app:layout_constraintVertical_weight="6">
+
+        <TextView
+            android:id="@+id/tv_running_trash_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="@color/black"
+            android:textSize="74dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.1" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="모은 쓰레기"
+            android:textColor="@color/brown_gray"
+            android:textSize="14dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_running_trash_count" />
+
+        <Button
+            android:id="@+id/btn_running_save_trash"
+            android:layout_width="200dp"
+            android:layout_height="78dp"
+            android:layout_marginTop="44dp"
+            android:background="@drawable/bg_round_48"
+            android:backgroundTint="@color/tint_green"
+            android:text="쓰레기 기록하기"
+            android:textColor="@color/white"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <TextView
+            android:id="@+id/btn_running_finish"
+            android:layout_width="120dp"
+            android:layout_height="80dp"
+            android:background="@drawable/bg_round_48"
+            android:backgroundTint="@color/very_light_pink_two"
+            android:gravity="center"
+            android:text="종료"
+            android:textColor="@color/brown_gray"
+            android:textSize="16dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_running_save_trash"
+            app:layout_constraintVertical_bias="0.6" />
+
+        <ImageView
+            android:id="@+id/iv_running_play"
+            android:layout_width="78dp"
+            android:layout_height="78dp"
+            android:src="@drawable/selector_running_btn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btn_running_finish"
+            app:layout_constraintTop_toBottomOf="@+id/btn_running_save_trash" />
+
+        <ImageView
+            android:id="@+id/iv_running_stop"
+            android:layout_width="78dp"
+            android:layout_height="78dp"
+            android:src="@drawable/ic_stop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_running_finish"
+            app:layout_constraintTop_toBottomOf="@+id/btn_running_save_trash" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <fragment
+        android:id="@+id/map_running"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/cl_running_trash"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_weight="4" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_running_timer"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@drawable/bg_round_top_gradient"
+        app:layout_constraintBottom_toTopOf="@+id/cl_running_trash">
+
+        <TextView
+            android:id="@+id/tv_running_distance_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:textColor="@color/black"
+            android:textSize="26dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_running_time_num"
+            app:layout_constraintEnd_toStartOf="@+id/tv_running_time_num"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_running_time_num" />
+
+        <TextView
+            android:id="@+id/tv_running_distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="킬로미터"
+            android:textColor="@color/brown_gray"
+            android:textSize="14dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_running_time"
+            app:layout_constraintEnd_toEndOf="@+id/tv_running_distance_num"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/tv_running_distance_num"
+            app:layout_constraintTop_toTopOf="@+id/tv_running_time" />
+
+        <TextView
+            android:id="@+id/tv_running_time_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="sans-serif-black"
+            android:text="99:99:99"
+            android:textColor="@color/black"
+            android:textSize="26dp"
+            app:layout_constraintEnd_toStartOf="@+id/tv_running_calorie_num"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tv_running_distance_num"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_running_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="진행시간"
+            android:textColor="@color/brown_gray"
+            android:textSize="14dp"
+            app:layout_constraintEnd_toStartOf="@+id/tv_running_calorie"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tv_running_distance"
+            app:layout_constraintTop_toBottomOf="@+id/tv_running_time_num" />
+
+        <TextView
+            android:id="@+id/tv_running_calorie_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:text="999"
+            android:textColor="@color/black"
+            android:textSize="26dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_running_time_num"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tv_running_time_num"
+            app:layout_constraintTop_toTopOf="@+id/tv_running_time_num" />
+
+        <TextView
+            android:id="@+id/tv_running_calorie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="칼로리"
+            android:textColor="@color/brown_gray"
+            android:textSize="14dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_running_time"
+            app:layout_constraintEnd_toEndOf="@+id/tv_running_calorie_num"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/tv_running_calorie_num"
+            app:layout_constraintTop_toTopOf="@+id/tv_running_time" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/cl_running_ready"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:visibility="invisible"
+        app:layoutDescription="@xml/fragment_running_xml_cl_running_ready_scene">
+
+        <TextView
+            android:id="@+id/tv_running_ready_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:text="3"
+            android:textColor="@color/green_blue"
+            android:textSize="200dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.4" />
+
+        <TextView
+            android:id="@+id/tv_running_ready"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="플로깅이 곧 시작됩니다!"
+            android:textColor="@color/dark_gray"
+            android:textSize="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_running_ready_count" />
+
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_running_trash_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="700dp"
+        app:layout_constraintTop_toBottomOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_running_trash_dialog_log"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="52dp"
+            android:background="@drawable/bg_round_top"
+            android:backgroundTint="#EAEAEA">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_trash_left"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="15dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_trash_right"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="15dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_trash_center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_trash_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_end="80dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_trash_top"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="60dp" />
+
+            <TextView
+                android:id="@+id/tv_trash_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="모은 쓰레기를 선택하세요."
+                android:textColor="@color/brown_gray"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_trash_vinyl"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="6dp"
+                android:background="@drawable/bg_round_8"
+                android:backgroundTint="@color/white"
+                app:layout_constraintBottom_toTopOf="@+id/cl_trash_paper"
+                app:layout_constraintEnd_toStartOf="@+id/gl_trash_center"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/gl_trash_left"
+                app:layout_constraintTop_toTopOf="@+id/gl_trash_top">
+
+                <ImageView
+                    android:id="@+id/iv_vinyl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_vinyl"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.15" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="비닐"
+                    android:textColor="@color/brown_gray"
+                    android:textSize="13dp"
+                    app:layout_constraintEnd_toEndOf="@+id/iv_vinyl"
+                    app:layout_constraintStart_toStartOf="@+id/iv_vinyl"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_vinyl" />
+
+                <TextView
+                    android:id="@+id/tv_trash_vinyl_num"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="@color/black"
+                    android:textSize="28dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/textView"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/textView"
+                    app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+                <ImageView
+                    android:id="@+id/iv_trash_vinyl_plus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:src="@drawable/ic_plus"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_trash_vinyl_num"
+                    app:layout_constraintStart_toEndOf="@+id/tv_trash_vinyl_num"
+                    app:layout_constraintTop_toTopOf="@+id/tv_trash_vinyl_num"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <ImageView
+                    android:id="@+id/iv_trash_vinyl_minus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:src="@drawable/ic_minus"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_trash_vinyl_num"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_trash_vinyl_num"
+                    app:layout_constraintTop_toTopOf="@+id/tv_trash_vinyl_num" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_trash_paper"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="6dp"
+                android:background="@drawable/bg_round_8"
+                android:backgroundTint="@color/white"
+                app:layout_constraintBottom_toTopOf="@+id/cl_trash_can"
+                app:layout_constraintEnd_toStartOf="@+id/gl_trash_center"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/gl_trash_left"
+                app:layout_constraintTop_toBottomOf="@+id/cl_trash_vinyl">
+
+                <ImageView
+                    android:id="@+id/iv_paper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_paper"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.15" />
+
+                <TextView
+                    android:id="@+id/tv_trash_paper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="종이"
+                    android:textColor="@color/brown_gray"
+                    android:textSize="12dp"
+                    app:layout_constraintEnd_toEndOf="@+id/iv_paper"
+                    app:layout_constraintStart_toStartOf="@+id/iv_paper"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_paper" />
+
+                <TextView
+                    android:id="@+id/tv_trash_paper_num"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="@color/black"
+                    android:textSize="28dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_trash_paper"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/tv_trash_paper"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_trash_paper" />
+
+                <ImageView
+                    android:id="@+id/iv_trash_paper_plus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:src="@drawable/ic_plus"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_trash_paper_num"
+                    app:layout_constraintStart_toEndOf="@+id/tv_trash_paper_num"
+                    app:layout_constraintTop_toTopOf="@+id/tv_trash_paper_num"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <ImageView
+                    android:id="@+id/iv_trash_paper_minus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:src="@drawable/ic_minus"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_trash_paper_num"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_trash_paper_num"
+                    app:layout_constraintTop_toTopOf="@+id/tv_trash_paper_num" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_trash_can"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="6dp"
+                android:background="@drawable/bg_round_8"
+                android:backgroundTint="@color/white"
+                app:layout_constraintBottom_toTopOf="@+id/gl_trash_bottom"
+                app:layout_constraintEnd_toStartOf="@+id/gl_trash_center"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/gl_trash_left"
+                app:layout_constraintTop_toBottomOf="@+id/cl_trash_paper">
+
+                <ImageView
+                    android:id="@+id/iv_can"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_can"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.15" />
+
+                <TextView
+                    android:id="@+id/tv_trash_can"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="캔"
+                    android:textColor="@color/brown_gray"
+                    android:textSize="12dp"
+                    app:layout_constraintEnd_toEndOf="@+id/iv_can"
+                    app:layout_constraintStart_toStartOf="@+id/iv_can"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_can" />
+
+                <TextView
+                    android:id="@+id/tv_trash_can_num"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="@color/black"
+                    android:textSize="28dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_trash_can"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/tv_trash_can"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_trash_can" />
+
+                <ImageView
+                    android:id="@+id/iv_trash_can_plus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:src="@drawable/ic_plus"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_trash_can_num"
+                    app:layout_constraintStart_toEndOf="@+id/tv_trash_can_num"
+                    app:layout_constraintTop_toTopOf="@+id/tv_trash_can_num"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <ImageView
+                    android:id="@+id/iv_trash_can_minus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:src="@drawable/ic_minus"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_trash_can_num"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_trash_can_num"
+                    app:layout_constraintTop_toTopOf="@+id/tv_trash_can_num" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_trash_glass"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="6dp"
+                android:background="@drawable/bg_round_8"
+                android:backgroundTint="@color/white"
+                app:layout_constraintBottom_toTopOf="@+id/cl_trash_plastic"
+                app:layout_constraintEnd_toStartOf="@+id/gl_trash_right"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/gl_trash_center"
+                app:layout_constraintTop_toTopOf="@+id/gl_trash_top">
+
+                <ImageView
+                    android:id="@+id/iv_glass"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_glass"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.15" />
+
+                <TextView
+                    android:id="@+id/tv_trash_glass"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="유리"
+                    android:textColor="@color/brown_gray"
+                    android:textSize="12dp"
+                    app:layout_constraintEnd_toEndOf="@+id/iv_glass"
+                    app:layout_constraintStart_toStartOf="@+id/iv_glass"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_glass" />
+
+                <TextView
+                    android:id="@+id/tv_trash_glass_num"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="@color/black"
+                    android:textSize="28dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_trash_glass"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/tv_trash_glass"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_trash_glass" />
+
+                <ImageView
+                    android:id="@+id/iv_trash_glass_plus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:src="@drawable/ic_plus"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_trash_glass_num"
+                    app:layout_constraintStart_toEndOf="@+id/tv_trash_glass_num"
+                    app:layout_constraintTop_toTopOf="@+id/tv_trash_glass_num"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <ImageView
+                    android:id="@+id/iv_trash_glass_minus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:src="@drawable/ic_minus"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_trash_glass_num"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_trash_glass_num"
+                    app:layout_constraintTop_toTopOf="@+id/tv_trash_glass_num" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_trash_plastic"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="6dp"
+                android:background="@drawable/bg_round_8"
+                android:backgroundTint="@color/white"
+                app:layout_constraintBottom_toTopOf="@+id/cl_trash_ext"
+                app:layout_constraintEnd_toStartOf="@+id/gl_trash_right"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/gl_trash_center"
+                app:layout_constraintTop_toBottomOf="@+id/cl_trash_glass">
+
+                <ImageView
+                    android:id="@+id/iv_plastic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_plastic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.15" />
+
+                <TextView
+                    android:id="@+id/tv_trash_plastic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="플라스틱"
+                    android:textColor="@color/brown_gray"
+                    android:textSize="12dp"
+                    app:layout_constraintEnd_toEndOf="@+id/iv_plastic"
+                    app:layout_constraintStart_toStartOf="@+id/iv_plastic"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_plastic" />
+
+                <TextView
+                    android:id="@+id/tv_trash_plastic_num"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="@color/black"
+                    android:textSize="28dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_trash_plastic"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/tv_trash_plastic"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_trash_plastic" />
+
+                <ImageView
+                    android:id="@+id/iv_trash_plastic_plus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:src="@drawable/ic_plus"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_trash_plastic_num"
+                    app:layout_constraintStart_toEndOf="@+id/tv_trash_plastic_num"
+                    app:layout_constraintTop_toTopOf="@+id/tv_trash_plastic_num"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <ImageView
+                    android:id="@+id/iv_trash_plastic_minus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:src="@drawable/ic_minus"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_trash_plastic_num"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_trash_plastic_num"
+                    app:layout_constraintTop_toTopOf="@+id/tv_trash_plastic_num" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_trash_ext"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="6dp"
+                android:background="@drawable/bg_round_8"
+                android:backgroundTint="@color/white"
+                app:layout_constraintBottom_toTopOf="@+id/gl_trash_bottom"
+                app:layout_constraintEnd_toStartOf="@+id/gl_trash_right"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/gl_trash_center"
+                app:layout_constraintTop_toBottomOf="@+id/cl_trash_plastic">
+
+                <ImageView
+                    android:id="@+id/iv_extra"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_extra"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.15" />
+
+                <TextView
+                    android:id="@+id/tv_trash_extra"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="그 외"
+                    android:textColor="@color/brown_gray"
+                    android:textSize="12dp"
+                    app:layout_constraintEnd_toEndOf="@+id/iv_extra"
+                    app:layout_constraintStart_toStartOf="@+id/iv_extra"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_extra" />
+
+                <TextView
+                    android:id="@+id/tv_trash_extra_num"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="@color/black"
+                    android:textSize="28dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_trash_extra"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/tv_trash_extra"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_trash_extra" />
+
+                <ImageView
+                    android:id="@+id/iv_trash_extra_minus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:src="@drawable/ic_minus"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_trash_extra_num"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_trash_extra_num"
+                    app:layout_constraintTop_toTopOf="@+id/tv_trash_extra_num"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <ImageView
+                    android:id="@+id/iv_trash_extra_plus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:src="@drawable/ic_plus"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_trash_extra_num"
+                    app:layout_constraintStart_toEndOf="@+id/tv_trash_extra_num"
+                    app:layout_constraintTop_toTopOf="@+id/tv_trash_extra_num" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/btn_trash_save"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginHorizontal="6dp"
+                android:layout_marginBottom="9dp"
+                android:background="@drawable/bg_round_8"
+                android:backgroundTint="@color/tint_green"
+                android:gravity="center"
+                android:text="저장"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/gl_trash_right"
+                app:layout_constraintStart_toStartOf="@+id/gl_trash_left"
+                app:layout_constraintTop_toTopOf="@+id/gl_trash_bottom" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.motion.widget.MotionLayout>

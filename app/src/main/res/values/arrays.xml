@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="select_image">
+        <item>사진찍기</item>
+        <item>앨범에서 가져오기</item>
+    </string-array>
+
+    <string-array name="order">
+        <item>최신순</item>
+        <item>모은 쓰레기순</item>
+        <item>점수순</item>
+    </string-array>
+
+    <string-array name="rank">
+        <item>주간</item>
+        <item>월간</item>
+    </string-array>
+</resources>

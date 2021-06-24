@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/graph_main"
+    app:startDestination="@id/nav_map">
+
+    <include app:graph="@navigation/nav_plogging" />
+    <include app:graph="@navigation/nav_setting" />
+    <include app:graph="@navigation/nav_rank" />
+
+    <fragment
+        android:id="@+id/nav_rank"
+        android:name="com.plogging.ecorun.ui.main.rank.RankFragment"
+        tools:layout="@layout/fragment_rank">
+        <action
+            android:id="@+id/action_rank_to_score_dialog"
+            app:destination="@id/nav_score_dialog" />
+        <action
+            android:id="@+id/action_rank_to_other_plogging"
+            app:destination="@id/graph_rank"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_map"
+        android:name="com.plogging.ecorun.ui.main.map.MapFragment"
+        tools:layout="@layout/fragment_map">
+        <action
+            android:id="@+id/action_map_to_guide"
+            app:destination="@id/nav_plogging_guide" />
+        <action
+            android:id="@+id/action_map_to_running"
+            app:destination="@id/graph_plogging"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_user"
+        android:name="com.plogging.ecorun.ui.main.user.UserFragment"
+        tools:layout="@layout/fragment_user">
+
+        <action
+            android:id="@+id/action_user_to_setting"
+            app:destination="@+id/graph_setting"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_user_to_detail_plogging"
+            app:destination="@id/nav_user_detail_plogging"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_user_detail_plogging"
+        android:name="com.plogging.ecorun.ui.plogging.UserDetailPloggingFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right"
+        tools:layout="@layout/fragment_detail_plogging">
+        <action
+            android:id="@+id/action_user_detail_delete_dialog"
+            app:destination="@id/nav_delete_dialog" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/nav_delete_dialog"
+        android:name="com.plogging.ecorun.ui.plogging.UserDetailPloggingDeleteDialog"
+        tools:layout="@layout/fragment_dialog" />
+
+    <dialog
+        android:id="@+id/nav_score_dialog"
+        android:name="com.plogging.ecorun.ui.main.rank.RankScoreDialog"
+        tools:layout="@layout/fragment_dialog" />
+
+    <dialog
+        android:id="@+id/nav_plogging_guide"
+        android:name="com.plogging.ecorun.ui.main.map.GuideDialog"
+        tools:layout="@layout/fragment_dialog_plogging_guide" />
+
+</navigation>

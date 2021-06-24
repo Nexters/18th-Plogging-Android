@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.main.map.MapFragment">
+
+    <fragment
+        android:id="@+id/map_plogging"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_map_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="연쇄쓰담마님 안녕하세요!"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/fb_map"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/fb_map" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fb_map"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="24dp"
+        android:backgroundTint="@color/white"
+        android:contentDescription="@string/find_user_place"
+        android:src="@drawable/ic_my_location"
+        app:borderWidth="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_plogging_guide"
+        android:layout_width="240dp"
+        android:layout_height="58dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/bg_round_8"
+        android:backgroundTint="@color/white"
+        android:gravity="center"
+        android:text="       플로깅 가이드 확인하기"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_plogging_start"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_plogging_guide"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:scaleType="centerCrop"
+        android:layout_marginStart="20dp"
+        android:src="@drawable/ic_exclamation"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_plogging_guide"
+        app:layout_constraintStart_toStartOf="@+id/tv_plogging_guide"
+        app:layout_constraintTop_toTopOf="@+id/tv_plogging_guide" />
+
+    <Button
+        android:id="@+id/btn_plogging_start"
+        android:layout_width="196dp"
+        android:layout_height="78dp"
+        android:background="@drawable/bg_round_48"
+        android:backgroundTint="@color/tint_green"
+        android:text="플로깅 시작하기"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/map_plogging"
+        app:layout_constraintVertical_bias="0.85" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

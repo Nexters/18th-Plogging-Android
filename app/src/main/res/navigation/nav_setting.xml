@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/graph_setting"
+    app:startDestination="@id/nav_setting">
+
+    <fragment
+        android:id="@+id/nav_setting"
+        android:name="com.plogging.ecorun.ui.setting.SettingFragment"
+        tools:layout="@layout/fragment_setting">
+        <action
+            android:id="@+id/action_setting_to_change_nickname"
+            app:destination="@+id/nav_change_nickname"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_setting_to_withdraw"
+            app:destination="@+id/nav_withdraw"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_setting_to_change_password"
+            app:destination="@+id/nav_change_password"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_setting_to_sign_out"
+            app:destination="@+id/nav_sign_out_dialog" />
+        <action
+            android:id="@+id/action_setting_to_profile_camera"
+            app:destination="@id/nav_change_profile_camera"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_setting_to_profile_album"
+            app:destination="@id/nav_change_profile_album"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_change_profile_album"
+        android:name="com.plogging.ecorun.ui.setting.profile.ProfileAlbumFragment"
+        tools:layout="@layout/fragment_album" />
+
+    <fragment
+        android:id="@+id/nav_change_profile_camera"
+        android:name="com.plogging.ecorun.ui.setting.profile.ProfileCameraFragment"
+        tools:layout="@layout/fragment_camera" />
+
+    <fragment
+        android:id="@+id/nav_change_nickname"
+        android:name="com.plogging.ecorun.ui.setting.nickname.ChangeNickNameFragment"
+        tools:layout="@layout/fragment_nick_name" />
+
+    <fragment
+        android:id="@+id/nav_withdraw"
+        android:name="com.plogging.ecorun.ui.setting.withdraw.WithdrawFragment"
+        tools:layout="@layout/fragment_withdraw" />
+
+    <fragment
+        android:id="@+id/nav_change_password"
+        android:name="com.plogging.ecorun.ui.setting.password.ChangePasswordFragment"
+        tools:layout="@layout/fragment_change_password">
+        <action
+            android:id="@+id/action_change_password_to_dialog"
+            app:destination="@+id/nav_password_dialog"
+            app:popUpTo="@id/nav_change_password"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/nav_password_dialog"
+        android:name="com.plogging.ecorun.ui.setting.password.ChangePasswordDialog"
+        tools:layout="@layout/fragment_dialog" />
+
+    <dialog
+        android:id="@+id/nav_sign_out_dialog"
+        android:name="com.plogging.ecorun.ui.setting.signout.SignOutDialog"
+        tools:layout="@layout/fragment_dialog" />
+</navigation>
