@@ -54,7 +54,7 @@
         android:background="@drawable/selector_on_boarding_button"
         android:gravity="center"
         android:text="@string/next_page"
-        android:textColor="@color/brown_gray"
+        android:textColor="@color/gray_700"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

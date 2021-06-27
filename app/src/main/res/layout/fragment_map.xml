@@ -73,7 +73,7 @@
         android:layout_width="196dp"
         android:layout_height="78dp"
         android:background="@drawable/bg_round_48"
-        android:backgroundTint="@color/tint_green"
+        android:backgroundTint="@color/green_300"
         android:text="플로깅 시작하기"
         android:textColor="@color/white"
         android:textSize="20dp"

@@ -51,37 +51,37 @@ class RankRecyclerAdapter :
                 when (rank) {
                     0 -> {
                         itemRankBinding.ivRankItemProfile.strokeColor =
-                            itemView.context.getColorStateList(R.color.rank_first_dark_pink)
+                            itemView.context.getColorStateList(R.color.red_500)
                         itemRankBinding.ivRankItemTop.setImageResource(R.drawable.ic_first)
                         itemRankBinding.clRankItem.backgroundTintList =
-                            itemView.context.getColorStateList(R.color.rank_first)
+                            itemView.context.getColorStateList(R.color.red_100)
                         itemRankBinding.tvRankItemNumber.setTextColor(Color.WHITE)
                         itemRankBinding.ivRankItemTop.visibility = VISIBLE
                         itemRankBinding.cvRankItem.cardElevation = 0f
                     }
                     1 -> {
                         itemRankBinding.ivRankItemProfile.strokeColor =
-                            itemView.context.getColorStateList(R.color.green_blue)
+                            itemView.context.getColorStateList(R.color.green_500)
                         itemRankBinding.ivRankItemTop.setImageResource(R.drawable.ic_second)
                         itemRankBinding.clRankItem.backgroundTintList =
-                            itemView.context.getColorStateList(R.color.rank_second)
+                            itemView.context.getColorStateList(R.color.green_100)
                         itemRankBinding.tvRankItemNumber.setTextColor(Color.WHITE)
                         itemRankBinding.ivRankItemTop.visibility = VISIBLE
                         itemRankBinding.cvRankItem.cardElevation = 0f
                     }
                     2 -> {
                         itemRankBinding.ivRankItemProfile.strokeColor =
-                            itemView.context.getColorStateList(R.color.mari_gold)
+                            itemView.context.getColorStateList(R.color.yellow_800)
                         itemRankBinding.ivRankItemTop.setImageResource(R.drawable.ic_third)
                         itemRankBinding.clRankItem.backgroundTintList =
-                            itemView.context.getColorStateList(R.color.rank_third)
+                            itemView.context.getColorStateList(R.color.yellow_100)
                         itemRankBinding.tvRankItemNumber.setTextColor(Color.WHITE)
                         itemRankBinding.ivRankItemTop.visibility = VISIBLE
                         itemRankBinding.cvRankItem.cardElevation = 0f
                     }
                     else -> {
                         itemRankBinding.ivRankItemProfile.strokeColor =
-                            itemView.context.getColorStateList(R.color.light_gray)
+                            itemView.context.getColorStateList(R.color.gray_500)
                         itemRankBinding.clRankItem.backgroundTintList =
                             itemView.context.getColorStateList(R.color.white)
                         itemRankBinding.tvRankItemNumber.setTextColor(Color.parseColor("#6e6e6e"))

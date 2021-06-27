@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/pale_gray"
+    android:background="@color/gray_100"
     tools:context=".ui.main.rank.RankFragment">
 
     <androidx.constraintlayout.widget.Guideline
@@ -39,15 +39,15 @@
         android:layout_height="48dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="32dp"
-        android:background="@color/pale_gray"
+        android:background="@color/gray_100"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_rank_title"
-        app:tabIndicatorColor="@color/green_blue"
+        app:tabIndicatorColor="@color/green_500"
         app:tabIndicatorFullWidth="false"
         app:tabIndicatorHeight="4dp"
-        app:tabSelectedTextColor="@color/green_blue"
+        app:tabSelectedTextColor="@color/green_500"
         app:tabTextAppearance="@style/TapStyle"
-        app:tabTextColor="@color/light_gray">
+        app:tabTextColor="@color/gray_500">
 
     </com.google.android.material.tabs.TabLayout>
 

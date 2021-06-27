@@ -70,7 +70,7 @@
         android:layout_height="60dp"
         android:layout_marginHorizontal="24dp"
         android:background="@drawable/bg_round_12"
-        android:backgroundTint="@color/tint_green"
+        android:backgroundTint="@color/green_300"
         android:gravity="center"
         android:text="@string/save"
         android:textColor="@color/white"

@@ -18,7 +18,7 @@
         android:layout_marginStart="42dp"
         android:layout_marginTop="36dp"
         android:text="@string/withdraw_warning"
-        android:textColor="@color/brown_gray"
+        android:textColor="@color/gray_700"
         android:textSize="14dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/include_withdraw" />
@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
         android:background="@drawable/bg_round_12"
-        android:backgroundTint="@color/tint_green"
+        android:backgroundTint="@color/green_300"
         android:gravity="center"
         android:text="@string/withdraw_btn"
         android:textColor="@color/white"

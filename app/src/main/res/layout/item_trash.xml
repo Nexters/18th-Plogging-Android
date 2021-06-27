@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:text="유리병"
         android:textSize="16dp"
-        android:textColor="@color/dark_gray"
+        android:textColor="@color/gray_800"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -35,7 +35,7 @@
         android:id="@+id/v_save_item_line"
         android:layout_width="0dp"
         android:layout_height="1dp"
-        android:background="@color/light_gray"
+        android:background="@color/gray_500"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

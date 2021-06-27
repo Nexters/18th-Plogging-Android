@@ -60,7 +60,7 @@ class ChangePasswordFragment :
                 binding.etChangeNewPw.text.isNotEmpty() -> viewModel.isPassword(binding.etChangeNewPw.text.toString())
                 else -> {
                     binding.etChangeNewPw.setBackgroundResource(R.drawable.bg_round_border_gray_4)
-                    binding.tvChangePwErr.setTextColor(R.color.brown_gray)
+                    binding.tvChangePwErr.setTextColor(R.color.gray_700)
                 }
             }
             when {
@@ -84,7 +84,7 @@ class ChangePasswordFragment :
         viewModel.passwordCheck.observe(this.viewLifecycleOwner, {
             when (it) {
                 true -> {
-                    binding.tvChangePwErr.setTextColor(R.color.brown_gray)
+                    binding.tvChangePwErr.setTextColor(R.color.gray_700)
                     binding.etChangeNewPw.setBackgroundResource(R.drawable.bg_round_border_green_4)
                 }
                 false -> {

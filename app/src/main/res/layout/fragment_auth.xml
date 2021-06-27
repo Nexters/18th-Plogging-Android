@@ -196,7 +196,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/auth_policy"
-        android:textColor="@color/brown_gray"
+        android:textColor="@color/gray_700"
         android:textSize="14dp"
         app:layout_constraintBottom_toTopOf="@+id/bottom"
         app:layout_constraintEnd_toStartOf="@+id/right"
@@ -206,7 +206,7 @@
         android:id="@+id/cl_auth_home_progress"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/transparent40"
+        android:background="@color/transparent_400"
         android:visibility="gone">
 
         <ProgressBar

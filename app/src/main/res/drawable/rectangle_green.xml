@@ -5,7 +5,7 @@
         android:bottomRightRadius="5dp"
         android:topLeftRadius="5dp"
         android:topRightRadius="5dp" />
-    <solid android:color="@color/tint_green" />
+    <solid android:color="@color/green_300" />
     <size
         android:width="30dp"
         android:height="9dp" />

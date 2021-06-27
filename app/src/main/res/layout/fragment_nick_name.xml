@@ -22,7 +22,7 @@
         android:gravity="center"
         android:hint="@string/nick_name_empty"
         android:textColor="@color/black"
-        android:textColorHint="@color/brown_gray"
+        android:textColorHint="@color/gray_700"
         android:textSize="36dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:text="@string/already_nick_name"
-        android:textColor="@color/strawberry"
+        android:textColor="@color/red_800"
         android:textSize="14sp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
@@ -64,7 +64,7 @@
         android:id="@+id/cl_nick_name_progress"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/transparent40"
+        android:background="@color/transparent_400"
         android:visibility="gone">
 
         <ProgressBar

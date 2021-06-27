@@ -36,7 +36,7 @@
         android:layout_marginTop="20dp"
         android:gravity="center"
         android:text="@string/on_board_sub_2"
-        android:textColor="@color/gray"
+        android:textColor="@color/gray_600"
         android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

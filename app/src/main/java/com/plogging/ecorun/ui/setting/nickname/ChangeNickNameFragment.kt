@@ -35,7 +35,7 @@ class ChangeNickNameFragment :
         viewModel.responseCode.observe(viewLifecycleOwner) {
             when (it) {
                 200 -> {
-                    requireContext().toast(getString(R.string.chaged_nickname))
+                    requireContext().toast(getString(R.string.changed_nickname))
                     SharedPreference.setUserName(requireContext(), viewModel.nickname.value!!)
                     findNavController().popBackStack()
                 }
