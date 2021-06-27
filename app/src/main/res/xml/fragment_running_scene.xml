@@ -6,14 +6,14 @@
         android:id="@+id/transition_disappear_ready"
         motion:constraintSetEnd="@+id/end_count_disappear"
         motion:constraintSetStart="@id/start_count_disappear"
-        motion:duration="400">
+        motion:duration="@android:integer/config_mediumAnimTime">
 
     </Transition>
     <Transition
         android:id="@+id/transition_show_trash_dialog"
         motion:constraintSetEnd="@+id/end_show_trash_dialog"
         motion:constraintSetStart="@id/start_show_trash_dialog"
-        motion:duration="400">
+        motion:duration="@android:integer/config_mediumAnimTime">
         <OnClick
             motion:clickAction="transitionToEnd"
             motion:targetId="@+id/cl_running_trash_dialog_log"/>
