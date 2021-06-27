@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:layoutDescription="@xml/fragment_main_scene"
     tools:context=".ui.main.MainFragment">
 
     <androidx.fragment.app.FragmentContainerView
@@ -25,9 +27,9 @@
         android:layout_height="wrap_content"
         android:background="@drawable/bg_round_top"
         android:paddingVertical="12dp"
-        app:itemIconSize="40dp"
-        app:itemIconTint="@color/tint_green"
         android:visibility="invisible"
+        app:itemIconSize="40dp"
+        app:itemIconTint="@color/green_300"
         app:labelVisibilityMode="unlabeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,8 +40,8 @@
         android:id="@+id/cl_main_home"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
-        android:background="@color/transparent40">
+        android:background="@color/transparent_400"
+        android:visibility="gone">
 
         <ProgressBar
             android:layout_width="wrap_content"
@@ -50,4 +52,4 @@
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.motion.widget.MotionLayout>
