@@ -7,6 +7,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Looper
 import android.text.Html
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
@@ -57,11 +58,11 @@ class MapFragment : BaseFragment<FragmentMapBinding, MapViewModel>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initSharedViewModel()
-        initLocationCallback()
+        setMarkerImg()
         getMyName()
         initView()
-        setMarkerImg()
         checkPermission()
+        initLocationCallback()
     }
 
     override fun onStop() {
