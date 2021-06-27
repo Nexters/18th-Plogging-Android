@@ -37,7 +37,6 @@ class UserViewModel @Inject constructor(
             searchType = searchType.value!!
         )
             .cachedIn(viewModelScope)
-            .composeSchedulers()
             .subscribe(object : DefaultFlowableObserver<PagingData<MyDatabasePlogging>>() {
                 override fun onComplete() {
                     isRequestUserPlogging.value = true
