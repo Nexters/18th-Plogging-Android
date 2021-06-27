@@ -3,7 +3,6 @@ package com.plogging.ecorun.ui.main
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
-import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.onNavDestinationSelected
@@ -99,7 +98,12 @@ class MainFragment : BaseFragment<FragmentMainBinding, MainViewModel>() {
     }
 
     private fun showBottomView() {
-        viewModel.showBottomNav.observe(viewLifecycleOwner) { binding.bottomNav.isVisible = it }
+        viewModel.showBottomNav.observe(viewLifecycleOwner) { isShow ->
+            when (isShow) {
+                true -> binding.clMain.transitionToStart()
+                false -> binding.clMain.transitionToEnd()
+            }
+        }
     }
 
     private fun setBottomNav() {
