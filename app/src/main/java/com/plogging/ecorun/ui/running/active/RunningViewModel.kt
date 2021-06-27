@@ -19,7 +19,6 @@ class RunningViewModel : BaseViewModel() {
 
     fun readyTimer() =
         Observable.intervalRange(0, 4, 0, 1, TimeUnit.SECONDS)
-            .composeSchedulers()
             .map { it.toInt() }
             .doOnComplete { runningState.onNext(RunningState.START) }
             .subscribe({ readySeconds.onNext(3 - it) }, {})
@@ -27,7 +26,6 @@ class RunningViewModel : BaseViewModel() {
 
     fun runningTimer() =
         Observable.interval(1, TimeUnit.SECONDS)
-            .composeSchedulers()
             .map { it.toInt() }
             .filter { runningState.value == RunningState.ACTIVE }
             .subscribe({ runningSeconds.onNext(runningSeconds.value?.plus(1)!!) }, {})
@@ -35,7 +33,6 @@ class RunningViewModel : BaseViewModel() {
 
     fun getDistance() =
         lastDistance.subscribeOn(Schedulers.computation())
-            .composeSchedulers()
             .subscribe({ distanceMeter.onNext(it + distanceMeter.value!!) }, {})
             .addTo(compositeDisposable)
 

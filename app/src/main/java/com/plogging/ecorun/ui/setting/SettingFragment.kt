@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.view.View
 import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
@@ -61,7 +62,7 @@ class SettingFragment : BaseFragment<FragmentSettingBinding, SettingViewModel>()
 
     private fun changedProfile(uri: Uri?) {
         uriToRequestBody(uri, requireContext().contentResolver, getString(R.string.profile_img))
-            .observeOn(Schedulers.io())
+            .composeSchedulers()
             .subscribe({
                 viewModel.profile = it
                 binding.ivSettingUserProfile.setImageURI(uri)

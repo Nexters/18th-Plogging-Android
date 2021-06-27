@@ -137,7 +137,7 @@ class RunningFragment : BaseFragment<FragmentRunningBinding, RunningViewModel>()
         }
     }
 
-    private fun logResultsToScreen(location: ArrayList<Location>) {
+    private fun locationToScreen(location: ArrayList<Location>) {
         if (viewModel.runningState.value == RunningViewModel.RunningState.PAUSE) return
         val currentLatLng = LatLng(location.last().latitude, location.last().longitude)
         if (latLngList.isNotEmpty()) { // 거리 구하기
@@ -212,15 +212,18 @@ class RunningFragment : BaseFragment<FragmentRunningBinding, RunningViewModel>()
 
     private fun getDistance() {
         viewModel.getDistance()
-        viewModel.distanceMeter.subscribe({
-            binding.tvRunningCalorieNum.text = it.meterToCalorie().toString()
-            binding.tvRunningDistanceNum.text = it.meterToKilometer().toString()
-        }, {})
+        viewModel.distanceMeter
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                binding.tvRunningCalorieNum.text = it.meterToCalorie().toString()
+                binding.tvRunningDistanceNum.text = it.meterToKilometer()
+            }, {})
             .addTo(disposables)
     }
 
     private fun getTimerNumber() {
         viewModel.runningSeconds
+            .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ binding.tvRunningTimeNum.text = it.toSplitTime() }, {})
             .addTo(disposables)
     }
@@ -257,19 +260,22 @@ class RunningFragment : BaseFragment<FragmentRunningBinding, RunningViewModel>()
     // 달리기 시작 전 준비 카운터, motion layout의 에니메이션 적용
     private fun readyTimer() {
         viewModel.readyTimer()
-        viewModel.readySeconds.observeOn(AndroidSchedulers.mainThread()).subscribe {
-            binding.tvRunningReadyCount.text = it.toString()
+        viewModel.readySeconds.observeOn(AndroidSchedulers.mainThread()).subscribe { second ->
+            binding.tvRunningReadyCount.text = second.toString()
             binding.clRunningReady.progress = 0f
-            when (it) {
+            when (second) {
                 0 -> binding.tvRunningReadyCount.text = "1"
                 1 -> {
                     binding.tvRunningReadyCount.setTextColor(Color.parseColor("#ff697a"))
                     binding.clRunningReady.setTransitionDuration(1200)
                     binding.clRunningReady.transitionToEnd()
                 }
-                2, 3 -> {
-                    if (it == 2) binding.tvRunningReadyCount.setTextColor(Color.parseColor("#ffbf00"))
-                    else binding.tvRunningReadyCount.setTextColor(Color.parseColor("#37d5ab"))
+                2 -> {
+                    binding.tvRunningReadyCount.setTextColor(Color.parseColor("#ffbf00"))
+                    binding.clRunningReady.transitionToEnd()
+                }
+                3 -> {
+                    binding.tvRunningReadyCount.setTextColor(Color.parseColor("#37d5ab"))
                     binding.clRunningReady.transitionToEnd()
                 }
             }
@@ -326,7 +332,7 @@ class RunningFragment : BaseFragment<FragmentRunningBinding, RunningViewModel>()
             )
             // DB에 저장
             if (locationList?.isNotEmpty()!!) {
-                logResultsToScreen(locationList)
+                locationToScreen(locationList)
                 SharedPreference.setLatitude(
                     requireContext(),
                     locationList.last().latitude.toFloat()
