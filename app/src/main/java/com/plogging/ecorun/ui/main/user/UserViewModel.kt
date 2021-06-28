@@ -18,7 +18,8 @@ import javax.inject.Inject
 
 
 @HiltViewModel
-class UserViewModel @Inject constructor(
+class UserViewModel @ExperimentalCoroutinesApi
+@Inject constructor(
     private val ploggingPagingRepository: PloggingPagingRepository,
     private val authRepository: AuthRepository
 ) : BaseViewModel() {
@@ -50,11 +51,11 @@ class UserViewModel @Inject constructor(
 
     fun getUserData() {
         userId.value ?: return
+        isRequestUserPlogging.value = true
         authRepository.getUserInfo(userId.value!!)
             .subscribe(object : DefaultSingleObserver<UserDetailResponse>() {
                 override fun onSuccess(data: UserDetailResponse) {
                     userData.value = data
-                    isRequestUserPlogging.value = true
                 }
             })
     }
