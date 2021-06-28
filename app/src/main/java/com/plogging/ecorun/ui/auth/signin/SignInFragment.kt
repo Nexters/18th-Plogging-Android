@@ -146,20 +146,20 @@ class SignInFragment : BaseFragment<FragmentSignInBinding, SignInViewModel>() {
             when (input.toString().isValidEmail()) {
                 null -> {
                     viewModel.isValidIdSubject.onNext(false)
-                    binding.ivAuthSignInId.isVisible = false
-                    binding.tvSignInIdErr.isVisible = false
+                    binding.ivAuthSignInId.visibility = INVISIBLE
+                    binding.tvSignInIdErr.visibility = INVISIBLE
                     binding.etSignInId.setGrayBorder()
                 }
                 true -> {
                     viewModel.isValidIdSubject.onNext(true)
-                    binding.ivAuthSignInId.isVisible = true
-                    binding.tvSignInIdErr.isVisible = false
+                    binding.ivAuthSignInId.visibility = VISIBLE
+                    binding.tvSignInIdErr.visibility = INVISIBLE
                     binding.etSignInId.setGreenBorder()
                 }
                 false -> {
                     viewModel.isValidIdSubject.onNext(false)
-                    binding.ivAuthSignInId.isVisible = true
-                    binding.tvSignInIdErr.isVisible = true
+                    binding.ivAuthSignInId.visibility = VISIBLE
+                    binding.tvSignInIdErr.visibility = VISIBLE
                     binding.etSignInId.setRedBorder()
                 }
             }
@@ -168,21 +168,21 @@ class SignInFragment : BaseFragment<FragmentSignInBinding, SignInViewModel>() {
             when (input.toString().isValidPassword()) {
                 null -> {
                     viewModel.isValidPwSubject.onNext(false)
-                    binding.ivAuthSignInPw.isVisible = false
-                    binding.tvSignInErr.isVisible = false
+                    binding.ivAuthSignInPw.visibility = INVISIBLE
+                    binding.tvSignInErr.visibility = INVISIBLE
                     binding.etSignInPw.setGrayBorder()
                 }
                 true -> {
                     viewModel.isValidPwSubject.onNext(true)
-                    binding.ivAuthSignInPw.isVisible = true
-                    binding.tvSignInErr.isVisible = false
+                    binding.ivAuthSignInPw.visibility = VISIBLE
+                    binding.tvSignInErr.visibility = INVISIBLE
                     binding.etSignInPw.setGreenBorder()
                 }
                 false -> {
                     binding.tvSignInErr.text = getString(R.string.wrong_pw_type)
                     viewModel.isValidPwSubject.onNext(false)
-                    binding.ivAuthSignInPw.isVisible = true
-                    binding.tvSignInErr.isVisible = true
+                    binding.ivAuthSignInPw.visibility = VISIBLE
+                    binding.tvSignInErr.visibility = VISIBLE
                     binding.etSignInPw.setRedBorder()
                 }
             }
@@ -282,6 +282,7 @@ class SignInFragment : BaseFragment<FragmentSignInBinding, SignInViewModel>() {
         binding.btnAuthSignIn.setOnClickListener {
             viewModel.id.value = binding.etSignInId.text.toString()
             viewModel.pw.value = binding.etSignInPw.text.toString()
+            showLoadingPage(true)
             viewModel.signIn()
             hideKeyboard(it)
         }

@@ -2,6 +2,8 @@ package com.plogging.ecorun.ui.auth.password
 
 import android.os.Bundle
 import android.view.View
+import android.view.View.INVISIBLE
+import android.view.View.VISIBLE
 import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
@@ -46,21 +48,21 @@ class FindPasswordFragment : BaseFragment<FragmentFindPasswordBinding, FindPassw
             when (input.toString().isValidEmail()) {
                 null -> {
                     binding.etAuthFindPwEmail.setGrayBorder()
-                    binding.tvAuthFindPwErr.isVisible = false
+                    binding.tvAuthFindPwErr.visibility = INVISIBLE
+                    binding.ivAuthFindPw.visibility = INVISIBLE
                     binding.btnAuthFindPw.isEnabled = false
-                    binding.ivAuthFindPw.isVisible = false
                 }
                 true -> {
                     binding.etAuthFindPwEmail.setGreenBorder()
-                    binding.tvAuthFindPwErr.isVisible = false
+                    binding.tvAuthFindPwErr.visibility = INVISIBLE
+                    binding.ivAuthFindPw.visibility = VISIBLE
                     binding.btnAuthFindPw.isEnabled = true
-                    binding.ivAuthFindPw.isVisible = true
                 }
                 false -> {
                     binding.etAuthFindPwEmail.setRedBorder()
-                    binding.tvAuthFindPwErr.isVisible = true
+                    binding.tvAuthFindPwErr.visibility = VISIBLE
+                    binding.ivAuthFindPw.visibility = VISIBLE
                     binding.btnAuthFindPw.isEnabled = false
-                    binding.ivAuthFindPw.isVisible = true
                 }
             }
         }

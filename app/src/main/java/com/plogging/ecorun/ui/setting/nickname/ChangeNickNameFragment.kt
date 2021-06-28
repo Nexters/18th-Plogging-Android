@@ -2,7 +2,8 @@ package com.plogging.ecorun.ui.setting.nickname
 
 import android.os.Bundle
 import android.view.View
-import androidx.core.view.isVisible
+import android.view.View.INVISIBLE
+import android.view.View.VISIBLE
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -39,17 +40,16 @@ class ChangeNickNameFragment :
                     SharedPreference.setUserName(requireContext(), viewModel.nickname.value!!)
                     findNavController().popBackStack()
                 }
-                409 -> binding.tvSettingNickNameAlert.isVisible = true
+                409 -> binding.tvSettingNickNameAlert.visibility = VISIBLE
             }
         }
     }
 
     private fun observingText() {
         binding.etSettingNickName.doOnTextChanged { _, _, _, _ ->
-            binding.tvSettingNickNameAlert.isVisible = false
+            binding.tvSettingNickNameAlert.visibility = INVISIBLE
             binding.btnSettingNickName.isEnabled =
-                binding.etSettingNickName.text.isNotBlank() &&
-                        binding.etSettingNickName.text.length <= 9
+                binding.etSettingNickName.text.isNotBlank() && binding.etSettingNickName.text.length <= 9
         }
     }
 
