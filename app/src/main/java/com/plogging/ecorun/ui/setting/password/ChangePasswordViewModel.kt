@@ -4,36 +4,32 @@ import androidx.lifecycle.MutableLiveData
 import com.plogging.ecorun.base.BaseViewModel
 import com.plogging.ecorun.data.repository.auth.AuthRepository
 import com.plogging.ecorun.data.response.BaseResponse
-import com.plogging.ecorun.util.extension.isValidPassword
 import com.plogging.ecorun.util.observer.DefaultSingleObserver
 import dagger.hilt.android.lifecycle.HiltViewModel
+import io.reactivex.Observable
+import io.reactivex.rxkotlin.addTo
+import io.reactivex.subjects.PublishSubject
 import retrofit2.HttpException
 import javax.inject.Inject
 
 @HiltViewModel
 class ChangePasswordViewModel @Inject constructor(private val repository: AuthRepository) :
     BaseViewModel() {
-    val clickableButton = MutableLiveData(false)
-    val passwordCheck = MutableLiveData<Boolean>()
-    val passwordMatch = MutableLiveData<Boolean>()
+    val isNotEmptyCurrentPwSubject = PublishSubject.create<Boolean>()
+    val isValidNewPwSubject = PublishSubject.create<Boolean>()
+    val isMatchedPwSubject = PublishSubject.create<Boolean>()
+    val buttonEnableSubject = PublishSubject.create<Boolean>()
     val oldPassword = MutableLiveData<String?>()
     val newPassword = MutableLiveData<String?>()
     val responseCode = MutableLiveData<Int>()
 
-    fun isPassword(password: String) {
-        passwordCheck.value = password.isValidPassword()!! && password.length >= 8
-    }
-
-    fun isPasswordMatched() {
-        passwordMatch.value = oldPassword.value == newPassword.value
-    }
-
-    fun isClickableButton() {
-        clickableButton.value =
-            !oldPassword.value.isNullOrBlank() &&
-                    passwordCheck.value == true &&
-                    passwordMatch.value == true
-    }
+    fun changePwButtonEnable() = Observable.combineLatest(
+        isNotEmptyCurrentPwSubject,
+        isValidNewPwSubject,
+        isMatchedPwSubject,
+        { currentPw, newPw, matchedPw -> currentPw && newPw && matchedPw }
+    ).subscribe { buttonEnableSubject.onNext(it) }
+        .addTo(compositeDisposable)
 
     fun changePassword() {
         oldPassword.value ?: return
@@ -46,7 +42,7 @@ class ChangePasswordViewModel @Inject constructor(private val repository: AuthRe
 
                 override fun onError(e: Throwable) {
                     super.onError(e)
-                    if(e is HttpException) responseCode.value = e.code()
+                    if (e is HttpException) responseCode.value = e.code()
                 }
             })
     }
