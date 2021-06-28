@@ -1,7 +1,4 @@
 <resources>
-    <string name="app_name">Ecorun</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="policy"><font size="28">서비스 이용약관</font>\n\n 제 1조(목적)\n
 이 약관은 넥스터즈 연쇄쓰담마팀이 제공하는 에코런 서비스를 이용함에 있어 회사와 회원간의 권리, 의무 및 책임사항관 절차 등을 정하기 위해 만들어졌습니다.\n
 \n
@@ -80,6 +77,8 @@
   라. 장기 미이용자의 개인정보 파기\n
     정보통신망법에 따라 회원가입 후 서비스 이용이 없는 고객 및 12개월 이상 로그인하지 않은 경우 해당 이용자 ID 및 개인정보를 유효기간 경과 후 즉시, 파기하거나, 분리하여 보관합니다.\n
 </string>
+    <string name="app_name">Ecorun</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="auth_policy">로그인하여 <u>에코런 서비스 이용약관, 에코런 개인정보수집이용, 에코런 개인정보제공</u>에 동의합니다.</string>
     <string name="wrong_type_email">옳바르지 않은 형식의 이메일입니다.</string>
     <string name="wrong_pw_type">대/소문자, 숫자, 특수문자중 2가지 이상의 조합으로 8자이상</string>
@@ -111,6 +110,7 @@
     <string name="on_board_sub_2">플로깅하며 주운 쓰레기를 기록하고\n총 거리와 시간, 칼로리를 확인해요.</string>
     <string name="rank_title"><b>연쇄쓰담마님</b>의\n랭킹을 확인하세요!</string>
     <string name="total_plogging_score">누적 플로깅 점수</string>
+    <string name="plogging_score">플로깅 점수</string>
     <string name="running_distance">달린 거리</string>
     <string name="setting">설정</string>
     <string name="picture">사진</string>
@@ -118,6 +118,7 @@
     <string name="change_password">비밀번호 변경</string>
     <string name="sign_out">로그아웃</string>
     <string name="withdraw">회원탈퇴</string>
+    <string name="kilometer">킬로미터</string>
     <string name="change_nickname">닉네임 변경</string>
     <string name="save">저장</string>
     <string name="withdraw_warning">탈퇴 시 주의사항</string>
@@ -170,7 +171,7 @@
     <string name="cannot_change_password">소셜로그인은 비밀번호를 변경할 수 없습니다.</string>
     <string name="success_sign_out">로그아웃 되었습니다.</string>
     <string name="fail_sign_out">로그아웃에 실패했습니다.</string>
-    <string name="chaged_nickname">닉네임이 변경되었습니다.</string>
+    <string name="changed_nickname">닉네임이 변경되었습니다.</string>
     <string name="deny_permission">권한이 거부되었습니다.</string>
     <string name="no_data">아직 데이터가 없습니다.</string>
     <string name="turn_off_gps">GPS가 꺼져 있거나 위치정보 허락이 거부되었습니다.</string>
@@ -189,5 +190,37 @@
     <string name="no_weekly_data">주간 데이터가 아직 없습니다.</string>
     <string name="need_camera_permission">카메라 권한 설정이 필요합니다.</string>
     <string name="error_disconnect">연결 끊기 실패</string>
+    <string name="kakao_sign_in">카카오 로그인</string>
+    <string name="naver_sign_in">네이버 로그인</string>
+    <string name="time">시간</string>
+    <string name="total">총</string>
+    <string name="sharing">공유하기</string>
+    <string name="how_to_get_score">각 점수별 산정기준</string>
+    <string name="no">아니요</string>
+    <string name="yes">네</string>
+    <string name="save_trash">모은 쓰레기를 선택하세요.</string>
+
+    <string name="vinyl">비닐</string>
+    <string name="glass">유리</string>
+    <string name="paper">종이</string>
+    <string name="plastic">플라스틱</string>
+    <string name="can">캔</string>
+    <string name="extra">기타</string>
+    <string name="confirm_plogging_guide">플로깅 가이드 확인하기</string>
+    <string name="start_plogging">플로깅 시작하기</string>
+    <string name="empty_rank">_ 위</string>
+    <string name="empty_score">0 점</string>
+    <string name="custom_sign_in">이메일로 가입</string>
+    <string name="collected_trash">모은 쓰레기</string>
+    <string name="log_trash">쓰레기 기록하기</string>
+    <string name="finish">종료</string>
+    <string name="calorie">칼로리</string>
+    <string name="run_time">진행시간</string>
+    <string name="ready_plogging">플로깅이 곧 시작됩니다!</string>
+    <string name="active_score">운동점수</string>
+    <string name="eco_score">환경점수</string>
+    <string name="save_picture_sentence">카메라와 사진 접근권한 허용 후에\n촬영 및 사진 붙여넣기를 할 수 있습니다.</string>
+    <string name="empty_distance">_ km</string>
+    <string name="empty_trash">_ 개</string>
 
 </resources>
