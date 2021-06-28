@@ -3,37 +3,36 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="40dp"
-    android:paddingVertical="2dp"
+    android:layout_height="wrap_content"
     android:background="@color/white"
-    android:paddingHorizontal="8dp">
+    android:padding="@dimen/padding_8">
 
     <TextView
         android:id="@+id/tv_save_item_trash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="유리병"
-        android:textSize="16dp"
         android:textColor="@color/gray_800"
+        android:textSize="@dimen/text_size_16"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="유리병" />
 
     <TextView
         android:id="@+id/tv_save_item_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2개"
-        android:textSize="16dp"
         android:textColor="@color/black"
+        android:textSize="@dimen/text_size_16"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="2개" />
 
     <View
         android:id="@+id/v_save_item_line"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/fill_layout"
         android:layout_height="1dp"
         android:background="@color/gray_500"
         app:layout_constraintBottom_toBottomOf="parent"

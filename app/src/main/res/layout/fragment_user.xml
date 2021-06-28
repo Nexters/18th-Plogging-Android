@@ -11,17 +11,17 @@
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/gl_user_plogging_left"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/fill_layout"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="24dp" />
+        app:layout_constraintGuide_begin="@dimen/margin_24" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/gl_user_plogging_right"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/fill_layout"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        app:layout_constraintGuide_end="24dp" />
+        app:layout_constraintGuide_end="@dimen/margin_24" />
 
     <View
         android:id="@+id/v_user_plogging_top"
@@ -37,7 +37,7 @@
         android:id="@+id/iv_user_plogging_setting"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="@dimen/margin_72"
         android:src="@drawable/ic_setting"
         app:layout_constraintStart_toStartOf="@+id/gl_user_plogging_left"
         app:layout_constraintTop_toTopOf="parent" />
@@ -46,29 +46,30 @@
         android:id="@+id/tv_user_plogging_name"
         android:layout_width="220dp"
         android:layout_height="50dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="@dimen/margin_12"
         android:gravity="center_vertical"
         android:textColor="@color/white"
-        android:textSize="36dp"
+        android:textSize="@dimen/text_size_36"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/gl_user_plogging_left"
-        app:layout_constraintTop_toBottomOf="@+id/iv_user_plogging_setting" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_user_plogging_setting"
+        tools:text="나는강희이다" />
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/iv_user_plogging_profile"
         android:layout_width="76dp"
         android:layout_height="76dp"
         android:background="@color/transparent_000"
-        android:src="@drawable/ic_default_profile_1"
         android:scaleType="centerCrop"
+        android:src="@drawable/ic_default_profile_1"
         app:layout_constraintBottom_toBottomOf="@+id/tv_user_plogging_name"
         app:layout_constraintEnd_toStartOf="@+id/gl_user_plogging_right"
         app:shapeAppearanceOverlay="@style/roundedImageViewRounded" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_user_plogging_score"
-        android:layout_width="0dp"
-        android:layout_height="90dp"
+        android:layout_width="@dimen/fill_layout"
+        android:layout_height="wrap_content"
         android:background="@drawable/bg_round_12"
         android:backgroundTint="@color/green_500"
         app:layout_constraintBottom_toBottomOf="@+id/cl_user_plogging_distance"
@@ -81,11 +82,11 @@
             android:id="@+id/tv_user_plogging_total"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginStart="@dimen/margin_12"
+            android:layout_marginTop="@dimen/margin_20"
             android:text="@string/total_plogging_score"
             android:textColor="@color/white"
-            android:textSize="12dp"
+            android:textSize="@dimen/text_size_12"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -93,31 +94,34 @@
             android:id="@+id/iv_user_plogging_score_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/margin_8"
+            android:layout_marginBottom="@dimen/margin_20"
             android:src="@drawable/ic_total_score"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/tv_user_plogging_total"
             app:layout_constraintTop_toBottomOf="@+id/tv_user_plogging_total" />
 
         <TextView
             android:id="@+id/tv_user_plogging_total_score"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/fill_layout"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:text="_점"
+            android:layout_marginStart="@dimen/margin_4"
             android:textColor="@color/white"
-            android:textSize="20dp"
+            android:textSize="@dimen/text_size_20"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/iv_user_plogging_score_img"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/iv_user_plogging_score_img"
-            app:layout_constraintTop_toTopOf="@+id/iv_user_plogging_score_img" />
+            app:layout_constraintTop_toTopOf="@+id/iv_user_plogging_score_img"
+            tools:text="@string/empty_score" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_user_plogging_distance"
-        android:layout_width="0dp"
-        android:layout_height="90dp"
-        android:layout_marginHorizontal="6dp"
+        android:layout_width="@dimen/fill_layout"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_4"
         android:background="@drawable/bg_round_12"
         android:backgroundTint="@color/green_500"
         app:layout_constraintBottom_toBottomOf="@+id/v_user_plogging_top"
@@ -131,11 +135,11 @@
             android:id="@+id/tv_user_plogging_distance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginStart="@dimen/margin_12"
+            android:layout_marginTop="@dimen/margin_20"
             android:text="@string/running_distance"
             android:textColor="@color/white"
-            android:textSize="12dp"
+            android:textSize="@dimen/text_size_12"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -143,30 +147,33 @@
             android:id="@+id/iv_user_plogging_distance_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/margin_8"
+            android:layout_marginBottom="@dimen/margin_20"
             android:src="@drawable/ic_total_distance"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/tv_user_plogging_distance"
             app:layout_constraintTop_toBottomOf="@+id/tv_user_plogging_distance" />
 
         <TextView
             android:id="@+id/tv_user_plogging_distance_number"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/fill_layout"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:text="_km"
+            android:layout_marginStart="@dimen/margin_4"
             android:textColor="@color/white"
-            android:textSize="20dp"
+            android:textSize="@dimen/text_size_20"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/iv_user_plogging_distance_img"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/iv_user_plogging_distance_img"
-            app:layout_constraintTop_toTopOf="@+id/iv_user_plogging_distance_img" />
+            app:layout_constraintTop_toTopOf="@+id/iv_user_plogging_distance_img"
+            tools:text="@string/empty_distance" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_user_plogging_count"
-        android:layout_width="0dp"
-        android:layout_height="90dp"
+        android:layout_width="@dimen/fill_layout"
+        android:layout_height="wrap_content"
         android:background="@drawable/bg_round_12"
         android:backgroundTint="@color/green_500"
         app:layout_constraintBottom_toBottomOf="@+id/cl_user_plogging_distance"
@@ -179,11 +186,11 @@
             android:id="@+id/tv_user_plogging_garbage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="20dp"
-            android:text="모은 쓰레기"
+            android:layout_marginStart="@dimen/margin_12"
+            android:layout_marginTop="@dimen/margin_20"
+            android:text="@string/collected_trash"
             android:textColor="@color/white"
-            android:textSize="12dp"
+            android:textSize="@dimen/text_size_12"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -191,32 +198,35 @@
             android:id="@+id/iv_user_plogging_garbage_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/margin_8"
+            android:layout_marginBottom="@dimen/margin_20"
             android:src="@drawable/ic_total_garbage"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/tv_user_plogging_garbage"
             app:layout_constraintTop_toBottomOf="@+id/tv_user_plogging_garbage" />
 
         <TextView
             android:id="@+id/tv_user_plogging_score"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/fill_layout"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:text="_개"
+            android:layout_marginStart="@dimen/margin_4"
             android:textColor="@color/white"
-            android:textSize="20dp"
+            android:textSize="@dimen/text_size_20"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/iv_user_plogging_garbage_img"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/iv_user_plogging_garbage_img"
-            app:layout_constraintTop_toTopOf="@+id/iv_user_plogging_garbage_img" />
+            app:layout_constraintTop_toTopOf="@+id/iv_user_plogging_garbage_img"
+            tools:text="@string/empty_trash" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Spinner
         android:id="@+id/spinner_user_plogging_order"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="@dimen/margin_12"
         android:gravity="center"
-        android:padding="8dp"
+        android:padding="@dimen/padding_8"
         android:spinnerMode="dropdown"
         android:theme="@style/ThemeOverlay.AppCompat.Light"
         app:layout_constraintEnd_toStartOf="@+id/gl_user_plogging_right"
@@ -228,7 +238,7 @@
         android:layout_height="wrap_content"
         android:text="@string/empty_list"
         android:textColor="@color/black"
-        android:textSize="24dp"
+        android:textSize="@dimen/text_size_24"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/gl_user_plogging_right"
@@ -246,8 +256,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_user_plogging"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="@dimen/fill_layout"
+        android:layout_height="@dimen/fill_layout"
         android:animateLayoutChanges="false"
         android:background="@color/gray_100"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"

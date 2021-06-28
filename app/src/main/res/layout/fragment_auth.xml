@@ -14,21 +14,21 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="58dp" />
+        app:layout_constraintGuide_begin="@dimen/margin_56" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/right"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        app:layout_constraintGuide_end="58dp" />
+        app:layout_constraintGuide_end="@dimen/margin_56" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/bottom"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-        app:layout_constraintGuide_end="58dp" />
+        app:layout_constraintGuide_end="@dimen/margin_56" />
 
     <ImageView
         android:id="@+id/iv_auth_logo"
@@ -43,11 +43,11 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/btn_auth_home_kakao"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/fill_layout"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="@dimen/margin_8"
         android:background="@drawable/bg_round_8"
-        android:backgroundTint="#fee500"
+        android:backgroundTint="@color/yellow_500"
         app:layout_constraintBottom_toTopOf="@+id/btn_auth_home_naver"
         app:layout_constraintEnd_toStartOf="@+id/right"
         app:layout_constraintHorizontal_bias="0.0"
@@ -56,7 +56,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_margin="@dimen/margin_16"
             android:src="@drawable/ic_kakao"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -65,9 +65,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="카카오 로그인"
+            android:text="@string/kakao_sign_in"
             android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textSize="@dimen/text_size_18"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -77,11 +77,11 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/btn_auth_home_naver"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/fill_layout"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="@dimen/margin_8"
         android:background="@drawable/bg_round_8"
-        android:backgroundTint="#1ec800"
+        android:backgroundTint="@color/green_450"
         app:layout_constraintBottom_toTopOf="@+id/cv_auth_home_google"
         app:layout_constraintEnd_toStartOf="@+id/right"
         app:layout_constraintHorizontal_bias="0.0"
@@ -90,7 +90,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_margin="@dimen/margin_16"
             android:src="@drawable/ic_naver"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -99,9 +99,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="네이버 로그인"
+            android:text="@string/naver_sign_in"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="@dimen/text_size_18"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -110,14 +110,14 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_auth_home_google"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/fill_layout"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="12dp"
+        android:layout_marginBottom="@dimen/margin_8"
+        app:cardCornerRadius="@dimen/radius_12"
         app:cardElevation="0dp"
         app:layout_constraintBottom_toTopOf="@+id/btn_auth_home_register"
         app:layout_constraintEnd_toStartOf="@+id/right"
         app:layout_constraintHorizontal_bias="0.0"
-        android:layout_marginBottom="8dp"
         app:layout_constraintStart_toStartOf="@+id/left">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -133,7 +133,7 @@
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:layout_margin="14dp"
+                android:layout_margin="@dimen/margin_14"
                 android:src="@drawable/ic_google_logo"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -144,7 +144,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/btn_google"
                 android:textColor="@color/black"
-                android:textSize="18sp"
+                android:textSize="@dimen/text_size_18"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -156,33 +156,33 @@
 
     <TextView
         android:id="@+id/btn_auth_home_register"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/fill_layout"
         android:layout_height="wrap_content"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="@dimen/margin_8"
+        android:layout_marginBottom="@dimen/margin_24"
         android:background="@drawable/bg_round_8"
         android:backgroundTint="@color/white"
         android:gravity="center"
-        android:paddingVertical="16dp"
-        android:text="이메일로 가입"
+        android:paddingVertical="@dimen/padding_16"
+        android:text="@string/custom_sign_in"
         android:textColor="@color/black"
-        android:textSize="18sp"
+        android:textSize="@dimen/text_size_18"
         app:layout_constraintBottom_toTopOf="@+id/tv_policy"
-        app:layout_constraintEnd_toStartOf="@+id/btn_auth_home_signin"
+        app:layout_constraintEnd_toStartOf="@+id/btn_auth_home_sign_in"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/left" />
 
     <TextView
-        android:id="@+id/btn_auth_home_signin"
-        android:layout_width="0dp"
+        android:id="@+id/btn_auth_home_sign_in"
+        android:layout_width="@dimen/fill_layout"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_round_8"
         android:backgroundTint="@color/white"
         android:gravity="center"
-        android:paddingVertical="16dp"
-        android:text="로그인"
+        android:paddingVertical="@dimen/padding_16"
+        android:text="@string/sign_in"
         android:textColor="@color/black"
-        android:textSize="18sp"
+        android:textSize="@dimen/text_size_18"
         app:layout_constraintBottom_toBottomOf="@+id/btn_auth_home_register"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/right"
@@ -192,12 +192,12 @@
 
     <TextView
         android:id="@+id/tv_policy"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/fill_layout"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/auth_policy"
         android:textColor="@color/gray_700"
-        android:textSize="14dp"
+        android:textSize="@dimen/text_size_14"
         app:layout_constraintBottom_toTopOf="@+id/bottom"
         app:layout_constraintEnd_toStartOf="@+id/right"
         app:layout_constraintStart_toStartOf="@+id/left" />

@@ -34,7 +34,7 @@
             android:id="@+id/tv_user_plogging_name"
             android:layout_width="220dp"
             android:layout_height="50dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="@dimen/margin_12"
             motion:layout_constraintStart_toStartOf="@+id/gl_user_plogging_left"
             motion:layout_constraintTop_toBottomOf="@+id/iv_user_plogging_setting" >
             <CustomAttribute
@@ -73,7 +73,7 @@
             motion:layout_constraintTop_toTopOf="parent" />
         <Constraint
             android:id="@+id/cl_user_plogging_score"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/fill_layout"
             android:layout_height="30dp"
             android:visibility="invisible"
             motion:layout_constraintBottom_toBottomOf="@+id/cl_user_plogging_distance"
@@ -84,9 +84,9 @@
             motion:layout_constraintTop_toTopOf="@+id/cl_user_plogging_distance" />
         <Constraint
             android:id="@+id/cl_user_plogging_distance"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/fill_layout"
             android:layout_height="30dp"
-            android:layout_marginHorizontal="6dp"
+            android:layout_marginHorizontal="@dimen/margin_4"
             android:visibility="invisible"
             motion:layout_constraintBottom_toBottomOf="@+id/v_user_plogging_top"
             motion:layout_constraintEnd_toStartOf="@+id/cl_user_plogging_count"
@@ -96,7 +96,7 @@
             motion:layout_constraintVertical_bias="0.6" />
         <Constraint
             android:id="@+id/cl_user_plogging_count"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/fill_layout"
             android:layout_height="30dp"
             android:visibility="invisible"
             motion:layout_constraintBottom_toBottomOf="@+id/cl_user_plogging_distance"
@@ -108,7 +108,7 @@
             android:id="@+id/tv_user_plogging_name"
             android:layout_width="180dp"
             android:layout_height="50dp"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="@dimen/margin_24"
             motion:layout_constraintBottom_toBottomOf="@+id/iv_user_plogging_setting"
             motion:layout_constraintStart_toEndOf="@+id/iv_user_plogging_setting"
             motion:layout_constraintTop_toTopOf="@+id/iv_user_plogging_setting">

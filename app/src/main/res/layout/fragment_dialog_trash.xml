@@ -2,30 +2,32 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl_running_trash_dialog"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_height="700dp"
+    app:layout_constraintTop_toBottomOf="parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_running_trash_dialog_log"
         android:layout_width="match_parent"
-        android:layout_height="700dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/margin_50"
         android:background="@drawable/bg_round_top"
-        android:backgroundTint="@color/gray_200"
-        app:layout_constraintBottom_toBottomOf="parent">
+        android:backgroundTint="#EAEAEA">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/gl_trash_left"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            app:layout_constraintGuide_begin="15dp" />
+            app:layout_constraintGuide_begin="@dimen/margin_16" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/gl_trash_right"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            app:layout_constraintGuide_end="15dp" />
+            app:layout_constraintGuide_end="@dimen/margin_16" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/gl_trash_center"
@@ -39,34 +41,35 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            app:layout_constraintGuide_end="120dp" />
+            app:layout_constraintGuide_end="@dimen/margin_80" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/gl_trash_top"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="78dp" />
+            app:layout_constraintGuide_begin="@dimen/margin_80" />
 
         <TextView
             android:id="@+id/tv_trash_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="모은 쓰레기를 선택하세요."
+            android:layout_marginTop="@dimen/margin_24"
+            android:text="@string/save_trash"
             android:textColor="@color/gray_700"
-            android:textSize="16dp"
+            android:textSize="@dimen/text_size_16"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_trash_vinyl"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="9dp"
+            android:layout_width="@dimen/fill_layout"
+            android:layout_height="@dimen/fill_layout"
+            android:layout_margin="@dimen/margin_8"
             android:background="@drawable/bg_round_8"
             android:backgroundTint="@color/white"
+            android:paddingHorizontal="@dimen/padding_12"
             app:layout_constraintBottom_toTopOf="@+id/cl_trash_paper"
             app:layout_constraintEnd_toStartOf="@+id/gl_trash_center"
             app:layout_constraintHorizontal_bias="0.5"
@@ -88,37 +91,36 @@
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="비닐"
+                android:layout_marginTop="@dimen/margin_8"
+                android:text="@string/vinyl"
                 android:textColor="@color/gray_700"
-                android:textSize="13dp"
+                android:textSize="@dimen/text_size_14"
                 app:layout_constraintEnd_toEndOf="@+id/iv_vinyl"
                 app:layout_constraintStart_toStartOf="@+id/iv_vinyl"
                 app:layout_constraintTop_toBottomOf="@+id/iv_vinyl" />
 
             <TextView
                 android:id="@+id/tv_trash_vinyl_num"
-                android:layout_width="60dp"
-                android:gravity="center"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-black"
-                android:text="0"
+                android:gravity="center"
                 android:textColor="@color/black"
-                android:textSize="28dp"
+                android:textSize="@dimen/text_size_26"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/textView"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="@+id/textView"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
+                app:layout_constraintTop_toBottomOf="@+id/textView"
+                tools:text="0" />
 
             <ImageView
                 android:id="@+id/iv_trash_vinyl_plus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
                 android:src="@drawable/ic_plus"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_trash_vinyl_num"
-                app:layout_constraintStart_toEndOf="@+id/tv_trash_vinyl_num"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tv_trash_vinyl_num"
                 app:layout_constraintVertical_bias="1.0" />
 
@@ -126,21 +128,21 @@
                 android:id="@+id/iv_trash_vinyl_minus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="4dp"
                 android:src="@drawable/ic_minus"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_trash_vinyl_num"
-                app:layout_constraintEnd_toStartOf="@+id/tv_trash_vinyl_num"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tv_trash_vinyl_num" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_trash_paper"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="9dp"
+            android:layout_width="@dimen/fill_layout"
+            android:layout_height="@dimen/fill_layout"
+            android:layout_margin="@dimen/margin_8"
             android:background="@drawable/bg_round_8"
             android:backgroundTint="@color/white"
+            android:paddingHorizontal="@dimen/padding_12"
             app:layout_constraintBottom_toTopOf="@+id/cl_trash_can"
             app:layout_constraintEnd_toStartOf="@+id/gl_trash_center"
             app:layout_constraintHorizontal_bias="0.5"
@@ -162,37 +164,36 @@
                 android:id="@+id/tv_trash_paper"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="종이"
+                android:layout_marginTop="@dimen/margin_12"
+                android:text="@string/paper"
                 android:textColor="@color/gray_700"
-                android:textSize="12dp"
+                android:textSize="@dimen/text_size_12"
                 app:layout_constraintEnd_toEndOf="@+id/iv_paper"
                 app:layout_constraintStart_toStartOf="@+id/iv_paper"
                 app:layout_constraintTop_toBottomOf="@+id/iv_paper" />
 
             <TextView
                 android:id="@+id/tv_trash_paper_num"
-                android:layout_width="60dp"
-                android:gravity="center"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-black"
-                android:text="0"
+                android:gravity="center"
                 android:textColor="@color/black"
-                android:textSize="28dp"
+                android:textSize="@dimen/text_size_28"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/tv_trash_paper"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="@+id/tv_trash_paper"
-                app:layout_constraintTop_toBottomOf="@+id/tv_trash_paper" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_trash_paper"
+                tools:text="0" />
 
             <ImageView
                 android:id="@+id/iv_trash_paper_plus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
                 android:src="@drawable/ic_plus"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_trash_paper_num"
-                app:layout_constraintStart_toEndOf="@+id/tv_trash_paper_num"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tv_trash_paper_num"
                 app:layout_constraintVertical_bias="1.0" />
 
@@ -200,20 +201,20 @@
                 android:id="@+id/iv_trash_paper_minus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="4dp"
                 android:src="@drawable/ic_minus"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_trash_paper_num"
-                app:layout_constraintEnd_toStartOf="@+id/tv_trash_paper_num"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tv_trash_paper_num" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_trash_can"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="9dp"
+            android:layout_width="@dimen/fill_layout"
+            android:layout_height="@dimen/fill_layout"
+            android:layout_margin="@dimen/margin_8"
             android:background="@drawable/bg_round_8"
             android:backgroundTint="@color/white"
+            android:paddingHorizontal="@dimen/padding_12"
             app:layout_constraintBottom_toTopOf="@+id/gl_trash_bottom"
             app:layout_constraintEnd_toStartOf="@+id/gl_trash_center"
             app:layout_constraintHorizontal_bias="0.5"
@@ -235,37 +236,36 @@
                 android:id="@+id/tv_trash_can"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="캔"
+                android:layout_marginTop="@dimen/margin_12"
+                android:text="@string/can"
                 android:textColor="@color/gray_700"
-                android:textSize="12dp"
+                android:textSize="@dimen/text_size_12"
                 app:layout_constraintEnd_toEndOf="@+id/iv_can"
                 app:layout_constraintStart_toStartOf="@+id/iv_can"
                 app:layout_constraintTop_toBottomOf="@+id/iv_can" />
 
             <TextView
                 android:id="@+id/tv_trash_can_num"
-                android:layout_width="60dp"
-                android:gravity="center"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-black"
-                android:text="0"
+                android:gravity="center"
                 android:textColor="@color/black"
-                android:textSize="28dp"
+                android:textSize="@dimen/text_size_28"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/tv_trash_can"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="@+id/tv_trash_can"
-                app:layout_constraintTop_toBottomOf="@+id/tv_trash_can" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_trash_can"
+                tools:text="0" />
 
             <ImageView
                 android:id="@+id/iv_trash_can_plus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
                 android:src="@drawable/ic_plus"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_trash_can_num"
-                app:layout_constraintStart_toEndOf="@+id/tv_trash_can_num"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tv_trash_can_num"
                 app:layout_constraintVertical_bias="1.0" />
 
@@ -273,20 +273,20 @@
                 android:id="@+id/iv_trash_can_minus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="4dp"
                 android:src="@drawable/ic_minus"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_trash_can_num"
-                app:layout_constraintEnd_toStartOf="@+id/tv_trash_can_num"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tv_trash_can_num" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_trash_glass"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="9dp"
+            android:layout_width="@dimen/fill_layout"
+            android:layout_height="@dimen/fill_layout"
+            android:layout_margin="@dimen/margin_8"
             android:background="@drawable/bg_round_8"
             android:backgroundTint="@color/white"
+            android:paddingHorizontal="@dimen/padding_12"
             app:layout_constraintBottom_toTopOf="@+id/cl_trash_plastic"
             app:layout_constraintEnd_toStartOf="@+id/gl_trash_right"
             app:layout_constraintHorizontal_bias="0.5"
@@ -308,37 +308,36 @@
                 android:id="@+id/tv_trash_glass"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="유리"
+                android:layout_marginTop="@dimen/margin_12"
+                android:text="@string/glass"
                 android:textColor="@color/gray_700"
-                android:textSize="12dp"
+                android:textSize="@dimen/text_size_12"
                 app:layout_constraintEnd_toEndOf="@+id/iv_glass"
                 app:layout_constraintStart_toStartOf="@+id/iv_glass"
                 app:layout_constraintTop_toBottomOf="@+id/iv_glass" />
 
             <TextView
                 android:id="@+id/tv_trash_glass_num"
-                android:layout_width="60dp"
-                android:gravity="center"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-black"
-                android:text="0"
+                android:gravity="center"
                 android:textColor="@color/black"
-                android:textSize="28dp"
+                android:textSize="@dimen/text_size_28"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/tv_trash_glass"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="@+id/tv_trash_glass"
-                app:layout_constraintTop_toBottomOf="@+id/tv_trash_glass" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_trash_glass"
+                tools:text="0" />
 
             <ImageView
                 android:id="@+id/iv_trash_glass_plus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
                 android:src="@drawable/ic_plus"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_trash_glass_num"
-                app:layout_constraintStart_toEndOf="@+id/tv_trash_glass_num"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tv_trash_glass_num"
                 app:layout_constraintVertical_bias="1.0" />
 
@@ -346,20 +345,20 @@
                 android:id="@+id/iv_trash_glass_minus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="4dp"
                 android:src="@drawable/ic_minus"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_trash_glass_num"
-                app:layout_constraintEnd_toStartOf="@+id/tv_trash_glass_num"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tv_trash_glass_num" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_trash_plastic"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="9dp"
+            android:layout_width="@dimen/fill_layout"
+            android:layout_height="@dimen/fill_layout"
+            android:layout_margin="@dimen/margin_8"
             android:background="@drawable/bg_round_8"
             android:backgroundTint="@color/white"
+            android:paddingHorizontal="@dimen/padding_12"
             app:layout_constraintBottom_toTopOf="@+id/cl_trash_ext"
             app:layout_constraintEnd_toStartOf="@+id/gl_trash_right"
             app:layout_constraintHorizontal_bias="0.5"
@@ -381,37 +380,36 @@
                 android:id="@+id/tv_trash_plastic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="플라스틱"
+                android:layout_marginTop="@dimen/margin_12"
+                android:text="@string/plastic"
                 android:textColor="@color/gray_700"
-                android:textSize="12dp"
+                android:textSize="@dimen/text_size_12"
                 app:layout_constraintEnd_toEndOf="@+id/iv_plastic"
                 app:layout_constraintStart_toStartOf="@+id/iv_plastic"
                 app:layout_constraintTop_toBottomOf="@+id/iv_plastic" />
 
             <TextView
                 android:id="@+id/tv_trash_plastic_num"
-                android:layout_width="60dp"
-                android:gravity="center"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-black"
-                android:text="0"
+                android:gravity="center"
                 android:textColor="@color/black"
-                android:textSize="28dp"
+                android:textSize="@dimen/text_size_28"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/tv_trash_plastic"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="@+id/tv_trash_plastic"
-                app:layout_constraintTop_toBottomOf="@+id/tv_trash_plastic" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_trash_plastic"
+                tools:text="0" />
 
             <ImageView
                 android:id="@+id/iv_trash_plastic_plus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
                 android:src="@drawable/ic_plus"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_trash_plastic_num"
-                app:layout_constraintStart_toEndOf="@+id/tv_trash_plastic_num"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tv_trash_plastic_num"
                 app:layout_constraintVertical_bias="1.0" />
 
@@ -419,20 +417,20 @@
                 android:id="@+id/iv_trash_plastic_minus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="4dp"
                 android:src="@drawable/ic_minus"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_trash_plastic_num"
-                app:layout_constraintEnd_toStartOf="@+id/tv_trash_plastic_num"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tv_trash_plastic_num" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_trash_ext"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="9dp"
+            android:layout_width="@dimen/fill_layout"
+            android:layout_height="@dimen/fill_layout"
+            android:layout_margin="@dimen/margin_8"
             android:background="@drawable/bg_round_8"
             android:backgroundTint="@color/white"
+            android:paddingHorizontal="@dimen/padding_12"
             app:layout_constraintBottom_toTopOf="@+id/gl_trash_bottom"
             app:layout_constraintEnd_toStartOf="@+id/gl_trash_right"
             app:layout_constraintHorizontal_bias="0.5"
@@ -454,37 +452,36 @@
                 android:id="@+id/tv_trash_extra"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="기타"
+                android:layout_marginTop="@dimen/margin_12"
+                android:text="@string/extra"
                 android:textColor="@color/gray_700"
-                android:textSize="12dp"
+                android:textSize="@dimen/text_size_12"
                 app:layout_constraintEnd_toEndOf="@+id/iv_extra"
                 app:layout_constraintStart_toStartOf="@+id/iv_extra"
                 app:layout_constraintTop_toBottomOf="@+id/iv_extra" />
 
             <TextView
                 android:id="@+id/tv_trash_extra_num"
-                android:layout_width="60dp"
-                android:gravity="center"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-black"
-                android:text="0"
+                android:gravity="center"
                 android:textColor="@color/black"
-                android:textSize="28dp"
+                android:textSize="@dimen/text_size_28"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/tv_trash_extra"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="@+id/tv_trash_extra"
-                app:layout_constraintTop_toBottomOf="@+id/tv_trash_extra" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_trash_extra"
+                tools:text="0" />
 
             <ImageView
                 android:id="@+id/iv_trash_extra_minus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="4dp"
                 android:src="@drawable/ic_minus"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_trash_extra_num"
-                app:layout_constraintEnd_toStartOf="@+id/tv_trash_extra_num"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tv_trash_extra_num"
                 app:layout_constraintVertical_bias="1.0" />
 
@@ -492,27 +489,26 @@
                 android:id="@+id/iv_trash_extra_plus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
                 android:src="@drawable/ic_plus"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_trash_extra_num"
-                app:layout_constraintStart_toEndOf="@+id/tv_trash_extra_num"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tv_trash_extra_num" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
         <TextView
             android:id="@+id/btn_trash_save"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_marginHorizontal="9dp"
-            android:layout_marginBottom="9dp"
+            android:layout_width="@dimen/fill_layout"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_8"
+            android:layout_marginBottom="@dimen/margin_8"
             android:background="@drawable/bg_round_8"
             android:backgroundTint="@color/green_300"
             android:gravity="center"
-            android:text="저장"
+            android:paddingVertical="@dimen/padding_16"
+            android:text="@string/save"
             android:textColor="@color/white"
-            android:textSize="20dp"
+            android:textSize="@dimen/text_size_20"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/gl_trash_right"
             app:layout_constraintStart_toStartOf="@+id/gl_trash_left"

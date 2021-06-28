@@ -1,4 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="error_text_size">24dp</dimen>
+    <dimen name="fill_layout">0dp</dimen>
+
+    <dimen name="margin_4">4dp</dimen>
+    <dimen name="margin_8">8dp</dimen>
+    <dimen name="margin_12">12dp</dimen>
+    <dimen name="margin_14">14dp</dimen>
+    <dimen name="margin_16">16dp</dimen>
+    <dimen name="margin_20">20dp</dimen>
+    <dimen name="margin_24">24dp</dimen> <!-- guide line -->
+    <dimen name="margin_30">30dp</dimen>
+    <dimen name="margin_32">32dp</dimen>
+    <dimen name="margin_36">36dp</dimen>
+    <dimen name="margin_40">40dp</dimen>
+    <dimen name="margin_44">44dp</dimen>
+    <dimen name="margin_48">48dp</dimen>
+    <dimen name="margin_50">50dp</dimen>
+    <dimen name="margin_56">56dp</dimen>
+    <dimen name="margin_60">60dp</dimen>
+    <dimen name="margin_72">72dp</dimen>
+    <dimen name="margin_80">80dp</dimen>
+    <dimen name="margin_100">100dp</dimen>
+    <dimen name="margin_120">120dp</dimen>
+    <dimen name="margin_160">160dp</dimen>
+
+    <dimen name="padding_2">2dp</dimen>
+    <dimen name="padding_8">8dp</dimen>
+    <dimen name="padding_12">12dp</dimen>
+    <dimen name="padding_16">16dp</dimen> <!-- button, et vertical -->
+    <dimen name="padding_24">24dp</dimen>  <!-- button horizontal -->
+    <dimen name="padding_36">36dp</dimen>
+    <dimen name="padding_48">48dp</dimen>
+
+    <dimen name="text_size_12">12sp</dimen>
+    <dimen name="text_size_14">14sp</dimen>
+    <dimen name="text_size_16">16sp</dimen>
+    <dimen name="text_size_18">18sp</dimen>
+    <dimen name="text_size_20">20sp</dimen> <!-- button -->
+    <dimen name="text_size_22">22sp</dimen>
+    <dimen name="text_size_24">24sp</dimen>
+    <dimen name="text_size_26">26sp</dimen> <!-- title -->
+    <dimen name="text_size_28">28sp</dimen>
+    <dimen name="text_size_32">32sp</dimen>
+    <dimen name="text_size_36">36sp</dimen>
+    <dimen name="text_size_74">74sp</dimen>
+    <dimen name="text_size_200">200sp</dimen>
+
+    <dimen name="radius_8">8dp</dimen>
+    <dimen name="radius_12">12dp</dimen>
+    <dimen name="radius_26">26dp</dimen>
+
 </resources>

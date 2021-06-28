@@ -42,7 +42,7 @@
         <Constraint
             android:id="@+id/cl_running_trash_dialog"
             android:layout_width="match_parent"
-            android:layout_height="700dp"
+            android:layout_height="@dimen/fill_layout"
             motion:layout_constraintTop_toBottomOf="parent" />
     </ConstraintSet>
 
@@ -50,7 +50,9 @@
         <Constraint
             android:id="@+id/cl_running_trash_dialog"
             android:layout_width="match_parent"
-            android:layout_height="700dp"
+            android:layout_height="@dimen/fill_layout"
+            android:layout_marginTop="@dimen/margin_20"
+            motion:layout_constraintTop_toTopOf="parent"
             motion:layout_constraintBottom_toBottomOf="parent" />
     </ConstraintSet>
 </MotionScene>

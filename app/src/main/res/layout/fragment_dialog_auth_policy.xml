@@ -10,7 +10,7 @@
         android:id="@+id/sc_policy"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="@dimen/margin_20"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,8 +19,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="36dp"
-            android:layout_marginTop="12dp"
+            android:layout_margin="@dimen/margin_36"
+            android:layout_marginTop="@dimen/margin_12"
             android:scrollbars="none"
             android:text="@string/policy" />
     </androidx.core.widget.NestedScrollView>

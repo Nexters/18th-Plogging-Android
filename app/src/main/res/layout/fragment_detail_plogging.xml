@@ -20,14 +20,14 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            app:layout_constraintGuide_begin="24dp" />
+            app:layout_constraintGuide_begin="@dimen/margin_24" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/gl_plogging_detail_right"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            app:layout_constraintGuide_end="24dp" />
+            app:layout_constraintGuide_end="@dimen/margin_24" />
 
         <View
             android:id="@+id/v_plogging_detail_top"
@@ -42,9 +42,9 @@
             android:id="@+id/iv_plogging_detail_user_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="@dimen/margin_60"
             android:backgroundTint="@color/white"
-            android:padding="8dp"
+            android:padding="@dimen/padding_8"
             android:src="@drawable/ic_back_arrow_white"
             app:layout_constraintStart_toStartOf="@+id/gl_plogging_detail_left"
             app:layout_constraintTop_toTopOf="parent" />
@@ -54,7 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:textSize="22dp"
+            android:textSize="@dimen/text_size_26"
             app:layout_constraintBottom_toBottomOf="@+id/iv_plogging_detail_user_back"
             app:layout_constraintStart_toEndOf="@+id/iv_plogging_detail_user_back"
             app:layout_constraintTop_toTopOf="@+id/iv_plogging_detail_user_back" />
@@ -74,7 +74,7 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/fill_layout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
@@ -87,43 +87,44 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                app:layout_constraintGuide_begin="24dp" />
+                app:layout_constraintGuide_begin="@dimen/margin_24" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/gl_plogging_detail_right_contain"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                app:layout_constraintGuide_end="24dp" />
+                app:layout_constraintGuide_end="@dimen/margin_24" />
 
             <TextView
                 android:id="@+id/tv_plogging_detail_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="36dp"
-                android:text="@string/date"
+                android:layout_marginTop="@dimen/margin_36"
                 android:textColor="@color/gray_700"
-                android:textSize="16dp"
+                android:textSize="@dimen/text_size_16"
                 app:layout_constraintStart_toStartOf="@+id/gl_plogging_detail_left_contain"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/date" />
 
             <TextView
                 android:id="@+id/tv_plogging_detail_delete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="삭제"
+                android:padding="@dimen/padding_8"
+                android:text="@string/delete"
                 android:textColor="@color/gray_700"
-                android:textSize="14dp"
+                android:textSize="@dimen/text_size_14"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_plogging_detail_date"
                 app:layout_constraintEnd_toStartOf="@+id/gl_plogging_detail_right_contain"
                 app:layout_constraintTop_toTopOf="@+id/tv_plogging_detail_date" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_plogging_detail"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/fill_layout"
                 android:layout_height="360dp"
-                app:cardCornerRadius="26dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="@dimen/margin_24"
+                app:cardCornerRadius="@dimen/radius_26"
                 app:layout_constraintEnd_toStartOf="@+id/gl_plogging_detail_right_contain"
                 app:layout_constraintStart_toStartOf="@+id/gl_plogging_detail_left_contain"
                 app:layout_constraintTop_toBottomOf="@+id/tv_plogging_detail_date">
@@ -143,11 +144,11 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_plogging_detail_score"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/fill_layout"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_36"
                 app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="12dp"
-                android:layout_marginTop="36dp"
+                app:cardCornerRadius="@dimen/radius_12"
                 app:layout_constraintEnd_toStartOf="@+id/gl_plogging_detail_right_contain"
                 app:layout_constraintStart_toStartOf="@+id/gl_plogging_detail_left_contain"
                 app:layout_constraintTop_toBottomOf="@+id/cv_plogging_detail">
@@ -156,15 +157,15 @@
                     android:id="@+id/cl_plogging_detail_score"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:paddingVertical="32dp">
+                    android:paddingVertical="@dimen/text_size_32">
 
                     <TextView
                         android:id="@+id/tv_plogging_detail_score_number"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_24"
                         android:textColor="@color/black"
-                        android:textSize="26dp"
-                        android:layout_marginStart="24dp"
+                        android:textSize="@dimen/text_size_26"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toStartOf="@+id/view"
                         app:layout_constraintHorizontal_bias="0.5"
@@ -175,10 +176,10 @@
                         android:id="@+id/tv_plogging_detail_score"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="플로깅 점수"
+                        android:layout_marginTop="@dimen/margin_4"
+                        android:text="@string/plogging_score"
                         android:textColor="@color/gray_700"
-                        android:textSize="14dp"
+                        android:textSize="@dimen/text_size_14"
                         app:layout_constraintEnd_toEndOf="@+id/tv_plogging_detail_score_number"
                         app:layout_constraintStart_toStartOf="@+id/tv_plogging_detail_score_number"
                         app:layout_constraintTop_toBottomOf="@+id/tv_plogging_detail_score_number" />
@@ -186,9 +187,9 @@
                     <View
                         android:id="@+id/view"
                         android:layout_width="1dp"
-                        android:layout_height="0dp"
+                        android:layout_height="@dimen/fill_layout"
+                        android:layout_marginStart="@dimen/margin_20"
                         android:background="@color/green_300"
-                        android:layout_marginStart="20dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/tv_plogging_detail_distance_number"
                         app:layout_constraintStart_toEndOf="@+id/tv_plogging_detail_score_number"
@@ -198,9 +199,9 @@
                         android:id="@+id/tv_plogging_detail_distance_number"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
+                        android:layout_marginStart="@dimen/margin_12"
                         android:textColor="@color/black"
-                        android:textSize="22dp"
+                        android:textSize="@dimen/text_size_22"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="@+id/tv_plogging_detail_score_number"
                         app:layout_constraintEnd_toStartOf="@+id/tv_plogging_detail_time_number"
@@ -212,10 +213,10 @@
                         android:id="@+id/tv_plogging_detail_distance"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="킬로미터"
+                        android:layout_marginTop="@dimen/margin_4"
+                        android:text="@string/kilometer"
                         android:textColor="@color/gray_700"
-                        android:textSize="14dp"
+                        android:textSize="@dimen/text_size_14"
                         app:layout_constraintEnd_toEndOf="@+id/tv_plogging_detail_distance_number"
                         app:layout_constraintStart_toStartOf="@+id/tv_plogging_detail_distance_number"
                         app:layout_constraintTop_toBottomOf="@+id/tv_plogging_detail_distance_number" />
@@ -226,7 +227,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
-                        android:textSize="22dp"
+                        android:textSize="@dimen/text_size_22"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="@+id/tv_plogging_detail_distance_number"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -239,10 +240,10 @@
                         android:id="@+id/tv_plogging_detail_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="시간"
+                        android:layout_marginTop="@dimen/margin_4"
+                        android:text="@string/time"
                         android:textColor="@color/gray_700"
-                        android:textSize="14dp"
+                        android:textSize="@dimen/text_size_14"
                         app:layout_constraintEnd_toEndOf="@+id/tv_plogging_detail_time_number"
                         app:layout_constraintStart_toStartOf="@+id/tv_plogging_detail_time_number"
                         app:layout_constraintTop_toBottomOf="@+id/tv_plogging_detail_distance_number" />
@@ -255,21 +256,20 @@
                 android:id="@+id/tv_plogging_detail_total_trash_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="54dp"
-                android:text="총 19개의 쓰레기를 주웠어요!"
+                android:layout_marginTop="@dimen/margin_56"
                 android:textColor="@color/black"
-                android:textSize="20dp"
+                android:textSize="@dimen/text_size_20"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/gl_plogging_detail_left_contain"
                 app:layout_constraintTop_toBottomOf="@+id/cv_plogging_detail_score" />
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cv_plogging_detail_trash_type"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/fill_layout"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="@dimen/margin_24"
                 app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="12dp"
+                app:cardCornerRadius="@dimen/radius_12"
                 app:layout_constraintEnd_toStartOf="@+id/gl_plogging_detail_right_contain"
                 app:layout_constraintStart_toStartOf="@+id/gl_plogging_detail_left_contain"
                 app:layout_constraintTop_toBottomOf="@+id/tv_plogging_detail_total_trash_title">
@@ -278,14 +278,14 @@
                     android:id="@+id/cl_plogging_detail_trash_type"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:paddingBottom="24dp">
+                    android:paddingBottom="@dimen/padding_24">
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rv_plogging_detail_trash"
-                        android:layout_width="0dp"
+                        android:layout_width="@dimen/fill_layout"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="24dp"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginHorizontal="@dimen/margin_24"
+                        android:layout_marginTop="@dimen/margin_12"
                         android:elevation="1dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -297,12 +297,12 @@
                         android:id="@+id/tv_plogging_detail_trash_total"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginStart="@dimen/margin_8"
+                        android:layout_marginTop="@dimen/margin_12"
                         android:elevation="1dp"
-                        android:text="총"
+                        android:text="@string/total"
                         android:textColor="@color/black"
-                        android:textSize="22dp"
+                        android:textSize="@dimen/text_size_22"
                         app:layout_constraintStart_toStartOf="@+id/rv_plogging_detail_trash"
                         app:layout_constraintTop_toBottomOf="@+id/rv_plogging_detail_trash" />
 
@@ -310,11 +310,11 @@
                         android:id="@+id/tv_plogging_detail_trash_total_number"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:layout_marginEnd="8dp"
+                        android:layout_marginTop="@dimen/margin_12"
+                        android:layout_marginEnd="@dimen/margin_8"
                         android:elevation="1dp"
                         android:textColor="@color/black"
-                        android:textSize="22dp"
+                        android:textSize="@dimen/text_size_22"
                         app:layout_constraintEnd_toEndOf="@+id/rv_plogging_detail_trash"
                         app:layout_constraintTop_toBottomOf="@+id/rv_plogging_detail_trash" />
 
@@ -323,16 +323,17 @@
 
             <TextView
                 android:id="@+id/btn_plogging_detail_saving"
-                android:layout_width="0dp"
-                android:layout_height="60dp"
-                android:layout_marginTop="24dp"
+                android:layout_width="@dimen/fill_layout"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_24"
+                android:layout_marginBottom="@dimen/margin_24"
                 android:background="@drawable/bg_round_8"
                 android:backgroundTint="@color/green_300"
                 android:gravity="center"
-                android:text="공유하기"
+                android:paddingVertical="@dimen/padding_16"
+                android:text="@string/sharing"
                 android:textColor="@color/white"
-                android:textSize="20dp"
-                android:layout_marginBottom="24dp"
+                android:textSize="@dimen/text_size_20"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/gl_plogging_detail_right_contain"
                 app:layout_constraintStart_toStartOf="@+id/gl_plogging_detail_left_contain"

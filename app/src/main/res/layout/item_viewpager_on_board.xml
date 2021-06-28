@@ -7,9 +7,9 @@
 
     <ImageView
         android:id="@+id/iv_item_on_board"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/fill_layout"
         android:layout_height="250dp"
-        android:layout_marginTop="158dp"
+        android:layout_marginTop="@dimen/margin_160"
         android:scaleType="fitCenter"
         android:src="@drawable/on_board_2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,11 +20,11 @@
         android:id="@+id/tv_on_boarding_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="54dp"
+        android:layout_marginTop="@dimen/margin_56"
         android:gravity="center"
         android:text="@string/on_board_title_2"
         android:textColor="@color/black"
-        android:textSize="26dp"
+        android:textSize="@dimen/text_size_26"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_item_on_board" />
@@ -33,14 +33,13 @@
         android:id="@+id/tv_on_boarding_sub_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="@dimen/margin_20"
         android:gravity="center"
         android:text="@string/on_board_sub_2"
         android:textColor="@color/gray_600"
-        android:textSize="16dp"
+        android:textSize="@dimen/text_size_16"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_on_boarding_title" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

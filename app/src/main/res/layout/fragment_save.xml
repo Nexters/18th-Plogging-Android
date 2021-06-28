@@ -10,31 +10,31 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#FAFAFA">
+        android:background="@color/gray_100">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/gl_save_left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_begin="24dp" />
+            app:layout_constraintGuide_begin="@dimen/margin_24" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/gl_save_right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_end="24dp" />
+            app:layout_constraintGuide_end="@dimen/margin_24" />
 
         <TextView
             android:id="@+id/tv_save_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="@dimen/margin_60"
             android:fontFamily="sans-serif-black"
             android:text="@string/saving"
             android:textColor="@color/black"
-            android:textSize="36dp"
+            android:textSize="@dimen/text_size_36"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/gl_save_left"
             app:layout_constraintTop_toTopOf="parent" />
@@ -43,7 +43,7 @@
             android:id="@+id/iv_save_question"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="@dimen/margin_24"
             android:src="@drawable/ic_question_gray"
             app:layout_constraintEnd_toStartOf="@+id/gl_save_right"
             app:layout_constraintTop_toBottomOf="@+id/tv_save_title" />
@@ -52,9 +52,9 @@
             android:id="@+id/tv_save_score_question"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="24dp"
-            android:paddingVertical="8dp"
-            android:text="각 점수별 산정기준"
+            android:paddingHorizontal="@dimen/margin_24"
+            android:paddingVertical="@dimen/margin_8"
+            android:text="@string/how_to_get_score"
             android:textColor="@color/gray_700"
             app:layout_constraintBottom_toBottomOf="@+id/iv_save_question"
             app:layout_constraintEnd_toStartOf="@+id/gl_save_right"
@@ -62,9 +62,9 @@
 
         <View
             android:id="@+id/v_save_work_out_score"
-            android:layout_width="0dp"
-            android:layout_height="120dp"
-            android:layout_marginEnd="16dp"
+            android:layout_width="@dimen/fill_layout"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_16"
             android:background="@drawable/bg_work_out_score"
             app:layout_constraintBottom_toBottomOf="@+id/v_save_eco_score"
             app:layout_constraintEnd_toStartOf="@+id/v_save_eco_score"
@@ -77,23 +77,23 @@
             android:id="@+id/tv_save_work_out_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0점"
             android:textColor="@color/white"
-            android:textSize="28dp"
+            android:textSize="@dimen/text_size_28"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/tv_save_work_out"
             app:layout_constraintEnd_toEndOf="@+id/v_save_work_out_score"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@+id/v_save_work_out_score"
-            app:layout_constraintTop_toTopOf="@+id/v_save_work_out_score" />
+            app:layout_constraintTop_toTopOf="@+id/v_save_work_out_score"
+            tools:text="0점" />
 
         <TextView
             android:id="@+id/tv_save_work_out"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="운동점수"
+            android:text="@string/active_score"
             android:textColor="@color/white"
-            android:textSize="14dp"
+            android:textSize="@dimen/text_size_14"
             app:layout_constraintBottom_toBottomOf="@+id/v_save_work_out_score"
             app:layout_constraintEnd_toEndOf="@+id/v_save_work_out_score"
             app:layout_constraintHorizontal_bias="0.5"
@@ -103,9 +103,9 @@
 
         <View
             android:id="@+id/v_save_eco_score"
-            android:layout_width="0dp"
-            android:layout_height="120dp"
-            android:layout_marginTop="24dp"
+            android:layout_width="@dimen/fill_layout"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_24"
             android:background="@drawable/bg_eco_score"
             app:layout_constraintEnd_toStartOf="@+id/gl_save_right"
             app:layout_constraintHorizontal_bias="0.5"
@@ -116,23 +116,23 @@
             android:id="@+id/tv_save_eco_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0점"
             android:textColor="@color/white"
-            android:textSize="28dp"
+            android:textSize="@dimen/text_size_28"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/tv_save_eco"
             app:layout_constraintEnd_toEndOf="@+id/v_save_eco_score"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@+id/v_save_eco_score"
-            app:layout_constraintTop_toTopOf="@+id/v_save_eco_score" />
+            app:layout_constraintTop_toTopOf="@+id/v_save_eco_score"
+            tools:text="0점" />
 
         <TextView
             android:id="@+id/tv_save_eco"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="환경점수"
+            android:text="@string/eco_score"
             android:textColor="@color/white"
-            android:textSize="14dp"
+            android:textSize="@dimen/text_size_14"
             app:layout_constraintBottom_toBottomOf="@+id/v_save_eco_score"
             app:layout_constraintEnd_toEndOf="@+id/v_save_eco_score"
             app:layout_constraintHorizontal_bias="0.5"
@@ -141,9 +141,9 @@
 
         <View
             android:id="@+id/v_save_picture"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/fill_layout"
             android:layout_height="360dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="@dimen/margin_32"
             android:background="@drawable/bg_round_8"
             android:backgroundTint="@color/gray_200"
             app:layout_constraintEnd_toStartOf="@+id/gl_save_right"
@@ -151,10 +151,10 @@
             app:layout_constraintTop_toBottomOf="@+id/v_save_work_out_score" />
 
         <androidx.cardview.widget.CardView
-            android:layout_width="0dp"
+            android:layout_width="@dimen/fill_layout"
             android:layout_height="360dp"
             android:backgroundTint="@color/white"
-            app:cardCornerRadius="12dp"
+            app:cardCornerRadius="@dimen/radius_12"
             app:layout_constraintEnd_toStartOf="@+id/gl_save_right"
             app:layout_constraintStart_toStartOf="@+id/gl_save_left"
             app:layout_constraintTop_toTopOf="@+id/v_save_picture">
@@ -182,7 +182,7 @@
                     android:elevation="2dp"
                     android:text="@string/save_picture_title"
                     android:textColor="@color/black"
-                    android:textSize="14dp"
+                    android:textSize="@dimen/text_size_14"
                     app:layout_constraintBottom_toTopOf="@+id/tv_save_picture_sub_title"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -195,11 +195,10 @@
                     android:layout_height="wrap_content"
                     android:elevation="2dp"
                     android:gravity="center"
-                    android:text="카메라와 사진 접근권한 허용 후에\n촬영 및 사진 붙여넣기를 할 수 있습니다."
+                    android:text="@string/save_picture_sentence"
                     android:textColor="@color/gray_700"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.496"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_save_picture_title" />
 
@@ -215,11 +214,11 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_save_score"
-            android:layout_width="0dp"
-            android:layout_height="140dp"
-            android:layout_marginTop="24dp"
+            android:layout_width="@dimen/fill_layout"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_24"
             android:backgroundTint="@color/white"
-            app:cardCornerRadius="12dp"
+            app:cardCornerRadius="@dimen/radius_12"
             app:layout_constraintEnd_toStartOf="@+id/gl_save_right"
             app:layout_constraintStart_toStartOf="@+id/gl_save_left"
             app:layout_constraintTop_toBottomOf="@+id/v_save_picture">
@@ -233,26 +232,28 @@
                     android:id="@+id/tv_save_distance_number"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="36dp"
+                    android:layout_marginTop="@dimen/margin_36"
                     android:elevation="1dp"
-                    android:text="99.9"
                     android:textColor="@color/black"
-                    android:textSize="24dp"
+                    android:textSize="@dimen/text_size_24"
                     app:layout_constraintBottom_toTopOf="@+id/tv_save_distance"
                     app:layout_constraintEnd_toStartOf="@+id/tv_save_time_number"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="@+id/cl_card_score"
-                    app:layout_constraintTop_toTopOf="@+id/cl_card_score" />
+                    app:layout_constraintTop_toTopOf="@+id/cl_card_score"
+                    tools:text="99.9" />
 
                 <TextView
                     android:id="@+id/tv_save_distance"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="@dimen/margin_12"
+                    android:layout_marginBottom="@dimen/margin_36"
                     android:elevation="1dp"
-                    android:text="킬로미터"
+                    android:text="@string/kilometer"
                     android:textColor="@color/gray_700"
-                    android:textSize="14dp"
+                    android:textSize="@dimen/text_size_14"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@+id/tv_save_distance_number"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="@+id/tv_save_distance_number"
@@ -262,26 +263,28 @@
                     android:id="@+id/tv_save_time_number"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="36dp"
+                    android:layout_marginHorizontal="@dimen/margin_32"
+                    android:layout_marginTop="@dimen/margin_36"
                     android:elevation="1dp"
-                    android:text="99.99"
                     android:textColor="@color/black"
-                    android:layout_marginHorizontal="32dp"
-                    android:textSize="24dp"
+                    android:textSize="@dimen/text_size_24"
                     app:layout_constraintEnd_toStartOf="@+id/tv_save_calorie_number"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/tv_save_distance_number"
-                    app:layout_constraintTop_toTopOf="@+id/cl_card_score" />
+                    app:layout_constraintTop_toTopOf="@+id/cl_card_score"
+                    tools:text="99.99" />
 
                 <TextView
                     android:id="@+id/tv_save_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="@dimen/margin_12"
+                    android:layout_marginBottom="@dimen/margin_36"
                     android:elevation="1dp"
-                    android:text="시간"
+                    android:text="@string/time"
                     android:textColor="@color/gray_700"
-                    android:textSize="14dp"
+                    android:textSize="@dimen/text_size_14"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@+id/tv_save_time_number"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="@+id/tv_save_time_number"
@@ -291,25 +294,27 @@
                     android:id="@+id/tv_save_calorie_number"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="36dp"
+                    android:layout_marginTop="@dimen/margin_36"
                     android:elevation="1dp"
-                    android:text="999"
                     android:textColor="@color/black"
-                    android:textSize="24dp"
+                    android:textSize="@dimen/text_size_24"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/tv_save_time_number"
-                    app:layout_constraintTop_toTopOf="@+id/cl_card_score" />
+                    app:layout_constraintTop_toTopOf="@+id/cl_card_score"
+                    tools:text="999" />
 
                 <TextView
                     android:id="@+id/tv_save_calorie"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="@dimen/margin_12"
+                    android:layout_marginBottom="@dimen/margin_36"
                     android:elevation="1dp"
-                    android:text="칼로리"
+                    android:text="@string/calorie"
                     android:textColor="@color/gray_700"
-                    android:textSize="14dp"
+                    android:textSize="@dimen/text_size_14"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@+id/tv_save_calorie_number"
                     app:layout_constraintStart_toStartOf="@+id/tv_save_calorie_number"
                     app:layout_constraintTop_toBottomOf="@+id/tv_save_calorie_number" />
@@ -317,20 +322,20 @@
                 <View
                     android:id="@+id/v_save_line_1"
                     android:layout_width="1dp"
-                    android:layout_height="0dp"
-                    android:layout_marginVertical="28dp"
+                    android:layout_height="@dimen/fill_layout"
+                    android:layout_marginVertical="@dimen/margin_24"
                     android:background="@color/green_500"
                     android:elevation="1dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/cl_card_score"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/tv_save_time_number"
                     app:layout_constraintStart_toEndOf="@+id/tv_save_distance_number"
-                    app:layout_constraintTop_toTopOf="@+id/cl_card_score" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <View
                     android:id="@+id/v_save_line_2"
                     android:layout_width="1dp"
-                    android:layout_height="0dp"
-                    android:layout_marginVertical="28dp"
+                    android:layout_height="@dimen/fill_layout"
+                    android:layout_marginVertical="@dimen/margin_24"
                     android:background="@color/green_500"
                     android:elevation="1dp"
                     app:layout_constraintBottom_toBottomOf="@+id/cl_card_score"
@@ -346,21 +351,21 @@
             android:id="@+id/tv_save_trash_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="56dp"
-            android:text="총 19개의 쓰레기를 주웠어요!"
+            android:layout_marginTop="@dimen/margin_56"
             android:textColor="@color/black"
-            android:textSize="24dp"
+            android:textSize="@dimen/text_size_24"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/gl_save_left"
-            app:layout_constraintTop_toBottomOf="@+id/cv_save_score" />
+            app:layout_constraintTop_toBottomOf="@+id/cv_save_score"
+            tools:text="총 19개의 쓰레기를 주웠어요!" />
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_save_trash_type"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/fill_layout"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="@dimen/margin_24"
             app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="12dp"
+            app:cardCornerRadius="@dimen/radius_12"
             app:layout_constraintEnd_toStartOf="@+id/gl_save_right"
             app:layout_constraintStart_toStartOf="@+id/gl_save_left"
             app:layout_constraintTop_toBottomOf="@+id/tv_save_trash_title">
@@ -370,14 +375,14 @@
                 android:id="@+id/cl_save_trash_type"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingBottom="12dp">
+                android:paddingBottom="@dimen/padding_12">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_save_trash"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/fill_layout"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="24dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginHorizontal="@dimen/margin_24"
+                    android:layout_marginTop="@dimen/margin_12"
                     android:elevation="1dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -389,12 +394,12 @@
                     android:id="@+id/tv_save_trash_total"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="@dimen/margin_8"
+                    android:layout_marginTop="@dimen/margin_12"
                     android:elevation="1dp"
-                    android:text="총"
+                    android:text="@string/total"
                     android:textColor="@color/black"
-                    android:textSize="22dp"
+                    android:textSize="@dimen/text_size_22"
                     app:layout_constraintStart_toStartOf="@+id/rv_save_trash"
                     app:layout_constraintTop_toBottomOf="@+id/rv_save_trash" />
 
@@ -402,31 +407,32 @@
                     android:id="@+id/tv_save_trash_total_number"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginTop="@dimen/margin_12"
+                    android:layout_marginEnd="@dimen/margin_8"
                     android:elevation="1dp"
-                    android:text="19개"
                     android:textColor="@color/black"
-                    android:textSize="22dp"
+                    android:textSize="@dimen/text_size_22"
                     app:layout_constraintEnd_toEndOf="@+id/rv_save_trash"
-                    app:layout_constraintTop_toBottomOf="@+id/rv_save_trash" />
+                    app:layout_constraintTop_toBottomOf="@+id/rv_save_trash"
+                    tools:text="19개" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.card.MaterialCardView>
 
         <TextView
             android:id="@+id/btn_save_delete"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginBottom="36dp"
+            android:layout_width="@dimen/fill_layout"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_24"
+            android:layout_marginEnd="@dimen/margin_24"
+            android:layout_marginBottom="@dimen/margin_36"
             android:background="@drawable/bg_round_8"
-            android:backgroundTint="#3b4049"
+            android:backgroundTint="@color/gray_900"
             android:gravity="center"
-            android:text="삭제"
+            android:paddingVertical="@dimen/padding_16"
+            android:text="@string/delete"
             android:textColor="@color/white"
-            android:textSize="20dp"
+            android:textSize="@dimen/text_size_20"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/btn_save_saving"
             app:layout_constraintHorizontal_bias="0.5"
@@ -436,15 +442,16 @@
 
         <TextView
             android:id="@+id/btn_save_saving"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="24dp"
+            android:layout_width="@dimen/fill_layout"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_24"
             android:background="@drawable/bg_round_8"
             android:backgroundTint="@color/green_300"
             android:gravity="center"
-            android:text="저장"
+            android:paddingVertical="@dimen/padding_16"
+            android:text="@string/save"
             android:textColor="@color/white"
-            android:textSize="20dp"
+            android:textSize="@dimen/text_size_20"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/gl_save_right"
             app:layout_constraintHorizontal_bias="0.5"
