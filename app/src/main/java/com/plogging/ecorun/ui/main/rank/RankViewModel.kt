@@ -1,5 +1,6 @@
 package com.plogging.ecorun.ui.main.rank
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.plogging.ecorun.base.BaseViewModel
 import com.plogging.ecorun.data.model.GlobalRank
@@ -56,6 +57,11 @@ class RankViewModel @Inject constructor(private val rankingRepository: RankingRe
                 override fun onSuccess(response: UserRankingResponse){
                     userRankData.value = response.data
                     isEmptyMyData.value = false
+                }
+
+                override fun onError(e: Throwable) {
+                    super.onError(e)
+                    isEmptyMyData.value = true
                 }
             })
     }
