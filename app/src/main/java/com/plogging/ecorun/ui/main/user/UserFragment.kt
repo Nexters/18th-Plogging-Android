@@ -1,6 +1,7 @@
 package com.plogging.ecorun.ui.main.user
 
 import android.annotation.SuppressLint
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -23,10 +24,7 @@ import com.plogging.ecorun.databinding.FragmentUserBinding
 import com.plogging.ecorun.ui.main.MainViewModel
 import com.plogging.ecorun.util.GridSpacingItemDecoration
 import com.plogging.ecorun.util.constant.Constant
-import com.plogging.ecorun.util.extension.dpToPx
-import com.plogging.ecorun.util.extension.meterToKilometer
-import com.plogging.ecorun.util.extension.setMargins
-import com.plogging.ecorun.util.extension.toast
+import com.plogging.ecorun.util.extension.*
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect
@@ -60,6 +58,7 @@ class UserFragment : BaseFragment<FragmentUserBinding, UserViewModel>() {
         getPlogging()
         responseApi()
         customBottom()
+        setTooltip()
     }
 
     private fun initSharedViewModel() {
@@ -68,58 +67,8 @@ class UserFragment : BaseFragment<FragmentUserBinding, UserViewModel>() {
         }
     }
 
-    @SuppressLint("SetTextI18n")
-    private fun responseApi() {
-        viewModel.plogging.observe(viewLifecycleOwner) { adapter.submitData(lifecycle, it) }
-        viewModel.userData.observe(viewLifecycleOwner) {
-            binding.tvUserPloggingTotalScore.text = it.scoreMonthly + "점"
-            binding.tvUserPloggingDistanceNumber.text =
-                it.distanceMonthly.toFloat().meterToKilometer() + "Km"
-            binding.tvUserPloggingScore.text = it.trashMonthly + "개"
-        }
-        // 뒤늦게 로그인이 되었을 때 비동기로 플로깅 가져오기
-        mainViewModel.responseCode.observe(viewLifecycleOwner) {
-            if (it == 200 && !viewModel.isRequestUserPlogging.value!!) {
-                viewModel.getUserData()
-                viewModel.getUserPloggingData()
-            }
-        }
-    }
-
-    private fun initSpinner() {
-        val array = resources.getStringArray(R.array.order)
-        val spinnerAdapter =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, array)
-        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        binding.spinnerUserPloggingOrder.adapter = spinnerAdapter
-        binding.spinnerUserPloggingOrder.onItemSelectedListener =
-            object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(
-                    parent: AdapterView<*>?,
-                    view: View?,
-                    position: Int,
-                    id: Long
-                ) {
-                    Constant.type = position
-                    viewModel.searchType.value = position
-                    viewModel.getUserPloggingData()
-                    moveToZeroPosition = true
-                }
-
-                override fun onNothingSelected(parent: AdapterView<*>?) {}
-            }
-    }
-
-    private fun getPlogging() {
-        viewModel.userId.value = if (fromRankUserData == null)
-            SharedPreference.getUserEmail(requireContext())
-        else fromRankUserData?.userId
-        viewModel.getUserData()
-        viewModel.getUserPloggingData()
-    }
-
     private fun initAdapter() {
-        binding.rvUserPlogging.adapter =  adapter.withLoadStateHeaderAndFooter(
+        binding.rvUserPlogging.adapter = adapter.withLoadStateHeaderAndFooter(
             header = BaseLoadStateAdapter { adapter.retry() },
             footer = BaseLoadStateAdapter { adapter.retry() }
         )
@@ -151,6 +100,56 @@ class UserFragment : BaseFragment<FragmentUserBinding, UserViewModel>() {
             binding.pgUserPlogging.isVisible = loadState.source.refresh is LoadState.Loading
             showErrorState(loadState)
         }
+    }
+
+    private fun initSpinner() {
+        val array = resources.getStringArray(R.array.order)
+        val spinnerAdapter =
+            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, array)
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.spinnerUserPloggingOrder.adapter = spinnerAdapter
+        binding.spinnerUserPloggingOrder.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+                    Constant.type = position
+                    viewModel.searchType.value = position
+                    viewModel.getUserPloggingData()
+                    moveToZeroPosition = true
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>?) {}
+            }
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun responseApi() {
+        viewModel.plogging.observe(viewLifecycleOwner) { adapter.submitData(lifecycle, it) }
+        viewModel.userData.observe(viewLifecycleOwner) {
+            binding.tvUserPloggingTotalScore.text = it.scoreMonthly.toShort4() + "점"
+            binding.tvUserPloggingDistanceNumber.text =
+                it.distanceMonthly.toFloat().meterToKilometer().distanceToShort4() + "km"
+            binding.tvUserPloggingScore.text = it.trashMonthly.toShort4() + "개"
+        }
+        // 뒤늦게 로그인이 되었을 때 비동기로 플로깅 가져오기
+        mainViewModel.responseCode.observe(viewLifecycleOwner) {
+            if (it == 200 && !viewModel.isRequestUserPlogging.value!!) {
+                viewModel.getUserData()
+                viewModel.getUserPloggingData()
+            }
+        }
+    }
+
+    private fun getPlogging() {
+        viewModel.userId.value = if (fromRankUserData == null)
+            SharedPreference.getUserEmail(requireContext())
+        else fromRankUserData?.userId
+        viewModel.getUserData()
+        viewModel.getUserPloggingData()
     }
 
     private fun showErrorState(loadState: CombinedLoadStates) {
@@ -191,12 +190,25 @@ class UserFragment : BaseFragment<FragmentUserBinding, UserViewModel>() {
             .into(binding.ivUserPloggingProfile)
     }
 
+    private fun setTooltip() {
+        viewModel.userData.observe(viewLifecycleOwner) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                binding.clUserPloggingScore.tooltipText = it.scoreMonthly.inputComma() + "점"
+                binding.clUserPloggingDistance.tooltipText = it.distanceMonthly.inputComma() + "m"
+                binding.clUserPloggingCount.tooltipText = it.trashMonthly.inputComma() + "개"
+            }
+        }
+    }
+
     override fun clickListener() {
         binding.ivUserPloggingSetting.onSingleClickListener {
             if (fromRankUserData == null) {
                 findNavController().navigate(R.id.action_user_to_setting)
                 mainViewModel.showBottomNav.value = false
             } else findNavController().popBackStack()
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            binding.clUserPloggingScore.tooltipText = viewModel.userData.value?.scoreMonthly + "점"
         }
     }
 

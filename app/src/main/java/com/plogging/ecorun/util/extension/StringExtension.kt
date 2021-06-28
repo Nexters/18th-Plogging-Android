@@ -3,7 +3,9 @@ package com.plogging.ecorun.util.extension
 import android.content.Context
 import android.content.pm.PackageManager
 import androidx.core.content.ContextCompat
+import java.text.DecimalFormat
 import java.util.regex.Pattern
+import kotlin.math.roundToInt
 
 private val EMAIL_ADDRESS_PATTERN = Pattern.compile(
     "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
@@ -33,9 +35,7 @@ fun String.isValidPassword(): Boolean? {
     return false
 }
 
-fun String?.isCustomType(): Boolean {
-    return this?.contains(":") == true && this.split(":")[1] == "custom"
-}
+fun String?.isCustomType(): Boolean = this?.contains(":") == true && this.split(":")[1] == "custom"
 
 fun Context.isPermissionGranted(permission: String): Boolean {
     return ContextCompat.checkSelfPermission(
@@ -54,11 +54,25 @@ fun Int.toSplitTime(): String {
     }).toString()
 }
 
-fun Float.meterToKilometer(): String {
-    return String.format("%.2f", this / 1000f)
+fun Float.meterToKilometer(): String = String.format("%.2f", this / 1000f)
+
+fun Float.meterToCalorie(): Double = String.format("%.1f", this * 0.0625).toDouble()
+
+fun String.distanceToShort4(): String {
+    val digitLength = this.split('.')[0].length
+    val floatNumber = this.toFloat()
+    return when {
+        digitLength == 2 -> floatNumber.times(10).roundToInt().div(10).toDouble().toString()
+        digitLength >= 3 -> floatNumber.roundToInt().toString()
+        digitLength >= 4 -> "999"
+        else -> this
+    }
 }
 
-fun Float.meterToCalorie(): Double {
-    return String.format("%.1f", this * 0.0625).toDouble()
+fun String.toShort4(): String = when {
+    this.length >= 5 -> "9999"
+    else -> this
 }
+
+fun String.inputComma(): String = DecimalFormat("#,###").format(this.toFloat())
 
