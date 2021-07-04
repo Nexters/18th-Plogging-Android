@@ -6,6 +6,7 @@ import android.net.Uri.EMPTY
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -57,13 +58,14 @@ class WithdrawFragment : BaseFragment<FragmentWithdrawBinding, WithdrawViewModel
 
     private fun responseApi() {
         viewModel.responseCode.observe(viewLifecycleOwner) {
+            showLoadingPage(false)
             when (it) {
                 200 -> {
                     when (SharedPreference.getUserEmail(requireContext()).split(":")[1]) {
                         GOOGLE -> googleWithdraw()
                         KAKAO -> kakaoWithdraw()
                         NAVER -> naverWithdraw()
-                        CUSTOM -> viewModel.withdraw()
+                        CUSTOM -> withdrawProcess()
                     }
                 }
                 else -> requireContext().toast(getString(R.string.fail_withdraw))
@@ -76,6 +78,11 @@ class WithdrawFragment : BaseFragment<FragmentWithdrawBinding, WithdrawViewModel
         SharedPreference.setUserName(requireContext(), "")
         SharedPreference.setUserPw(requireContext(), "")
         SharedPreference.setUserImage(requireContext(), EMPTY)
+    }
+
+    private fun showLoadingPage(show: Boolean) {
+        binding.clWithdrawProgress.isVisible = show
+        binding.clWithdrawProgress.setOnClickListener { !show }
     }
 
     private fun moveSignInPage() {
@@ -116,7 +123,7 @@ class WithdrawFragment : BaseFragment<FragmentWithdrawBinding, WithdrawViewModel
     }
 
     override fun clickListener() {
-        binding.btnWithdraw.setOnClickListener { viewModel.withdraw() }
+        binding.btnWithdraw.setOnClickListener { showLoadingPage(true); viewModel.withdraw() }
         binding.includeWithdraw.ivBack.setOnClickListener { findNavController().popBackStack() }
     }
 }

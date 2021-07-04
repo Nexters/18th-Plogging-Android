@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
+import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
@@ -41,8 +42,14 @@ class ChangeNickNameFragment :
         binding.etSettingNickName.hint = SharedPreference.getUserName(requireContext())
     }
 
+    private fun showLoadingPage(show: Boolean) {
+        binding.clSettingNickNameProgress.isVisible = show
+        binding.clSettingNickNameProgress.setOnClickListener { !show }
+    }
+
     private fun responseApi() {
         viewModel.responseCode.observe(viewLifecycleOwner) {
+            showLoadingPage(false)
             when (it) {
                 200 -> {
                     requireContext().toast(getString(R.string.changed_nickname))
@@ -65,6 +72,7 @@ class ChangeNickNameFragment :
     override fun clickListener() {
         binding.include.ivBack.setOnClickListener { findNavController().popBackStack() }
         binding.btnSettingNickName.setOnClickListener {
+            showLoadingPage(true)
             viewModel.nickname.value = binding.etSettingNickName.text.toString()
             viewModel.changeNickname()
             hideKeyboard(it)

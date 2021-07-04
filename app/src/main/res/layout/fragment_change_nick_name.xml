@@ -20,8 +20,9 @@
 
         <EditText
             android:id="@+id/et_setting_nick_name"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/fill_layout"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_24"
             android:background="@color/white"
             android:gravity="center"
             android:hint="@string/nick_name_empty"
@@ -66,5 +67,20 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_setting_nick_name_alert"
             app:layout_constraintVertical_bias="0.1" />
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_setting_nick_name_progress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/transparent_400"
+            android:visibility="gone">
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
