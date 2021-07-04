@@ -24,6 +24,7 @@ class BaseApplication : Application() {
                 is EventImpl.NetworkErrorEvent -> toast(getString(R.string.error_network))
                 is EventImpl.ServerErrorEvent -> toast(getString(R.string.error_server))
                 is EventImpl.LogoutEvent -> toast(getString(R.string.fail_sign_in))
+                is EventImpl.TimeoutErrorEvent -> toast(getString(R.string.retry_api))
             }
         }
 
