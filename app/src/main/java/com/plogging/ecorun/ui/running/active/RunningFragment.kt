@@ -55,6 +55,7 @@ class RunningFragment : BaseFragment<FragmentRunningBinding, RunningViewModel>()
         initServiceConnection()
         initView()
         readyTimer()
+        bottomViewDown()
         manageRunningState()
         getDistance()
         getTimerNumber()
@@ -102,13 +103,13 @@ class RunningFragment : BaseFragment<FragmentRunningBinding, RunningViewModel>()
         super.onDestroy()
     }
 
-    private fun initView() {
-        // 하단 바
+    private fun bottomViewDown() {
         parentFragment?.parentFragment?.let {
-            mainViewModel = ViewModelProvider(it).get(MainViewModel::class.java)
+            ViewModelProvider(it).get(MainViewModel::class.java).showBottomNav.value = false
         }
+    }
 
-        mainViewModel.showBottomNav.value = false
+    private fun initView() {
         val mapFragment =
             childFragmentManager.findFragmentById(R.id.map_running) as SupportMapFragment
 

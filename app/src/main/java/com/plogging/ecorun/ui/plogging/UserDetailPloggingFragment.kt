@@ -29,19 +29,19 @@ class UserDetailPloggingFragment :
     override fun getViewBinding() = FragmentDetailPloggingBinding.inflate(layoutInflater)
     override val viewModel: UserDetailPloggingViewModel by viewModels()
     private val adapter by lazy { TrashRecyclerAdapter() }
-    lateinit var mainViewModel: MainViewModel
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initSharedViewModel()
+        bottomViewDown()
         initRecycler(plogging.trashList)
         responseApi()
         initView()
     }
 
-    private fun initSharedViewModel() {
+    private fun bottomViewDown() {
         parentFragment?.parentFragment?.let {
-            mainViewModel = ViewModelProvider(it).get(MainViewModel::class.java)
+            ViewModelProvider(it).get(MainViewModel::class.java).showBottomNav.value = false
         }
     }
 
@@ -49,7 +49,6 @@ class UserDetailPloggingFragment :
     private fun initView() {
         val totalTrashCount = plogging.trashList.sumOf { it.pickCount }.toString()
         val time = plogging.createdTime
-        mainViewModel.showBottomNav.value = false
         binding.tvPloggingDetailName.text = SharedPreference.getUserName(requireContext())
         binding.tvPloggingDetailTotalTrashTitle.text = "총 ${totalTrashCount}개의 쓰레기를 주웠어요!"
         binding.tvPloggingDetailDate.text =

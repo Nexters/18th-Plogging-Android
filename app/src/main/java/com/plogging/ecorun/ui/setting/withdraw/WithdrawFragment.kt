@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -20,6 +21,7 @@ import com.plogging.ecorun.base.BaseFragment
 import com.plogging.ecorun.data.local.SharedPreference
 import com.plogging.ecorun.databinding.FragmentWithdrawBinding
 import com.plogging.ecorun.ui.auth.MainActivity
+import com.plogging.ecorun.ui.main.MainViewModel
 import com.plogging.ecorun.util.constant.Constant.CUSTOM
 import com.plogging.ecorun.util.constant.Constant.GOOGLE
 import com.plogging.ecorun.util.constant.Constant.KAKAO
@@ -38,8 +40,15 @@ class WithdrawFragment : BaseFragment<FragmentWithdrawBinding, WithdrawViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        bottomViewDown()
         initTitle()
         responseApi()
+    }
+
+    private fun bottomViewDown() {
+        parentFragment?.parentFragment?.let {
+            ViewModelProvider(it).get(MainViewModel::class.java).showBottomNav.value = false
+        }
     }
 
     private fun initTitle() {

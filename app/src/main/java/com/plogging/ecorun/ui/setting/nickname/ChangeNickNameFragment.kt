@@ -6,11 +6,13 @@ import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.plogging.ecorun.R
 import com.plogging.ecorun.base.BaseFragment
 import com.plogging.ecorun.data.local.SharedPreference
 import com.plogging.ecorun.databinding.FragmentChangeNickNameBinding
+import com.plogging.ecorun.ui.main.MainViewModel
 import com.plogging.ecorun.util.extension.toast
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -23,8 +25,15 @@ class ChangeNickNameFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initView()
+        bottomViewDown()
         observingText()
         responseApi()
+    }
+
+    private fun bottomViewDown() {
+        parentFragment?.parentFragment?.let {
+            ViewModelProvider(it).get(MainViewModel::class.java).showBottomNav.value = false
+        }
     }
 
     private fun initView() {

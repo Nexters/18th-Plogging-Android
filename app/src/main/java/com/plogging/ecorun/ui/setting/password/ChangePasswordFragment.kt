@@ -8,10 +8,12 @@ import android.view.View.VISIBLE
 import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.plogging.ecorun.R
 import com.plogging.ecorun.base.BaseFragment
 import com.plogging.ecorun.databinding.FragmentChangePasswordBinding
+import com.plogging.ecorun.ui.main.MainViewModel
 import com.plogging.ecorun.util.extension.isMatched
 import com.plogging.ecorun.util.extension.isValidPassword
 import com.plogging.ecorun.util.extension.setGrayBorder
@@ -29,6 +31,7 @@ class ChangePasswordFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initTitle()
+        bottomViewDown()
         verifiedButton()
         verifiedCurrentPassword()
         verifiedNewPassword()
@@ -36,6 +39,12 @@ class ChangePasswordFragment :
         isMatchedPassword()
         verifiedButton()
         responseApi()
+    }
+
+    private fun bottomViewDown() {
+        parentFragment?.parentFragment?.let {
+            ViewModelProvider(it).get(MainViewModel::class.java).showBottomNav.value = false
+        }
     }
 
     private fun initTitle() {

@@ -12,11 +12,13 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.plogging.ecorun.R
 import com.plogging.ecorun.base.BaseFragment
 import com.plogging.ecorun.data.local.SharedPreference
 import com.plogging.ecorun.databinding.FragmentSettingBinding
+import com.plogging.ecorun.ui.main.MainViewModel
 import com.plogging.ecorun.util.extension.*
 import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxkotlin.addTo
@@ -31,10 +33,17 @@ class SettingFragment : BaseFragment<FragmentSettingBinding, SettingViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        bottomViewDown()
         getCameraImage()
         getAlbumImage()
         responseApi()
         initView()
+    }
+
+    private fun bottomViewDown() {
+        parentFragment?.parentFragment?.let {
+            ViewModelProvider(it).get(MainViewModel::class.java).showBottomNav.value = false
+        }
     }
 
     private fun getAlbumImage() {

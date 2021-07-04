@@ -20,11 +20,13 @@ import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.plogging.ecorun.R
 import com.plogging.ecorun.base.BaseFragment
 import com.plogging.ecorun.databinding.FragmentCameraBinding
+import com.plogging.ecorun.ui.main.MainViewModel
 import com.plogging.ecorun.util.extension.*
 import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxkotlin.addTo
@@ -45,10 +47,17 @@ class CameraFragment : BaseFragment<FragmentCameraBinding, SaveViewModel>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initOrientationEventListener()
+        bottomViewDown()
         permissionCheck()
         getOutputDirectory()
         initImageCaptureObject()
         backPress()
+    }
+
+    private fun bottomViewDown() {
+        parentFragment?.parentFragment?.let {
+            ViewModelProvider(it).get(MainViewModel::class.java).showBottomNav.value = false
+        }
     }
 
     private fun initOrientationEventListener() {

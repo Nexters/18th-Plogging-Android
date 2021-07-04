@@ -36,11 +36,18 @@ class SaveFragment : BaseFragment<FragmentSaveBinding, SaveViewModel>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initView()
+        bottomViewDown()
         calculateScore()
         backPress()
         initImage()
         initRecycler()
         responseApi()
+    }
+
+    private fun bottomViewDown() {
+        parentFragment?.parentFragment?.let {
+            ViewModelProvider(it).get(MainViewModel::class.java).showBottomNav.value = false
+        }
     }
 
     private fun initRecycler() {
