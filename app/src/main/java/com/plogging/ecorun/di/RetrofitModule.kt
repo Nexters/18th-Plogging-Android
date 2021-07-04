@@ -17,6 +17,7 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.net.CookieManager
+import java.util.concurrent.TimeUnit
 import javax.inject.Qualifier
 import javax.inject.Singleton
 
@@ -30,8 +31,8 @@ annotation class AuthRetrofit
 @InstallIn(SingletonComponent::class)
 object RetrofitModule {
 
-    private const val BASE_URL = "https://nexters.plogging.kro.kr:20000/"
-    private const val TEST_URL = "http://192.168.219.103:20000/"
+    private const val BASE_URL = "https://eco-run.duckdns.org/"
+    private const val TEST_URL = "http://192.168.219.106:20000/"
     private const val NAVER_URL = "https://openapi.naver.com/"
 
     @Provides
@@ -47,6 +48,8 @@ object RetrofitModule {
                     .build()
                 chain.proceed(newRequest)
             }
+            .readTimeout(10, TimeUnit.SECONDS)
+            .writeTimeout(10, TimeUnit.SECONDS)
             .addInterceptor(networkCheck)
             .addInterceptor(logger)
             .build()
@@ -82,7 +85,7 @@ object RetrofitModule {
     @Singleton
     fun provideRetrofitService(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(TEST_URL)
+            .baseUrl(BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
