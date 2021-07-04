@@ -1,6 +1,5 @@
 package com.plogging.ecorun.ui.main.rank.detail
 
-import android.util.Log
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide

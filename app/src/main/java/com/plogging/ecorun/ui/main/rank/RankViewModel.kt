@@ -1,6 +1,5 @@
 package com.plogging.ecorun.ui.main.rank
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.plogging.ecorun.base.BaseViewModel
 import com.plogging.ecorun.data.model.GlobalRank
@@ -34,16 +33,16 @@ class RankViewModel @Inject constructor(private val rankingRepository: RankingRe
         rankType.value ?: return
         isRequestGlobalRanking.value = true
         rankingRepository.getGlobalRanking(rankType.value!!, 10, 0)
-            .subscribe(object : DefaultSingleObserver<GlobalRankingResponse>(){
-                override fun onSuccess(response: GlobalRankingResponse){
+            .subscribe(object : DefaultSingleObserver<GlobalRankingResponse>() {
+                override fun onSuccess(response: GlobalRankingResponse) {
                     if (rankType.value == WEEKLY) weekRankList.value = response.data
-                    else if(rankType.value == MONTHLY) monthRankList.value = response.data
+                    else if (rankType.value == MONTHLY) monthRankList.value = response.data
                 }
 
                 override fun onError(e: Throwable) {
                     super.onError(e)
                     if (rankType.value == WEEKLY) isEmptyWeeklyList.value = true
-                    else if(rankType.value == MONTHLY) isEmptyMonthlyList.value = true
+                    else if (rankType.value == MONTHLY) isEmptyMonthlyList.value = true
                 }
             })
     }
@@ -53,8 +52,8 @@ class RankViewModel @Inject constructor(private val rankingRepository: RankingRe
         userId.value ?: return
         isRequestUserRanking.value = true
         rankingRepository.getUserRanking(rankType.value!!, userId.value!!)
-            .subscribe(object : DefaultSingleObserver<UserRankingResponse>(){
-                override fun onSuccess(response: UserRankingResponse){
+            .subscribe(object : DefaultSingleObserver<UserRankingResponse>() {
+                override fun onSuccess(response: UserRankingResponse) {
                     userRankData.value = response.data
                     isEmptyMyData.value = false
                 }

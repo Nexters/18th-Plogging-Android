@@ -37,7 +37,8 @@ class UserPagingAdapter(private val otherUser: GlobalRank?) :
                 } else { // 다른 사람 랭킹 플로깅 정보
                     val bundle = bundleOf("imageUri" to item.ploggingImg)
                     val extras = FragmentNavigatorExtras(it to "detailPhotoView")
-                    it.findNavController().navigate(R.id.action_rank_to_image_dialog, bundle, null, extras)
+                    it.findNavController()
+                        .navigate(R.id.action_rank_to_image_dialog, bundle, null, extras)
                 }
             }
             Glide.with(itemView.context)

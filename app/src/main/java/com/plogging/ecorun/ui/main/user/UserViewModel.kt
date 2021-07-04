@@ -9,7 +9,6 @@ import com.plogging.ecorun.data.model.MyDatabasePlogging
 import com.plogging.ecorun.data.repository.auth.AuthRepository
 import com.plogging.ecorun.data.repository.plogging.PloggingPagingRepository
 import com.plogging.ecorun.data.response.UserDetailResponse
-import com.plogging.ecorun.util.extension.composeSchedulers
 import com.plogging.ecorun.util.observer.DefaultFlowableObserver
 import com.plogging.ecorun.util.observer.DefaultSingleObserver
 import dagger.hilt.android.lifecycle.HiltViewModel

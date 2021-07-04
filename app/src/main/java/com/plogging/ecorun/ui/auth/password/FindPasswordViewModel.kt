@@ -24,7 +24,7 @@ class FindPasswordViewModel @Inject constructor(private val repository: AuthRepo
 
                 override fun onError(e: Throwable) {
                     super.onError(e)
-                    if(e is HttpException) responseCode.value = e.code()
+                    if (e is HttpException) responseCode.value = e.code()
                 }
             })
     }

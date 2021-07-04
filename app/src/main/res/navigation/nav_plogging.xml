@@ -25,8 +25,7 @@
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"
-            />
+            app:popExitAnim="@anim/slide_out_right" />
     </dialog>
 
     <fragment
@@ -48,26 +47,24 @@
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"
-            />
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <dialog
         android:id="@+id/nav_running_dialog_saved_no_image"
         android:name="com.plogging.ecorun.ui.running.save.dialog.SavedNoImageDialog"
-        tools:layout="@layout/fragment_dialog"/>
+        tools:layout="@layout/fragment_dialog" />
     <dialog
         android:id="@+id/nav_running_dialog_delete"
         android:name="com.plogging.ecorun.ui.running.save.dialog.DeleteDialog"
-        tools:layout="@layout/fragment_dialog"/>
+        tools:layout="@layout/fragment_dialog" />
     <dialog
         android:id="@+id/nav_running_dialog_score"
         android:name="com.plogging.ecorun.ui.running.save.dialog.ScoreDialog"
-        tools:layout="@layout/fragment_dialog"/>
+        tools:layout="@layout/fragment_dialog" />
     <fragment
         android:id="@+id/nav_running_camera"
         android:name="com.plogging.ecorun.ui.running.save.CameraFragment"
-        tools:layout="@layout/fragment_camera">
-    </fragment>
+        tools:layout="@layout/fragment_camera"></fragment>
 
 
 </navigation>

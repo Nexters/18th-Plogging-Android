@@ -19,9 +19,4 @@ class RegisterViewModel : BaseViewModel() {
             .subscribe { buttonEnableSubject.onNext(it) }
             .addTo(compositeDisposable)
     }
-
-    fun isMatchedPw(password: String?, passwordConfirm: String?): Boolean? {
-        if(passwordConfirm.isNullOrBlank()) return null
-        return password == passwordConfirm
-    }
 }

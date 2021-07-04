@@ -66,11 +66,16 @@ class SavedNoImageDialog : BaseFragmentDialog<FragmentDialogBinding, SaveViewMod
         saveBitmapToMediaStore(bitmap, requireContext().contentResolver)
             .subscribeOn(Schedulers.io())
             .flatMap {
-                uriToRequestBody(it, requireContext().contentResolver, getString(R.string.plogging_param))
+                uriToRequestBody(
+                    it,
+                    requireContext().contentResolver,
+                    getString(R.string.plogging_param)
+                )
             }
             .subscribe({
                 saveViewModel.imageBody = it
-                saveViewModel.savePlogging() }, {})
+                saveViewModel.savePlogging()
+            }, {})
             .addTo(disposables)
     }
 }

@@ -20,7 +20,7 @@ import javax.inject.Inject
 @HiltViewModel
 class SaveViewModel @Inject constructor(private val repository: PloggingRepository) :
     BaseViewModel() {
-    private lateinit var sendPloggingData : String
+    private lateinit var sendPloggingData: String
     val trashList = MutableLiveData<IntArray>()
     var imageBody: MultipartBody.Part? = null
     val responseCode = MutableLiveData<Int>()
@@ -48,8 +48,8 @@ class SaveViewModel @Inject constructor(private val repository: PloggingReposito
         }
         sendPloggingData = Gson().toJson(SendPlogging(ploggingMetaData, trash))
         repository.getScore(sendPloggingData)
-            .subscribe(object : DefaultSingleObserver<ScoreResponse>(){
-                override fun onSuccess(response: ScoreResponse){
+            .subscribe(object : DefaultSingleObserver<ScoreResponse>() {
+                override fun onSuccess(response: ScoreResponse) {
                     score.value = response.score
                 }
             })
@@ -69,8 +69,8 @@ class SaveViewModel @Inject constructor(private val repository: PloggingReposito
         val data =
             MultipartBody.Part.createFormData("ploggingData", sendPloggingData)
         repository.savePlogging(imageBody!!, data)
-            .subscribe(object : DefaultSingleObserver<BaseResponse>(){
-                override fun onSuccess(response: BaseResponse){
+            .subscribe(object : DefaultSingleObserver<BaseResponse>() {
+                override fun onSuccess(response: BaseResponse) {
                     responseCode.value = response.rc + 1
                 }
 

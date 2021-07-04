@@ -204,7 +204,6 @@ class UserFragment : BaseFragment<FragmentUserBinding, UserViewModel>() {
         binding.ivUserPloggingSetting.onSingleClickListener {
             if (fromRankUserData == null) {
                 findNavController().navigate(R.id.action_user_to_setting)
-                mainViewModel.showBottomNav.value = false
             } else findNavController().popBackStack()
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

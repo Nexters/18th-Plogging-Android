@@ -20,14 +20,14 @@ class UserDetailPloggingViewModel @Inject constructor(private val repository: Pl
         ploggingId.value ?: return
         ploggingImageName.value ?: return
         repository.deleteMyPlogging(ploggingId.value!!, ploggingImageName.value!!)
-            .subscribe(object : DefaultSingleObserver<BaseResponse>(){
-                override fun onSuccess(response: BaseResponse){
+            .subscribe(object : DefaultSingleObserver<BaseResponse>() {
+                override fun onSuccess(response: BaseResponse) {
                     responseCode.value = response.rc
                 }
 
                 override fun onError(e: Throwable) {
                     super.onError(e)
-                    Log.d("stackTraceToString", "${e.stackTraceToString() }")
+                    Log.d("stackTraceToString", "${e.stackTraceToString()}")
                 }
             })
     }

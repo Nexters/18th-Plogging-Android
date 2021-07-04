@@ -10,7 +10,6 @@ import android.os.Environment
 import android.os.SystemClock
 import android.provider.MediaStore
 import android.util.DisplayMetrics
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import androidx.camera.core.CameraSelector

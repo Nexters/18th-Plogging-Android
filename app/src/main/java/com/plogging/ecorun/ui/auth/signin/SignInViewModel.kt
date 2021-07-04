@@ -45,7 +45,8 @@ class SignInViewModel @Inject constructor(private val repository: AuthRepository
 
                 override fun onError(e: Throwable) {
                     super.onError(e)
-                    if(e is HttpException) responseCode.value =  e.code()
+                    customSignInSuccess.value = false
+                    if (e is HttpException) responseCode.value = e.code()
                     else responseCode.value = 500
                 }
             })
@@ -64,7 +65,7 @@ class SignInViewModel @Inject constructor(private val repository: AuthRepository
 
                 override fun onError(e: Throwable) {
                     super.onError(e)
-                    if(e is HttpException) responseCode.value =  e.code()
+                    if (e is HttpException) responseCode.value = e.code()
                     else responseCode.value = 500
                 }
             })
@@ -83,7 +84,7 @@ class SignInViewModel @Inject constructor(private val repository: AuthRepository
 
                 override fun onError(e: Throwable) {
                     super.onError(e)
-                    if(e is HttpException) responseCode.value =  e.code()
+                    if (e is HttpException) responseCode.value = e.code()
                     else responseCode.value = 500
                 }
             })
@@ -100,7 +101,7 @@ class SignInViewModel @Inject constructor(private val repository: AuthRepository
 
                 override fun onError(e: Throwable) {
                     super.onError(e)
-                    if(e is HttpException) responseCode.value =  e.code()
+                    if (e is HttpException) responseCode.value = e.code()
                     else responseCode.value = 500
                 }
             })

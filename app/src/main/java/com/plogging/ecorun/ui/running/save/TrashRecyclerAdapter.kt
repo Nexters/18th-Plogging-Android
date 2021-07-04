@@ -6,14 +6,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.plogging.ecorun.data.model.Trash
+import com.plogging.ecorun.databinding.ItemTrashBinding
 import com.plogging.ecorun.util.constant.Constant.CAN
 import com.plogging.ecorun.util.constant.Constant.EXTRA
 import com.plogging.ecorun.util.constant.Constant.GLASSES
 import com.plogging.ecorun.util.constant.Constant.PAPER
 import com.plogging.ecorun.util.constant.Constant.PLASTIC
 import com.plogging.ecorun.util.constant.Constant.VINYL
-import com.plogging.ecorun.data.model.Trash
-import com.plogging.ecorun.databinding.ItemTrashBinding
 import com.plogging.ecorun.util.recycler.DiffCallback
 
 class TrashRecyclerAdapter : ListAdapter<Trash, TrashRecyclerAdapter.TrashTypeViewHolder>(

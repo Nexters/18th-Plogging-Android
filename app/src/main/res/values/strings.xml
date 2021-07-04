@@ -222,5 +222,8 @@
     <string name="save_picture_sentence">카메라와 사진 접근권한 허용 후에\n촬영 및 사진 붙여넣기를 할 수 있습니다.</string>
     <string name="empty_distance">_ km</string>
     <string name="empty_trash">_ 개</string>
+    <string name="zero">0</string>
+    <string name="three">3</string>
+    <string name="retry_api">다시 시도해주세요</string>
 
 </resources>

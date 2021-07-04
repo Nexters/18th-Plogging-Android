@@ -15,14 +15,14 @@ class WithdrawViewModel @Inject constructor(private val repository: AuthReposito
     val responseCode = MutableLiveData<Int>()
 
     fun withdraw() = repository.deleteUser()
-        .subscribe(object : DefaultSingleObserver<BaseResponse>(){
+        .subscribe(object : DefaultSingleObserver<BaseResponse>() {
             override fun onSuccess(response: BaseResponse) {
                 responseCode.value = response.rc
             }
 
             override fun onError(e: Throwable) {
                 super.onError(e)
-                if(e is HttpException) responseCode.value = e.code()
+                if (e is HttpException) responseCode.value = e.code()
             }
         })
 }

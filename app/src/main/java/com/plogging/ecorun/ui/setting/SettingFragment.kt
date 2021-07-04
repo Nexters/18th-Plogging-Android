@@ -4,7 +4,6 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.util.Log
 import android.view.View
 import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
@@ -22,7 +21,6 @@ import com.plogging.ecorun.ui.main.MainViewModel
 import com.plogging.ecorun.util.extension.*
 import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxkotlin.addTo
-import io.reactivex.schedulers.Schedulers
 
 @AndroidEntryPoint
 class SettingFragment : BaseFragment<FragmentSettingBinding, SettingViewModel>() {

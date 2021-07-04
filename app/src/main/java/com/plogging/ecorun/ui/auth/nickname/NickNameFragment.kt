@@ -84,7 +84,8 @@ class NickNameFragment : BaseFragment<FragmentNickNameBinding, NickNameViewModel
             .subscribe({
                 requireContext().toast(getString(R.string.success_register))
                 saveUserData(it)
-                moveNextPage() }, {})
+                moveNextPage()
+            }, {})
             .addTo(disposables)
     }
 

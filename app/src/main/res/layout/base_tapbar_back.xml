@@ -9,14 +9,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="56dp" />
+        app:layout_constraintGuide_begin="@dimen/margin_56" />
 
     <ImageView
         android:id="@+id/iv_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:padding="8dp"
+        android:layout_marginStart="@dimen/margin_20"
+        android:padding="@dimen/padding_8"
         android:src="@drawable/ic_back_arrow_black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2" />
@@ -25,11 +25,11 @@
         android:id="@+id/tap_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="@dimen/margin_36"
+        android:layout_marginTop="@dimen/margin_24"
         android:text="@string/title"
         android:textColor="@color/black"
-        android:textSize="26sp"
+        android:textSize="@dimen/text_size_26"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_back" />
 

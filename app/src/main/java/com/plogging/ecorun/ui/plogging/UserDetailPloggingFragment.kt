@@ -9,7 +9,6 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.bumptech.glide.Glide
 import com.plogging.ecorun.R
 import com.plogging.ecorun.base.BaseFragment
 import com.plogging.ecorun.data.local.SharedPreference
@@ -19,6 +18,7 @@ import com.plogging.ecorun.databinding.FragmentDetailPloggingBinding
 import com.plogging.ecorun.ui.main.MainViewModel
 import com.plogging.ecorun.ui.running.save.TrashRecyclerAdapter
 import com.plogging.ecorun.util.extension.*
+import com.plogging.ecorun.util.glide.GlideApp
 import dagger.hilt.android.AndroidEntryPoint
 import java.net.URL
 
@@ -61,7 +61,7 @@ class UserDetailPloggingFragment :
         binding.ivPloggingDetailUserProfile.setImageURI(
             SharedPreference.getUserImage(requireContext())
         )
-        Glide.with(requireContext()).load(plogging.ploggingImg).into(binding.ivPloggingDetail)
+        GlideApp.with(requireContext()).load(plogging.ploggingImg).into(binding.ivPloggingDetail)
     }
 
     private fun responseApi() {

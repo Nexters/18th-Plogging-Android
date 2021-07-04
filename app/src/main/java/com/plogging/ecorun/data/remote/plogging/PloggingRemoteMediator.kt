@@ -14,7 +14,7 @@ import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
 
 @OptIn(ExperimentalPagingApi::class)
-class PloggingRemoteMediator (
+class PloggingRemoteMediator(
     private val ploggingApiService: PloggingApiService,
     private val ploggingDatabase: PloggingDatabase,
     private val userId: String,

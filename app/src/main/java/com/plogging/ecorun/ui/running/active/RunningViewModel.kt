@@ -1,7 +1,6 @@
 package com.plogging.ecorun.ui.running.active
 
 import com.plogging.ecorun.base.BaseViewModel
-import com.plogging.ecorun.util.extension.composeSchedulers
 import io.reactivex.Observable
 import io.reactivex.rxkotlin.addTo
 import io.reactivex.schedulers.Schedulers
@@ -19,14 +18,14 @@ class RunningViewModel : BaseViewModel() {
 
     fun readyTimer() =
         Observable.intervalRange(0, 4, 0, 1, TimeUnit.SECONDS)
-            .map { it.toInt() }
+            .map(Long::toInt)
             .doOnComplete { runningState.onNext(RunningState.START) }
             .subscribe({ readySeconds.onNext(3 - it) }, {})
             .addTo(compositeDisposable)
 
     fun runningTimer() =
         Observable.interval(1, TimeUnit.SECONDS)
-            .map { it.toInt() }
+            .map(Long::toInt)
             .filter { runningState.value == RunningState.ACTIVE }
             .subscribe({ runningSeconds.onNext(runningSeconds.value?.plus(1)!!) }, {})
             .addTo(compositeDisposable)

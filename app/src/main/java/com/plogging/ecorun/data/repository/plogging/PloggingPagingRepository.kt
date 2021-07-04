@@ -23,17 +23,17 @@ class PloggingPagingRepository @Inject constructor(
         userId: String,
         searchType: Int,
     ): Flowable<PagingData<MyDatabasePlogging>> {
-        val orderBy = when(searchType){
+        val orderBy = when (searchType) {
             0 -> "createdTime"
             1 -> "trashSum"
-            2 ->"ploggingTotalScore"
-            else ->  "createdTime"
+            2 -> "ploggingTotalScore"
+            else -> "createdTime"
         }
         val pagingSourceFactory =
             { ploggingDatabase.myPloggingDao().getAllPlogging(userId, orderBy) }
         return Pager(
             config = PagingConfig(
-                pageSize = 200, // 페이지당 갯수 position에 해당
+                pageSize = 20, // 페이지당 갯수 position에 해당
                 enablePlaceholders = false, // 로드되지 않은 것은 null이 아닌 아예 보여지지 않음
 //                maxSize = 100, // (prefetchDistance + pageSize * 2) 이상으로 설정
 //                prefetchDistance = 4, // 엣지에서 로드될 아이템 갯수

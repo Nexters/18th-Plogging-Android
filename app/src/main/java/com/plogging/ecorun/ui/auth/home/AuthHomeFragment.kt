@@ -102,7 +102,8 @@ class AuthHomeFragment : BaseFragment<FragmentAuthBinding, AuthHomeViewModel>() 
             .doOnSubscribe { showLoadingPage(false) }
             .subscribe({
                 saveUserData(it)
-                findNavController().navigate(R.id.action_auth_to_main) }, {})
+                findNavController().navigate(R.id.action_auth_to_main)
+            }, {})
             .addTo(disposables)
     }
 
@@ -189,7 +190,7 @@ class AuthHomeFragment : BaseFragment<FragmentAuthBinding, AuthHomeViewModel>() 
 
     override fun clickListener() {
         binding.btnAuthHomeRegister.setOnClickListener { findNavController().navigate(R.id.action_auth_to_register) }
-        binding.btnAuthHomeSignin.setOnClickListener { findNavController().navigate(R.id.action_auth_to_sign_in) }
+        binding.btnAuthHomeSignIn.setOnClickListener { findNavController().navigate(R.id.action_auth_to_sign_in) }
         binding.tvPolicy.setOnClickListener { findNavController().navigate(R.id.action_auth_to_policy_dialog) }
         binding.btnAuthHomeGoogle.setOnClickListener { showLoadingPage(true); googleSignIn() }
         binding.btnAuthHomeKakao.setOnClickListener { showLoadingPage(true); kakaoSignIn() }

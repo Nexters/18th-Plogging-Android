@@ -8,4 +8,4 @@ data class Trash(
     val pickCount: Int,
     @SerializedName("trash_type")
     val trashType: Int
-): Serializable
+) : Serializable

@@ -85,7 +85,7 @@ class SignOutDialog : BaseFragmentDialog<FragmentDialogBinding, SignOutViewModel
     }
 
     private fun signOutProcess() {
-        requireContext().toast( getString(R.string.success_sign_out))
+        requireContext().toast(getString(R.string.success_sign_out))
         initUserData()
         moveSignInPage()
     }

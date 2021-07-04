@@ -43,7 +43,7 @@ class MainViewModel @Inject constructor(private val repository: AuthRepository) 
 
     fun socialSignIn() {
         id.value ?: return
-        val userInfo = User(userId = id.value!!, userName = "dummy")
+        val userInfo = User(userId = id.value!!, userName = "에코런")
         repository.socialSignIn(userInfo).subscribe(object : DefaultSingleObserver<UserResponse>() {
             override fun onSuccess(response: UserResponse) {
                 responseCode.value = 200

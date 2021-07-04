@@ -54,7 +54,8 @@ interface UserApiService {
     fun signOut(): Single<BaseResponse>
 
     @GET("/v1/nid/me")
-    fun getNaverUser(@Header("Authorization") token: String
+    fun getNaverUser(
+        @Header("Authorization") token: String
     ): Single<NaverUserResponse>
 
 }

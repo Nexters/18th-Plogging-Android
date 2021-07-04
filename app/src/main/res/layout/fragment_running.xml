@@ -23,14 +23,14 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-black"
             android:gravity="center"
+            android:text="@string/zero"
             android:textColor="@color/black"
             android:textSize="@dimen/text_size_74"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.1"
-            android:text="@string/zero" />
+            app:layout_constraintVertical_bias="0.1" />
 
         <TextView
             android:id="@+id/textView3"
@@ -213,6 +213,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-black"
+            android:text="@string/three"
             android:textColor="@color/green_500"
             android:textSize="@dimen/text_size_200"
             android:textStyle="bold"
@@ -221,8 +222,7 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.4"
-            android:text="@string/three" />
+            app:layout_constraintVertical_bias="0.4" />
 
         <TextView
             android:id="@+id/tv_running_ready"

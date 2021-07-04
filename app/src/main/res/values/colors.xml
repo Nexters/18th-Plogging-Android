@@ -12,6 +12,7 @@
     <color name="green_200">#d5f6e9</color>
     <color name="green_300">#37d5ab</color>
     <color name="green_400">#03DAC5</color>
+    <color name="green_450">#1ec800</color>
     <color name="green_500">#00b890</color>
     <color name="green_600">#008f70</color>
     <color name="green_700">#018786</color>
@@ -21,6 +22,7 @@
     <color name="blue_700">#FF3700B3</color>
 
     <color name="yellow_100">#fdf4d9</color>
+    <color name="yellow_500">#fee500</color>
     <color name="yellow_800">#ffbf00</color>
 
     <color name="transparent_000">#00FFFFFF</color>
@@ -35,4 +37,5 @@
     <color name="gray_600">#b6b6b6</color>
     <color name="gray_700">#898989</color>
     <color name="gray_800">#6e6e6e</color>
+    <color name="gray_900">#3b4049</color>
 </resources>
