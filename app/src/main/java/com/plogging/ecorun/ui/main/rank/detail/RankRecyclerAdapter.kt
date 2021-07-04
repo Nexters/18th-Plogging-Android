@@ -10,10 +10,11 @@ import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.plogging.ecorun.R
 import com.plogging.ecorun.data.model.GlobalRank
 import com.plogging.ecorun.databinding.ItemRankBinding
+import com.plogging.ecorun.util.glide.GlideApp
 import com.plogging.ecorun.util.recycler.DiffCallback
 
 class RankRecyclerAdapter :
@@ -32,9 +33,11 @@ class RankRecyclerAdapter :
     inner class RankViewHolder(private val itemRankBinding: ItemRankBinding) :
         RecyclerView.ViewHolder(itemRankBinding.root) {
         fun bind(item: GlobalRank, position: Int) {
-            Glide.with(itemView.context)
+            GlideApp.with(itemView.context)
                 .load(item.profileImg)
-                .placeholder(R.drawable.ic_default_profile_1)
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .skipMemoryCache(true)
+                .placeholder(R.drawable.bg_default)
                 .into(itemRankBinding.ivRankItemProfile)
             decorateTop3(position)
             itemRankBinding.tvRankItemNumber.text = (position + 1).toString()
