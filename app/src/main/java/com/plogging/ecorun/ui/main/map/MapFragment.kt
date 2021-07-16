@@ -3,6 +3,7 @@ package com.plogging.ecorun.ui.main.map
 import android.Manifest.permission.ACCESS_COARSE_LOCATION
 import android.Manifest.permission.ACCESS_FINE_LOCATION
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.os.Looper
@@ -87,7 +88,7 @@ class MapFragment : BaseFragment<FragmentMapBinding, MapViewModel>() {
                     val latLng = LatLng(location.latitude, location.longitude)
                     SharedPreference.setLongitude(requireContext(), latLng.longitude.toFloat())
                     SharedPreference.setLatitude(requireContext(), latLng.latitude.toFloat())
-                    gpsHelper.isGPSOn = true
+                    gpsHelper.isGPSOn.value = true
                     //set marker
                     if (currLocationMarker != null) currLocationMarker?.remove()
                     else map.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 17.0F))
@@ -134,16 +135,13 @@ class MapFragment : BaseFragment<FragmentMapBinding, MapViewModel>() {
         markerImg.setImageURI(SharedPreference.getUserImage(requireContext()))
     }
 
-    private fun checkGPS() {
-        gpsHelper.checkGPS()
-    }
-
     private fun checkPermission() {
-        if (allGranted()) checkGPS()
+        if (allGranted() && !gpsHelper.isGPSOn.value!!) findNavController().navigate(R.id.nav_plogging_permission)
         else {
             registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) {
-                if (it.values.all { isGranted -> isGranted == true }) checkGPS()
-            }.launch(arrayOf(ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION))
+                if (it.values.all { true } && !gpsHelper.isGPSOn.value!!)
+                    findNavController().navigate(R.id.nav_plogging_permission)
+            }.launch(arrayOf(ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION, ))
         }
     }
 
@@ -166,7 +164,7 @@ class MapFragment : BaseFragment<FragmentMapBinding, MapViewModel>() {
                 RxBus.post(EventImpl.NetworkErrorEvent())
                 return@setOnClickListener
             }
-            if (allGranted() && gpsHelper.isGPSOn) {
+            if (allGranted() && gpsHelper.isGPSOn.value == true) {
                 fusedLocationClient?.removeLocationUpdates(locationCallback)
                 findNavController().navigate(R.id.action_map_to_running)
             } else requireContext().toast(getString(R.string.turn_off_gps))
