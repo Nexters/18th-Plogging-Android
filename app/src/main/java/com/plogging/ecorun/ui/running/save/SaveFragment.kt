@@ -22,6 +22,7 @@ import com.plogging.ecorun.util.extension.meterToCalorie
 import com.plogging.ecorun.util.extension.meterToKilometer
 import com.plogging.ecorun.util.extension.toSplitTime
 import com.plogging.ecorun.util.extension.uriToRequestBody
+import com.plogging.ecorun.util.glide.GlideApp
 import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxkotlin.addTo
 import io.reactivex.schedulers.Schedulers
@@ -63,7 +64,7 @@ class SaveFragment : BaseFragment<FragmentSaveBinding, SaveViewModel>() {
     private fun initImage() {
         findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<Uri>("uri")
             ?.observe(viewLifecycleOwner) {
-                Glide.with(requireContext()).load(it).into(binding.ivSavedPhoto)
+                GlideApp.with(requireContext()).load(it).into(binding.ivSavedPhoto)
                 viewModel.uri = it
             }
     }

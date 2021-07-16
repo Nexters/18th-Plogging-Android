@@ -100,6 +100,7 @@ class MainFragment : BaseFragment<FragmentMainBinding, MainViewModel>() {
     private fun showBottomView() {
         viewModel.showBottomNav.observe(viewLifecycleOwner) { isShow ->
             when (isShow) {
+                null -> binding.clMain.transitionToStart()
                 true -> binding.clMain.transitionToStart()
                 false -> binding.clMain.transitionToEnd()
             }

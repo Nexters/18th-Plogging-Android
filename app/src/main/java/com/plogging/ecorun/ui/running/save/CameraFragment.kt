@@ -28,6 +28,7 @@ import com.plogging.ecorun.base.BaseFragment
 import com.plogging.ecorun.databinding.FragmentCameraBinding
 import com.plogging.ecorun.ui.main.MainViewModel
 import com.plogging.ecorun.util.extension.*
+import com.plogging.ecorun.util.glide.GlideApp
 import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxkotlin.addTo
 import java.io.File
@@ -92,7 +93,7 @@ class CameraFragment : BaseFragment<FragmentCameraBinding, SaveViewModel>() {
                     drawMark(bitmap, R.drawable.ic_plogging_mark, resources)
                     drawDate(bitmap, scale)
                 }
-                Glide.with(requireContext()).load(bitmap).into(binding.ivCameraCapturePreview)
+                GlideApp.with(requireContext()).load(bitmap).into(binding.ivCameraCapturePreview)
                 orientationEventListener.disable() // 기울기 구하는 이벤트 종료
             }
         }

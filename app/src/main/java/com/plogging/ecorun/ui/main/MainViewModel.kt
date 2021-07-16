@@ -14,7 +14,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.rxkotlin.addTo
 import javax.inject.Inject
 
-@SuppressLint("CheckResult")
 @HiltViewModel
 class MainViewModel @Inject constructor(private val repository: AuthRepository) : BaseViewModel() {
     val showBottomNav = MutableLiveData(false)

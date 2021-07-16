@@ -6,6 +6,7 @@ import com.bumptech.glide.Glide
 import com.plogging.ecorun.base.BaseFragmentDialog
 import com.plogging.ecorun.databinding.FragmentImageDialogBinding
 import com.plogging.ecorun.ui.main.rank.RankViewModel
+import com.plogging.ecorun.util.glide.GlideApp
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -19,6 +20,6 @@ class ImageDialogFragment : BaseFragmentDialog<FragmentImageDialogBinding, RankV
 
     override fun initView() {
         val imageUri = arguments?.getString("imageUri").toString()
-        Glide.with(requireContext()).load(imageUri).into(binding.ivPloggingImage)
+        GlideApp.with(requireContext()).load(imageUri).into(binding.ivPloggingImage)
     }
 }

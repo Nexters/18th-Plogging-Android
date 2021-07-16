@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.plogging.ecorun.data.model.OnBoardView
 import com.plogging.ecorun.databinding.ItemViewpagerOnBoardBinding
+import com.plogging.ecorun.util.glide.GlideApp
 import com.plogging.ecorun.util.recycler.DiffCallback
 
 
@@ -30,7 +31,8 @@ class OnBoardingViewPagerAdapter :
         RecyclerView.ViewHolder(itemViewBinding.root) {
         fun bind(item: OnBoardView) {
             itemViewBinding.tvOnBoardingSubTitle.setText(item.subTitle)
-            Glide.with(itemViewBinding.ivItemOnBoard).load(item.url)
+            GlideApp.with(itemViewBinding.ivItemOnBoard)
+                .load(item.url)
                 .into(itemViewBinding.ivItemOnBoard)
             itemViewBinding.tvOnBoardingTitle.setText(item.title)
         }

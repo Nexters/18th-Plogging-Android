@@ -1,8 +1,11 @@
 package com.plogging.ecorun.ui.auth.home
 
 import android.annotation.SuppressLint
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.os.bundleOf
@@ -30,6 +33,10 @@ import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.Flowables
 import io.reactivex.rxkotlin.addTo
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.io.FileNotFoundException
 import java.net.URL
 import java.util.concurrent.TimeUnit
@@ -89,22 +96,25 @@ class AuthHomeFragment : BaseFragment<FragmentAuthBinding, AuthHomeViewModel>() 
     }
 
     private fun saveUserImage() {
-        URL(viewModel.uri.value)
-            .toBitmap()
-            .flatMap { it.saveImageIn(requireContext().contentResolver) }
-            .composeSchedulers()
-            .retryWhen { attempts ->
-                Flowables.zip(
-                    attempts.map { error -> if (error is FileNotFoundException) error else throw error },
-                    Flowable.interval(1, TimeUnit.SECONDS)
-                ).map { (error, retryCount) -> if (retryCount >= 3) throw error }
+        CoroutineScope(Dispatchers.Main).launch {
+            var bitmap: Bitmap? = null
+            val url = if(viewModel.uri.value!!.startsWith("http:"))
+                URL("https://eco-run.duckdns.org/profile/base/profile-1.PNG")
+            else URL(viewModel.uri.value)
+            withContext(Dispatchers.IO) {
+                bitmap = BitmapFactory.decodeStream(url.openStream())
             }
-            .doOnSubscribe { showLoadingPage(false) }
-            .subscribe({
-                saveUserData(it)
-                findNavController().navigate(R.id.action_auth_to_main)
-            }, {})
-            .addTo(disposables)
+            bitmap?.saveImageIn(requireContext().contentResolver)
+                ?.composeSchedulers()
+                ?.doOnSubscribe { showLoadingPage(false) }
+                ?.subscribe({
+                    saveUserData(it)
+                    findNavController().navigate(R.id.action_auth_to_main)
+                },{
+                    Log.e("error", "${it.stackTraceToString()}")
+                })
+                ?.addTo(disposables)
+        }
     }
 
     private fun saveUserData(uri: Uri?) {

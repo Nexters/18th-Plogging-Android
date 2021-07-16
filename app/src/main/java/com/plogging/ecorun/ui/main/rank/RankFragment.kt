@@ -31,7 +31,6 @@ class RankFragment : BaseFragment<FragmentRankBinding, RankViewModel>() {
         super.onCreate(savedInstanceState)
         initSharedViewModel()
         initTitle()
-        initBottomView()
         initMyRanking()
         backPress()
     }

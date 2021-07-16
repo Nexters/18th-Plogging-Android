@@ -1,5 +1,6 @@
 package com.plogging.ecorun.data.repository.plogging
 
+import android.util.Log
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
@@ -23,6 +24,7 @@ class PloggingPagingRepository @Inject constructor(
         userId: String,
         searchType: Int,
     ): Flowable<PagingData<MyDatabasePlogging>> {
+
         val orderBy = when (searchType) {
             0 -> "createdTime"
             1 -> "trashSum"

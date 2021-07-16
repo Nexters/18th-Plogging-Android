@@ -25,6 +25,7 @@ import com.plogging.ecorun.base.BaseFragment
 import com.plogging.ecorun.databinding.FragmentCameraBinding
 import com.plogging.ecorun.ui.running.save.CameraFragment.Companion.TAG
 import com.plogging.ecorun.util.extension.*
+import com.plogging.ecorun.util.glide.GlideApp
 import io.reactivex.rxkotlin.addTo
 import java.io.File
 
@@ -72,7 +73,7 @@ class ProfileCameraFragment : BaseFragment<FragmentCameraBinding, ProfileViewMod
                 )
                 bitmap = bitmap.rotate(orientation) // 기기 기울기에 따라 이미지 회전
                 orientationEventListener.disable() // 기울기 구하는 이벤트 종료
-                Glide.with(requireContext()).load(bitmap).into(binding.ivCameraCapturePreview)
+                GlideApp.with(requireContext()).load(bitmap).into(binding.ivCameraCapturePreview)
             }
         }
     }

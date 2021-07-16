@@ -12,6 +12,7 @@ import com.plogging.ecorun.R
 import com.plogging.ecorun.data.model.GlobalRank
 import com.plogging.ecorun.data.model.MyDatabasePlogging
 import com.plogging.ecorun.databinding.ItemSingleImageBinding
+import com.plogging.ecorun.util.glide.GlideApp
 import com.plogging.ecorun.util.recycler.DiffCallback
 
 class UserPagingAdapter(private val otherUser: GlobalRank?) :
@@ -41,10 +42,10 @@ class UserPagingAdapter(private val otherUser: GlobalRank?) :
                         .navigate(R.id.action_rank_to_image_dialog, bundle, null, extras)
                 }
             }
-            Glide.with(itemView.context)
+            GlideApp.with(itemView.context)
                 .load(item.ploggingImg)
                 .override(400)
-                .placeholder(R.drawable.ic_default_plogging)
+                .placeholder(R.drawable.bg_default)
                 .into(binding.ivPloggingImage)
         }
     }
