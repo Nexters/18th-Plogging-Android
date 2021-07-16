@@ -33,6 +33,9 @@
             android:id="@+id/action_map_to_guide"
             app:destination="@id/nav_plogging_guide" />
         <action
+            android:id="@+id/action_map_to_permission"
+            app:destination="@id/nav_plogging_permission" />
+        <action
             android:id="@+id/action_map_to_running"
             app:destination="@id/graph_plogging"
             app:enterAnim="@anim/slide_in_right"
@@ -89,5 +92,10 @@
         android:id="@+id/nav_plogging_guide"
         android:name="com.plogging.ecorun.ui.main.map.GuideDialog"
         tools:layout="@layout/fragment_dialog_plogging_guide" />
+
+    <dialog
+        android:id="@+id/nav_plogging_permission"
+        android:name="com.plogging.ecorun.ui.main.map.PermitLocationDialog"
+        tools:layout="@layout/fragment_permit_location"/>
 
 </navigation>
