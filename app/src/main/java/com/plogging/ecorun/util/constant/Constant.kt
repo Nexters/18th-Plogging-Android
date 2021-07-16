@@ -16,5 +16,4 @@ object Constant {
     const val WEEKLY = "weekly"
     const val MONTHLY = "monthly"
 
-    var type = 0
 }

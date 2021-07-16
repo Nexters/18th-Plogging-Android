@@ -3,6 +3,7 @@ package com.plogging.ecorun.ui.main.user
 import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -14,7 +15,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.paging.CombinedLoadStates
 import androidx.paging.LoadState
-import com.bumptech.glide.Glide
+import com.jakewharton.rxbinding3.widget.itemClicks
+import com.jakewharton.rxbinding3.widget.itemSelections
 import com.plogging.ecorun.R
 import com.plogging.ecorun.base.BaseFragment
 import com.plogging.ecorun.base.BaseLoadStateAdapter
@@ -23,9 +25,10 @@ import com.plogging.ecorun.data.model.GlobalRank
 import com.plogging.ecorun.databinding.FragmentUserBinding
 import com.plogging.ecorun.ui.main.MainViewModel
 import com.plogging.ecorun.util.GridSpacingItemDecoration
-import com.plogging.ecorun.util.constant.Constant
 import com.plogging.ecorun.util.extension.*
+import com.plogging.ecorun.util.glide.GlideApp
 import dagger.hilt.android.AndroidEntryPoint
+import io.reactivex.rxkotlin.addTo
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.distinctUntilChangedBy
@@ -46,7 +49,6 @@ class UserFragment : BaseFragment<FragmentUserBinding, UserViewModel>() {
         initSharedViewModel()
         initAdapter()
         initSpinner()
-        customBottom()
         backPress()
     }
 
@@ -83,6 +85,7 @@ class UserFragment : BaseFragment<FragmentUserBinding, UserViewModel>() {
                 )
             )
         }
+        //로딩이 완료되면 position 0으로 이동
         lifecycleScope.launchWhenCreated {
             adapter.loadStateFlow
                 .distinctUntilChangedBy { it.refresh }
@@ -116,8 +119,8 @@ class UserFragment : BaseFragment<FragmentUserBinding, UserViewModel>() {
                     position: Int,
                     id: Long
                 ) {
-                    Constant.type = position
                     viewModel.searchType.value = position
+                    ploggingType = position
                     viewModel.getUserPloggingData()
                     moveToZeroPosition = true
                 }
@@ -169,7 +172,7 @@ class UserFragment : BaseFragment<FragmentUserBinding, UserViewModel>() {
             mainViewModel.showBottomNav.value = true
             setMargins(binding.rvUserPlogging, 0, 0, 0, 82.dpToPx(requireContext()))
         } else {
-            mainViewModel.showBottomNav.value = false
+            mainViewModel.showBottomNav.value = null
             setMargins(binding.rvUserPlogging, 0, 0, 0, 0)
         }
     }
@@ -177,15 +180,16 @@ class UserFragment : BaseFragment<FragmentUserBinding, UserViewModel>() {
     private fun initMyView() {
         moveToZeroPosition = false
         binding.tvUserPloggingName.text = SharedPreference.getUserName(requireContext())
-        Glide.with(requireContext())
+        GlideApp.with(requireContext())
             .load(SharedPreference.getUserImage(requireContext()))
             .into(binding.ivUserPloggingProfile)
     }
 
     private fun initOtherUserView() {
+        moveToZeroPosition = false
         binding.ivUserPloggingSetting.setImageResource(R.drawable.ic_back_arrow_white)
         binding.tvUserPloggingName.text = fromRankUserData?.displayName
-        Glide.with(requireContext())
+        GlideApp.with(requireContext())
             .load(fromRankUserData?.profileImg)
             .into(binding.ivUserPloggingProfile)
     }
@@ -216,5 +220,9 @@ class UserFragment : BaseFragment<FragmentUserBinding, UserViewModel>() {
         if (fromRankUserData == null) activity
             ?.onBackPressedDispatcher
             ?.addCallback(this) { activity?.finish() }
+    }
+
+    companion object {
+        var ploggingType = 0
     }
 }

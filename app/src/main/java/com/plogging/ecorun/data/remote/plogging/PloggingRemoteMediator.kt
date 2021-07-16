@@ -1,5 +1,6 @@
 package com.plogging.ecorun.data.remote.plogging
 
+import android.util.Log
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType
 import androidx.paging.PagingState
@@ -9,9 +10,12 @@ import com.plogging.ecorun.data.model.MyDatabasePlogging
 import com.plogging.ecorun.data.model.PloggingKeys
 import com.plogging.ecorun.data.response.PloggingResponse
 import com.plogging.ecorun.network.PloggingApiService
+import com.plogging.ecorun.ui.main.user.UserFragment.Companion.ploggingType
 import com.plogging.ecorun.util.constant.Constant
 import io.reactivex.Single
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @OptIn(ExperimentalPagingApi::class)
 class PloggingRemoteMediator(
@@ -21,11 +25,11 @@ class PloggingRemoteMediator(
     private val searchType: Int
 ) : RxRemoteMediator<Int, MyDatabasePlogging>() {
 
+    @ExperimentalCoroutinesApi
     override fun loadSingle(
         loadType: LoadType,
         state: PagingState<Int, MyDatabasePlogging>
     ): Single<MediatorResult> {
-
         return Single.just(loadType)
             .subscribeOn(Schedulers.io())
             .map {
@@ -47,7 +51,7 @@ class PloggingRemoteMediator(
                 }
             }
             .flatMap { page ->
-                if (page == INVALID_PAGE || page == 0 || Constant.type != searchType)
+                if (page == INVALID_PAGE || page == 0 || ploggingType != searchType)
                     Single.just(MediatorResult.Success(true))
                 else {
                     ploggingApiService.getUserPloggingData(
