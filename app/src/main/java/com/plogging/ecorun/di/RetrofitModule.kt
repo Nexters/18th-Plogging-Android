@@ -1,10 +1,8 @@
 package com.plogging.ecorun.di
 
 import android.content.Context
-import com.plogging.ecorun.network.NetworkConnectionInterceptor
-import com.plogging.ecorun.network.PloggingApiService
-import com.plogging.ecorun.network.RankingApiService
-import com.plogging.ecorun.network.UserApiService
+import com.plogging.ecorun.data.local.SharedPreference
+import com.plogging.ecorun.network.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -32,7 +30,7 @@ annotation class AuthRetrofit
 object RetrofitModule {
 
     private const val BASE_URL = "https://eco-run.duckdns.org/"
-    private const val TEST_URL = "http://192.168.219.106:20000/"
+    private const val TEST_URL = "http://192.168.219.101:20000/"
     private const val NAVER_URL = "https://openapi.naver.com/"
 
     @Provides
@@ -41,17 +39,17 @@ object RetrofitModule {
         val networkCheck = NetworkConnectionInterceptor(context)
         logger.level = HttpLoggingInterceptor.Level.BASIC
         return OkHttpClient.Builder()
-            .cookieJar(JavaNetCookieJar(CookieManager()))
+            .readTimeout(10, TimeUnit.SECONDS)
+            .writeTimeout(10, TimeUnit.SECONDS)
             .addInterceptor { chain ->
                 val newRequest = chain.request().newBuilder()
-                    .addHeader("Authorization", "what")
+                    .addHeader("cookie", SharedPreference.getCookie(context))
                     .build()
                 chain.proceed(newRequest)
             }
-            .readTimeout(10, TimeUnit.SECONDS)
-            .writeTimeout(10, TimeUnit.SECONDS)
             .addInterceptor(networkCheck)
             .addInterceptor(logger)
+            .addInterceptor(CookieInterceptor(context))
             .build()
     }
 

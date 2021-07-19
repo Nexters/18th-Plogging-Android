@@ -59,7 +59,7 @@ class SignOutDialog : BaseFragmentDialog<FragmentDialogBinding, SignOutViewModel
     private fun initUserData() {
         SharedPreference.setUserEmail(requireContext(), "")
         SharedPreference.setUserName(requireContext(), "")
-        SharedPreference.setUserPw(requireContext(), "")
+        SharedPreference.setUserCookie(requireContext(), "")
         SharedPreference.setUserImage(requireContext(), EMPTY)
     }
 

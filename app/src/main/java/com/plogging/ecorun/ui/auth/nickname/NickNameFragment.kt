@@ -45,7 +45,6 @@ class NickNameFragment : BaseFragment<FragmentNickNameBinding, NickNameViewModel
         binding.include.tapTitle.text = getString(R.string.setting_nickname)
         viewModel.userId.value = arguments?.get("email").toString()
         viewModel.secretKey.value = arguments?.get("password").toString()
-        viewModel.secretKey.value?.let { SharedPreference.setUserPw(requireContext(), it) }
     }
 
     private fun observingText() {

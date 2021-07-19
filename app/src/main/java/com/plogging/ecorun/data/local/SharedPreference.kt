@@ -14,8 +14,8 @@ object SharedPreference {
     private const val KEY_LATITUDE = "lat"
     private const val KEY_LONGITUDE = "lon"
     private const val KEY_USER_IMAGE = "userImg"
-    private const val KEY_USER_PASSWORD = "userPw"
     private const val KEY_TRACKING_PREFERENCE = "isSaved"
+    private const val KEY_USER_COOKIE = "cookie"
 
     fun setUserName(ctx: Context, name: String) {
         val preference: SharedPreferences = ctx.getSharedPreferences(ACCOUNT, Context.MODE_PRIVATE)
@@ -60,10 +60,10 @@ object SharedPreference {
             .apply()
     }
 
-    fun setUserPw(ctx: Context, pw: String) {
+    fun setUserCookie(ctx: Context, cookie: String) {
         val preference: SharedPreferences = ctx.getSharedPreferences(ACCOUNT, Context.MODE_PRIVATE)
         preference.edit()
-            .putString(KEY_USER_PASSWORD, pw)
+            .putString(KEY_USER_COOKIE, cookie)
             .apply()
     }
 
@@ -99,9 +99,9 @@ object SharedPreference {
         )
     }
 
-    fun getUserPw(ctx: Context): String {
+    fun getCookie(ctx: Context): String {
         val preference: SharedPreferences = ctx.getSharedPreferences(ACCOUNT, Context.MODE_PRIVATE)
-        return preference.getString(KEY_USER_PASSWORD, "")!!
+        return preference.getString(KEY_USER_COOKIE, "")!!
     }
 
     fun getLatitude(ctx: Context): Float {

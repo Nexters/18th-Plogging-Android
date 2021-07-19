@@ -76,7 +76,7 @@ class WithdrawFragment : BaseFragment<FragmentWithdrawBinding, WithdrawViewModel
     private fun initUserData() {
         SharedPreference.setUserEmail(requireContext(), "")
         SharedPreference.setUserName(requireContext(), "")
-        SharedPreference.setUserPw(requireContext(), "")
+        SharedPreference.setUserCookie(requireContext(), "")
         SharedPreference.setUserImage(requireContext(), EMPTY)
     }
 

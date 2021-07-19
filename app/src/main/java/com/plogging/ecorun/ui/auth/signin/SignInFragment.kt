@@ -33,18 +33,14 @@ import com.plogging.ecorun.util.constant.Constant.CUSTOM
 import com.plogging.ecorun.util.constant.Constant.GOOGLE
 import com.plogging.ecorun.util.extension.*
 import dagger.hilt.android.AndroidEntryPoint
-import io.reactivex.Flowable
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.rxkotlin.Flowables
 import io.reactivex.rxkotlin.addTo
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.io.FileNotFoundException
 import java.net.URL
-import java.util.concurrent.TimeUnit
 
 @AndroidEntryPoint
 class SignInFragment : BaseFragment<FragmentSignInBinding, SignInViewModel>() {
@@ -118,7 +114,7 @@ class SignInFragment : BaseFragment<FragmentSignInBinding, SignInViewModel>() {
     private fun saveUserImage() {
         CoroutineScope(Dispatchers.Main).launch {
             var bitmap: Bitmap? = null
-            val url = if(viewModel.uri.value!!.startsWith("http:"))
+            val url = if (viewModel.uri.value!!.startsWith("http:"))
                 URL("https://eco-run.duckdns.org/profile/base/profile-1.PNG")
             else URL(viewModel.uri.value)
             withContext(Dispatchers.IO) {
@@ -130,7 +126,7 @@ class SignInFragment : BaseFragment<FragmentSignInBinding, SignInViewModel>() {
                 ?.subscribe({
                     saveUserData(it)
                     findNavController().navigate(R.id.action_sign_in_to_main)
-                },{
+                }, {
                     Log.e("error", "${it.stackTraceToString()}")
                 })
                 ?.addTo(disposables)
@@ -142,7 +138,6 @@ class SignInFragment : BaseFragment<FragmentSignInBinding, SignInViewModel>() {
         SharedPreference.setUserName(requireContext(), viewModel.name.value!!)
         if (viewModel.pw.value != null)
             SharedPreference.setUserEmail(requireContext(), viewModel.id.value!! + ":${CUSTOM}")
-        SharedPreference.setUserPw(requireContext(), viewModel.pw.value!!)
     }
 
     private fun showLoadingPage(show: Boolean) {
