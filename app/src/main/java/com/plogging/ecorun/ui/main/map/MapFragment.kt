@@ -3,7 +3,6 @@ package com.plogging.ecorun.ui.main.map
 import android.Manifest.permission.ACCESS_COARSE_LOCATION
 import android.Manifest.permission.ACCESS_FINE_LOCATION
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.os.Looper
@@ -11,7 +10,6 @@ import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.coroutineScope
@@ -136,13 +134,7 @@ class MapFragment : BaseFragment<FragmentMapBinding, MapViewModel>() {
     }
 
     private fun checkPermission() {
-        if (allGranted() && !gpsHelper.isGPSOn.value!!) findNavController().navigate(R.id.nav_plogging_permission)
-        else {
-            registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) {
-                if (it.values.all { true } && !gpsHelper.isGPSOn.value!!)
-                    findNavController().navigate(R.id.nav_plogging_permission)
-            }.launch(arrayOf(ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION, ))
-        }
+        if (!allGranted() || !gpsHelper.isGPSOn.value!!) findNavController().navigate(R.id.nav_plogging_permission)
     }
 
     private fun allGranted() =
