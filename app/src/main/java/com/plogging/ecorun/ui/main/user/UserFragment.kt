@@ -3,7 +3,6 @@ package com.plogging.ecorun.ui.main.user
 import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -15,8 +14,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.paging.CombinedLoadStates
 import androidx.paging.LoadState
-import com.jakewharton.rxbinding3.widget.itemClicks
-import com.jakewharton.rxbinding3.widget.itemSelections
 import com.plogging.ecorun.R
 import com.plogging.ecorun.base.BaseFragment
 import com.plogging.ecorun.base.BaseLoadStateAdapter
@@ -28,7 +25,6 @@ import com.plogging.ecorun.util.GridSpacingItemDecoration
 import com.plogging.ecorun.util.extension.*
 import com.plogging.ecorun.util.glide.GlideApp
 import dagger.hilt.android.AndroidEntryPoint
-import io.reactivex.rxkotlin.addTo
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.distinctUntilChangedBy

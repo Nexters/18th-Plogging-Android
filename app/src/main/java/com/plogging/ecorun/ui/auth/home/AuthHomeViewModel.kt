@@ -43,7 +43,7 @@ class AuthHomeViewModel @Inject constructor(private val authRepository: AuthRepo
 
     private fun socialSignIn() {
         userId.value ?: return
-        userName.value ?: "에코런"
+        if (userName.value.isNullOrBlank()) userName.value = "에코런"
         authRepository.socialSignIn(User(userId = userId.value!!, userName = userName.value))
             .subscribe(object : DefaultSingleObserver<UserResponse>() {
                 override fun onSuccess(response: UserResponse) {

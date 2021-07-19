@@ -1,6 +1,5 @@
 package com.plogging.ecorun.data.remote.plogging
 
-import android.util.Log
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType
 import androidx.paging.PagingState
@@ -11,9 +10,7 @@ import com.plogging.ecorun.data.model.PloggingKeys
 import com.plogging.ecorun.data.response.PloggingResponse
 import com.plogging.ecorun.network.PloggingApiService
 import com.plogging.ecorun.ui.main.user.UserFragment.Companion.ploggingType
-import com.plogging.ecorun.util.constant.Constant
 import io.reactivex.Single
-import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 

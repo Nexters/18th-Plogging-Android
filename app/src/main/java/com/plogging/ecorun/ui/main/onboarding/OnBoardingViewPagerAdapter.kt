@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.plogging.ecorun.data.model.OnBoardView
 import com.plogging.ecorun.databinding.ItemViewpagerOnBoardBinding
 import com.plogging.ecorun.util.glide.GlideApp

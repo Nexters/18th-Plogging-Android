@@ -2,7 +2,6 @@ package com.plogging.ecorun.ui.main.rank.detail
 
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.bumptech.glide.Glide
 import com.plogging.ecorun.base.BaseFragmentDialog
 import com.plogging.ecorun.databinding.FragmentImageDialogBinding
 import com.plogging.ecorun.ui.main.rank.RankViewModel

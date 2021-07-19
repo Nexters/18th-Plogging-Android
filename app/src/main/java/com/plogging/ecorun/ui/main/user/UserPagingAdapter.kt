@@ -7,7 +7,6 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.plogging.ecorun.R
 import com.plogging.ecorun.data.model.GlobalRank
 import com.plogging.ecorun.data.model.MyDatabasePlogging

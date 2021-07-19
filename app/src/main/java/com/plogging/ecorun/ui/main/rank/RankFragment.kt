@@ -67,6 +67,8 @@ class RankFragment : BaseFragment<FragmentRankBinding, RankViewModel>() {
 
     private fun initMyRanking() {
         viewModel.userId.value = SharedPreference.getUserEmail(requireContext())
+        viewModel.getGlobalRanking()
+        viewModel.getMyRanking()
         binding.vpRank.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             var beforeOffset = 0f
             override fun onPageScrolled(

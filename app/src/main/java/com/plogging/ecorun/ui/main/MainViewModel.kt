@@ -1,6 +1,5 @@
 package com.plogging.ecorun.ui.main
 
-import android.annotation.SuppressLint
 import androidx.lifecycle.MutableLiveData
 import com.plogging.ecorun.base.BaseViewModel
 import com.plogging.ecorun.data.model.User

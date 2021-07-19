@@ -28,18 +28,14 @@ import com.plogging.ecorun.util.constant.Constant.GOOGLE
 import com.plogging.ecorun.util.constant.Constant.KAKAO
 import com.plogging.ecorun.util.extension.*
 import dagger.hilt.android.AndroidEntryPoint
-import io.reactivex.Flowable
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.rxkotlin.Flowables
 import io.reactivex.rxkotlin.addTo
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.io.FileNotFoundException
 import java.net.URL
-import java.util.concurrent.TimeUnit
 
 @AndroidEntryPoint
 class AuthHomeFragment : BaseFragment<FragmentAuthBinding, AuthHomeViewModel>() {
@@ -98,7 +94,7 @@ class AuthHomeFragment : BaseFragment<FragmentAuthBinding, AuthHomeViewModel>() 
     private fun saveUserImage() {
         CoroutineScope(Dispatchers.Main).launch {
             var bitmap: Bitmap? = null
-            val url = if(viewModel.uri.value!!.startsWith("http:"))
+            val url = if (viewModel.uri.value!!.startsWith("http:"))
                 URL("https://eco-run.duckdns.org/profile/base/profile-1.PNG")
             else URL(viewModel.uri.value)
             withContext(Dispatchers.IO) {
@@ -110,7 +106,7 @@ class AuthHomeFragment : BaseFragment<FragmentAuthBinding, AuthHomeViewModel>() 
                 ?.subscribe({
                     saveUserData(it)
                     findNavController().navigate(R.id.action_auth_to_main)
-                },{
+                }, {
                     Log.e("error", "${it.stackTraceToString()}")
                 })
                 ?.addTo(disposables)
