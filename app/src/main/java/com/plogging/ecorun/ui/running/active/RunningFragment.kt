@@ -42,13 +42,13 @@ class RunningFragment : BaseFragment<FragmentRunningBinding, RunningViewModel>()
     private val runningBroadcastReceiver by lazy { RunningBroadcastReceiver() }
     private lateinit var runningServiceConnection: ServiceConnection
     override val viewModel: RunningViewModel by viewModels()
-    val latLngList: MutableList<LatLng> = mutableListOf()
+    private val latLngList: MutableList<LatLng> = mutableListOf()
     private var runningService: RunningService? = null
-    private lateinit var mainViewModel: MainViewModel
     private var runningLocationServiceBound = false
-    var currentMarker: Marker? = null
+    private var currentMarker: Marker? = null
     private lateinit var map: GoogleMap
-    var startMarker: Marker? = null
+    private var startMarker: Marker? = null
+    private val trashCountList = IntArray(6)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -59,8 +59,6 @@ class RunningFragment : BaseFragment<FragmentRunningBinding, RunningViewModel>()
         manageRunningState()
         getDistance()
         getTimerNumber()
-        getTrashCount()
-        trashClickListener()
     }
 
     override fun onStart() {
@@ -168,49 +166,6 @@ class RunningFragment : BaseFragment<FragmentRunningBinding, RunningViewModel>()
         map.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 17f))
     }
 
-    // 쓰레기 변경 클릭할 때마다 숫자 변경
-    private fun trashClickListener() {
-        viewModel.trashTypeList.apply {
-            binding.ivTrashVinylPlus.setOnClickListener { value!![0] += 1; onNext(value!!) }
-            binding.ivTrashVinylMinus.setOnClickListener {
-                if (value!![0] > 0) value!![0] -= 1; onNext(value!!)
-            }
-            binding.ivTrashGlassPlus.setOnClickListener { value!![1] += 1; onNext(value!!) }
-            binding.ivTrashGlassMinus.setOnClickListener {
-                if (value!![1] > 0) value!![1] -= 1; onNext(value!!)
-            }
-            binding.ivTrashPaperPlus.setOnClickListener { value!![2] += 1; onNext(value!!) }
-            binding.ivTrashPaperMinus.setOnClickListener {
-                if (value!![2] > 0) value!![2] -= 1; onNext(value!!)
-            }
-            binding.ivTrashPlasticPlus.setOnClickListener { value!![3] += 1; onNext(value!!) }
-            binding.ivTrashPlasticMinus.setOnClickListener {
-                if (value!![3] > 0) value!![3] -= 1; onNext(value!!)
-            }
-            binding.ivTrashCanPlus.setOnClickListener { value!![4] += 1; onNext(value!!) }
-            binding.ivTrashCanMinus.setOnClickListener {
-                if (value!![4] > 0) value!![4] -= 1; onNext(value!!)
-            }
-            binding.ivTrashExtraPlus.setOnClickListener { value!![5] += 1; onNext(value!!) }
-            binding.ivTrashExtraMinus.setOnClickListener {
-                if (value!![5] > 0) value!![5] -= 1; onNext(value!!)
-            }
-        }
-    }
-
-    private fun getTrashCount() {
-        viewModel.trashTypeList.observeOn(AndroidSchedulers.mainThread())
-            .subscribe({
-                binding.tvTrashPlasticNum.text = it[3].toString()
-                binding.tvTrashVinylNum.text = it[0].toString()
-                binding.tvTrashGlassNum.text = it[1].toString()
-                binding.tvTrashPaperNum.text = it[2].toString()
-                binding.tvTrashExtraNum.text = it[5].toString()
-                binding.tvTrashCanNum.text = it[4].toString()
-            }, {})
-            .addTo(disposables)
-    }
-
     private fun getDistance() {
         viewModel.getDistance()
         viewModel.distanceMeter
@@ -302,16 +257,26 @@ class RunningFragment : BaseFragment<FragmentRunningBinding, RunningViewModel>()
         }
         binding.btnTrashSave.setOnClickListener {
             binding.mlRunning.transitionToStart()
-            binding.tvRunningTrashCount.text = viewModel.trashTypeList.value?.sum().toString()
+            saveTrashCountArray()
+            binding.tvRunningTrashCount.text = trashCountList.sum().toString()
         }
         binding.btnRunningFinish.setOnClickListener {
             val bundle = bundleOf(
                 getString(R.string.distance) to viewModel.distanceMeter.value,
-                getString(R.string.trash_type) to viewModel.trashTypeList.value,
+                getString(R.string.trash_type) to trashCountList,
                 getString(R.string.running_time) to viewModel.runningSeconds.value,
             )
             findNavController().navigate(R.id.action_plogging_running_to_running_finish, bundle)
         }
+    }
+
+    private fun saveTrashCountArray() {
+        trashCountList[0] = binding.tbvTrashVinyl.getTrashCount()
+        trashCountList[1] = binding.tbvTrashPaper.getTrashCount()
+        trashCountList[2] = binding.tbvTrashCan.getTrashCount()
+        trashCountList[3] = binding.tbvTrashGlass.getTrashCount()
+        trashCountList[4] = binding.tbvTrashPlastic.getTrashCount()
+        trashCountList[5] = binding.tbvTrashExt.getTrashCount()
     }
 
     private fun allGranted() =

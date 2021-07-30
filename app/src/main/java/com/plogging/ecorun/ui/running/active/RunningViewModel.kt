@@ -10,7 +10,6 @@ import java.util.concurrent.TimeUnit
 
 class RunningViewModel : BaseViewModel() {
     val runningState = BehaviorSubject.createDefault(RunningState.INITIAL)
-    val trashTypeList = BehaviorSubject.createDefault(IntArray(6))
     val distanceMeter = BehaviorSubject.createDefault(0.001f)
     val runningSeconds = BehaviorSubject.createDefault(1)
     val lastDistance = PublishSubject.create<Float>()

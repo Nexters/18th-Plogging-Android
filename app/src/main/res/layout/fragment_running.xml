@@ -298,439 +298,83 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cl_trash_vinyl"
+            <com.plogging.ecorun.util.custom.TrashButtonView
+                android:id="@+id/tbv_trash_vinyl"
                 android:layout_width="@dimen/fill_layout"
                 android:layout_height="@dimen/fill_layout"
                 android:layout_margin="@dimen/margin_8"
-                android:background="@drawable/bg_round_8"
-                android:backgroundTint="@color/white"
-                android:paddingHorizontal="@dimen/padding_12"
-                app:layout_constraintBottom_toTopOf="@+id/cl_trash_paper"
+                app:layout_constraintBottom_toTopOf="@+id/tbv_trash_paper"
                 app:layout_constraintEnd_toStartOf="@+id/gl_trash_center"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="@+id/gl_trash_left"
-                app:layout_constraintTop_toTopOf="@+id/gl_trash_top">
+                app:layout_constraintTop_toTopOf="@+id/gl_trash_top"
+                app:trashIcon="@drawable/ic_vinyl"
+                app:trashType="비닐" />
 
-                <ImageView
-                    android:id="@+id/iv_vinyl"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_vinyl"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.15" />
-
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_8"
-                    android:text="@string/vinyl"
-                    android:textColor="@color/gray_700"
-                    android:textSize="@dimen/text_size_14"
-                    app:layout_constraintEnd_toEndOf="@+id/iv_vinyl"
-                    app:layout_constraintStart_toStartOf="@+id/iv_vinyl"
-                    app:layout_constraintTop_toBottomOf="@+id/iv_vinyl" />
-
-                <TextView
-                    android:id="@+id/tv_trash_vinyl_num"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-black"
-                    android:gravity="center"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_size_26"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/textView"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="@+id/textView"
-                    app:layout_constraintTop_toBottomOf="@+id/textView"
-                    tools:text="0" />
-
-                <ImageView
-                    android:id="@+id/iv_trash_vinyl_plus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_plus"
-                    app:layout_constraintBottom_toBottomOf="@+id/tv_trash_vinyl_num"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/tv_trash_vinyl_num"
-                    app:layout_constraintVertical_bias="1.0" />
-
-                <ImageView
-                    android:id="@+id/iv_trash_vinyl_minus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_minus"
-                    app:layout_constraintBottom_toBottomOf="@+id/tv_trash_vinyl_num"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/tv_trash_vinyl_num" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cl_trash_paper"
+            <com.plogging.ecorun.util.custom.TrashButtonView
+                android:id="@+id/tbv_trash_paper"
                 android:layout_width="@dimen/fill_layout"
                 android:layout_height="@dimen/fill_layout"
                 android:layout_margin="@dimen/margin_8"
-                android:background="@drawable/bg_round_8"
-                android:backgroundTint="@color/white"
-                android:paddingHorizontal="@dimen/padding_12"
-                app:layout_constraintBottom_toTopOf="@+id/cl_trash_can"
+                app:layout_constraintBottom_toTopOf="@+id/tbv_trash_can"
                 app:layout_constraintEnd_toStartOf="@+id/gl_trash_center"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="@+id/gl_trash_left"
-                app:layout_constraintTop_toBottomOf="@+id/cl_trash_vinyl">
+                app:layout_constraintTop_toBottomOf="@+id/tbv_trash_vinyl"
+                app:trashIcon="@drawable/ic_paper"
+                app:trashType="@string/paper" />
 
-                <ImageView
-                    android:id="@+id/iv_paper"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_paper"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.15" />
-
-                <TextView
-                    android:id="@+id/tv_trash_paper"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_12"
-                    android:text="@string/paper"
-                    android:textColor="@color/gray_700"
-                    android:textSize="@dimen/text_size_12"
-                    app:layout_constraintEnd_toEndOf="@+id/iv_paper"
-                    app:layout_constraintStart_toStartOf="@+id/iv_paper"
-                    app:layout_constraintTop_toBottomOf="@+id/iv_paper" />
-
-                <TextView
-                    android:id="@+id/tv_trash_paper_num"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-black"
-                    android:gravity="center"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_size_28"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_trash_paper"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="@+id/tv_trash_paper"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_trash_paper"
-                    tools:text="0" />
-
-                <ImageView
-                    android:id="@+id/iv_trash_paper_plus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_plus"
-                    app:layout_constraintBottom_toBottomOf="@+id/tv_trash_paper_num"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/tv_trash_paper_num"
-                    app:layout_constraintVertical_bias="1.0" />
-
-                <ImageView
-                    android:id="@+id/iv_trash_paper_minus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_minus"
-                    app:layout_constraintBottom_toBottomOf="@+id/tv_trash_paper_num"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/tv_trash_paper_num" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cl_trash_can"
+            <com.plogging.ecorun.util.custom.TrashButtonView
+                android:id="@+id/tbv_trash_can"
                 android:layout_width="@dimen/fill_layout"
                 android:layout_height="@dimen/fill_layout"
                 android:layout_margin="@dimen/margin_8"
-                android:background="@drawable/bg_round_8"
-                android:backgroundTint="@color/white"
-                android:paddingHorizontal="@dimen/padding_12"
                 app:layout_constraintBottom_toTopOf="@+id/gl_trash_bottom"
                 app:layout_constraintEnd_toStartOf="@+id/gl_trash_center"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="@+id/gl_trash_left"
-                app:layout_constraintTop_toBottomOf="@+id/cl_trash_paper">
+                app:layout_constraintTop_toBottomOf="@+id/tbv_trash_paper"
+                app:trashIcon="@drawable/ic_can"
+                app:trashType="@string/can" />
 
-                <ImageView
-                    android:id="@+id/iv_can"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_can"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.15" />
-
-                <TextView
-                    android:id="@+id/tv_trash_can"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_12"
-                    android:text="@string/can"
-                    android:textColor="@color/gray_700"
-                    android:textSize="@dimen/text_size_12"
-                    app:layout_constraintEnd_toEndOf="@+id/iv_can"
-                    app:layout_constraintStart_toStartOf="@+id/iv_can"
-                    app:layout_constraintTop_toBottomOf="@+id/iv_can" />
-
-                <TextView
-                    android:id="@+id/tv_trash_can_num"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-black"
-                    android:gravity="center"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_size_28"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_trash_can"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="@+id/tv_trash_can"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_trash_can"
-                    tools:text="0" />
-
-                <ImageView
-                    android:id="@+id/iv_trash_can_plus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_plus"
-                    app:layout_constraintBottom_toBottomOf="@+id/tv_trash_can_num"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/tv_trash_can_num"
-                    app:layout_constraintVertical_bias="1.0" />
-
-                <ImageView
-                    android:id="@+id/iv_trash_can_minus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_minus"
-                    app:layout_constraintBottom_toBottomOf="@+id/tv_trash_can_num"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/tv_trash_can_num" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cl_trash_glass"
+            <com.plogging.ecorun.util.custom.TrashButtonView
+                android:id="@+id/tbv_trash_glass"
                 android:layout_width="@dimen/fill_layout"
                 android:layout_height="@dimen/fill_layout"
                 android:layout_margin="@dimen/margin_8"
-                android:background="@drawable/bg_round_8"
-                android:backgroundTint="@color/white"
-                android:paddingHorizontal="@dimen/padding_12"
-                app:layout_constraintBottom_toTopOf="@+id/cl_trash_plastic"
+                app:layout_constraintBottom_toTopOf="@+id/tbv_trash_plastic"
                 app:layout_constraintEnd_toStartOf="@+id/gl_trash_right"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="@+id/gl_trash_center"
-                app:layout_constraintTop_toTopOf="@+id/gl_trash_top">
+                app:layout_constraintTop_toTopOf="@+id/gl_trash_top"
+                app:trashIcon="@drawable/ic_glass"
+                app:trashType="@string/glass" />
 
-                <ImageView
-                    android:id="@+id/iv_glass"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_glass"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.15" />
-
-                <TextView
-                    android:id="@+id/tv_trash_glass"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_12"
-                    android:text="@string/glass"
-                    android:textColor="@color/gray_700"
-                    android:textSize="@dimen/text_size_12"
-                    app:layout_constraintEnd_toEndOf="@+id/iv_glass"
-                    app:layout_constraintStart_toStartOf="@+id/iv_glass"
-                    app:layout_constraintTop_toBottomOf="@+id/iv_glass" />
-
-                <TextView
-                    android:id="@+id/tv_trash_glass_num"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-black"
-                    android:gravity="center"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_size_28"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_trash_glass"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="@+id/tv_trash_glass"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_trash_glass"
-                    tools:text="0" />
-
-                <ImageView
-                    android:id="@+id/iv_trash_glass_plus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_plus"
-                    app:layout_constraintBottom_toBottomOf="@+id/tv_trash_glass_num"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/tv_trash_glass_num"
-                    app:layout_constraintVertical_bias="1.0" />
-
-                <ImageView
-                    android:id="@+id/iv_trash_glass_minus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_minus"
-                    app:layout_constraintBottom_toBottomOf="@+id/tv_trash_glass_num"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/tv_trash_glass_num" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cl_trash_plastic"
+            <com.plogging.ecorun.util.custom.TrashButtonView
+                android:id="@+id/tbv_trash_plastic"
                 android:layout_width="@dimen/fill_layout"
                 android:layout_height="@dimen/fill_layout"
                 android:layout_margin="@dimen/margin_8"
-                android:background="@drawable/bg_round_8"
-                android:backgroundTint="@color/white"
-                android:paddingHorizontal="@dimen/padding_12"
-                app:layout_constraintBottom_toTopOf="@+id/cl_trash_ext"
+                app:layout_constraintBottom_toTopOf="@+id/tbv_trash_ext"
                 app:layout_constraintEnd_toStartOf="@+id/gl_trash_right"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="@+id/gl_trash_center"
-                app:layout_constraintTop_toBottomOf="@+id/cl_trash_glass">
+                app:layout_constraintTop_toBottomOf="@+id/tbv_trash_glass"
+                app:trashIcon="@drawable/ic_plastic"
+                app:trashType="@string/plastic" />
 
-                <ImageView
-                    android:id="@+id/iv_plastic"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_plastic"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.15" />
-
-                <TextView
-                    android:id="@+id/tv_trash_plastic"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_12"
-                    android:text="@string/plastic"
-                    android:textColor="@color/gray_700"
-                    android:textSize="@dimen/text_size_12"
-                    app:layout_constraintEnd_toEndOf="@+id/iv_plastic"
-                    app:layout_constraintStart_toStartOf="@+id/iv_plastic"
-                    app:layout_constraintTop_toBottomOf="@+id/iv_plastic" />
-
-                <TextView
-                    android:id="@+id/tv_trash_plastic_num"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-black"
-                    android:gravity="center"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_size_28"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_trash_plastic"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="@+id/tv_trash_plastic"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_trash_plastic"
-                    tools:text="0" />
-
-                <ImageView
-                    android:id="@+id/iv_trash_plastic_plus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_plus"
-                    app:layout_constraintBottom_toBottomOf="@+id/tv_trash_plastic_num"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/tv_trash_plastic_num"
-                    app:layout_constraintVertical_bias="1.0" />
-
-                <ImageView
-                    android:id="@+id/iv_trash_plastic_minus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_minus"
-                    app:layout_constraintBottom_toBottomOf="@+id/tv_trash_plastic_num"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/tv_trash_plastic_num" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cl_trash_ext"
+            <com.plogging.ecorun.util.custom.TrashButtonView
+                android:id="@+id/tbv_trash_ext"
                 android:layout_width="@dimen/fill_layout"
                 android:layout_height="@dimen/fill_layout"
                 android:layout_margin="@dimen/margin_8"
-                android:background="@drawable/bg_round_8"
-                android:backgroundTint="@color/white"
-                android:paddingHorizontal="@dimen/padding_12"
                 app:layout_constraintBottom_toTopOf="@+id/gl_trash_bottom"
                 app:layout_constraintEnd_toStartOf="@+id/gl_trash_right"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="@+id/gl_trash_center"
-                app:layout_constraintTop_toBottomOf="@+id/cl_trash_plastic">
-
-                <ImageView
-                    android:id="@+id/iv_extra"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_extra"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.15" />
-
-                <TextView
-                    android:id="@+id/tv_trash_extra"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_12"
-                    android:text="@string/extra"
-                    android:textColor="@color/gray_700"
-                    android:textSize="@dimen/text_size_12"
-                    app:layout_constraintEnd_toEndOf="@+id/iv_extra"
-                    app:layout_constraintStart_toStartOf="@+id/iv_extra"
-                    app:layout_constraintTop_toBottomOf="@+id/iv_extra" />
-
-                <TextView
-                    android:id="@+id/tv_trash_extra_num"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-black"
-                    android:gravity="center"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_size_28"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_trash_extra"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="@+id/tv_trash_extra"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_trash_extra"
-                    tools:text="0" />
-
-                <ImageView
-                    android:id="@+id/iv_trash_extra_minus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_minus"
-                    app:layout_constraintBottom_toBottomOf="@+id/tv_trash_extra_num"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/tv_trash_extra_num"
-                    app:layout_constraintVertical_bias="1.0" />
-
-                <ImageView
-                    android:id="@+id/iv_trash_extra_plus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_plus"
-                    app:layout_constraintBottom_toBottomOf="@+id/tv_trash_extra_num"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/tv_trash_extra_num" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                app:layout_constraintTop_toBottomOf="@+id/tbv_trash_plastic"
+                app:trashIcon="@drawable/ic_extra"
+                app:trashType="@string/extra" />
 
             <TextView
                 android:id="@+id/btn_trash_save"
