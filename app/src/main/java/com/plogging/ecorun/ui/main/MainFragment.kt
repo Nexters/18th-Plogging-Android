@@ -6,7 +6,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupWithNavController
-import com.nhn.android.naverlogin.OAuthLogin
 import com.plogging.ecorun.R
 import com.plogging.ecorun.base.BaseFragment
 import com.plogging.ecorun.databinding.FragmentMainBinding
@@ -16,7 +15,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainFragment : BaseFragment<FragmentMainBinding, MainViewModel>() {
     override fun getViewBinding() = FragmentMainBinding.inflate(layoutInflater)
     override val viewModel: MainViewModel by viewModels()
-    lateinit var oAuthLoginInstance: OAuthLogin
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
