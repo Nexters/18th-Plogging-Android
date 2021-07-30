@@ -225,7 +225,7 @@
     <string name="zero">0</string>
     <string name="three">3</string>
     <string name="retry_api">다시 시도해주세요</string>
-    <string name="permit_location">백그라운드에서 사용자의 위치 정보를 추척하여\n 이동거리 칼로리 소모량을 계산합니다.</string>
+    <string name="permit_location">이 앱은 앱이 종료되었거나 사용 중이 아닐 때도\n 위치 데이터를 수집하여 움직인 거리와 경로 보여주기 기능을 사용 설정합니다.</string>
     <string name="permit">허용</string>
     <string name="cancel">취소</string>
     <string name="permit_location_title">사용자 위치 정보 허용</string>

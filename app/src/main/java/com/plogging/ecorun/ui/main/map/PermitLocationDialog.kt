@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.plogging.ecorun.R
+import com.plogging.ecorun.data.local.SharedPreference
 import com.plogging.ecorun.databinding.FragmentPermitLocationBinding
 import com.plogging.ecorun.util.extension.GpsExtension
 
@@ -50,6 +51,10 @@ class PermitLocationDialog : BottomSheetDialogFragment() {
 
     private fun setClickListener() {
         binding.btnPermitLocationCancel.setOnClickListener { this.dismiss() }
-        binding.btnPermitLocationOk.setOnClickListener { permissionCheck(); this.dismiss() }
+        binding.btnPermitLocationOk.setOnClickListener {
+            SharedPreference.setPermitLocation(requireContext(), true)
+            permissionCheck()
+            this.dismiss()
+        }
     }
 }

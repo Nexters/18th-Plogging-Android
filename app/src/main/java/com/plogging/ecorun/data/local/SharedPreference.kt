@@ -16,6 +16,7 @@ object SharedPreference {
     private const val KEY_USER_IMAGE = "userImg"
     private const val KEY_TRACKING_PREFERENCE = "isSaved"
     private const val KEY_USER_COOKIE = "cookie"
+    private const val KEY_PERMIT_LOCATION = "location"
 
     fun setUserName(ctx: Context, name: String) {
         val preference: SharedPreferences = ctx.getSharedPreferences(ACCOUNT, Context.MODE_PRIVATE)
@@ -74,6 +75,13 @@ object SharedPreference {
             .apply()
     }
 
+    fun setPermitLocation(ctx: Context, state: Boolean) {
+        val preference: SharedPreferences = ctx.getSharedPreferences(ACCOUNT, Context.MODE_PRIVATE)
+        preference.edit()
+            .putBoolean(KEY_PERMIT_LOCATION, state)
+            .apply()
+    }
+
     fun getUserName(ctx: Context): String {
         val preference: SharedPreferences = ctx.getSharedPreferences(ACCOUNT, Context.MODE_PRIVATE)
         return preference.getString(KEY_USER_NAME, "")!!
@@ -117,5 +125,10 @@ object SharedPreference {
     fun getLocationTrackingPref(ctx: Context): Boolean {
         val preference: SharedPreferences = ctx.getSharedPreferences(ACCOUNT, Context.MODE_PRIVATE)
         return preference.getBoolean(KEY_TRACKING_PREFERENCE, false)
+    }
+
+    fun getPermitLocation(ctx: Context): Boolean {
+        val preference: SharedPreferences = ctx.getSharedPreferences(ACCOUNT, Context.MODE_PRIVATE)
+        return preference.getBoolean(KEY_PERMIT_LOCATION, false)
     }
 }

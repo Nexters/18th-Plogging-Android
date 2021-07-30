@@ -48,6 +48,9 @@
         <action
             android:id="@+id/action_auth_home_to_auth_nick_name"
             app:destination="@id/nav_auth_nick_name" />
+        <action
+            android:id="@+id/action_auth_to_permission"
+            app:destination="@id/nav_plogging_permission" />
 
     </fragment>
 
@@ -117,6 +120,11 @@
         android:id="@+id/nav_dialog_policy"
         android:name="com.plogging.ecorun.ui.auth.home.AuthPolicyDialogFragment"
         android:label="DialogPolicyDialogFragment"
-        tools:layout="@layout/fragment_dialog_auth_policy"></dialog>
+        tools:layout="@layout/fragment_dialog_auth_policy" />
+
+    <dialog
+        android:id="@+id/nav_plogging_permission"
+        android:name="com.plogging.ecorun.ui.main.map.PermitLocationDialog"
+        tools:layout="@layout/fragment_permit_location" />
 
 </navigation>

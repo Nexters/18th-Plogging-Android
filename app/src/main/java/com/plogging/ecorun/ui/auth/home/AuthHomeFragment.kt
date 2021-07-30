@@ -71,6 +71,12 @@ class AuthHomeFragment : BaseFragment<FragmentAuthBinding, AuthHomeViewModel>() 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         responseApi()
+        permittedLocation()
+    }
+
+    private fun permittedLocation() {
+        if (!SharedPreference.getPermitLocation(requireContext()))
+            findNavController().navigate(R.id.action_auth_to_permission)
     }
 
     private fun responseApi() {
