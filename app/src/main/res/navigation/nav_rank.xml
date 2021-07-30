@@ -22,6 +22,6 @@
     <dialog
         android:id="@+id/nav_image_dialog"
         android:name="com.plogging.ecorun.ui.main.rank.detail.ImageDialogFragment"
-        tools:layout="@layout/fragment_image_dialog" />
+        tools:layout="@layout/fragment_dialog_image" />
 
 </navigation>

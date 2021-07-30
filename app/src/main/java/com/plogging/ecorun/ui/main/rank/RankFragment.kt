@@ -125,11 +125,6 @@ class RankFragment : BaseFragment<FragmentRankBinding, RankViewModel>() {
             binding.tvRankMyRank.text = (it.rank + 1).toString() + "위"
             binding.tvRankMyScore.text = it.score + "점"
         }
-        mainViewModel.responseCode.observe(viewLifecycleOwner) {
-            viewModel.isSignIn.value = true
-            // 로그인이 완료되고 랭킹 정보가 로드 되지 않으면 비동기로 랭킹 정보 로드
-            if (it == 200 && !viewModel.isRequestUserRanking.value!!) stateViewPager(binding.vpRank.currentItem)
-        }
     }
 
     override fun clickListener() {

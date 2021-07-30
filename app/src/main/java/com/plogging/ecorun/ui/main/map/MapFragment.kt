@@ -27,8 +27,6 @@ import com.plogging.ecorun.R
 import com.plogging.ecorun.base.BaseFragment
 import com.plogging.ecorun.data.local.SharedPreference
 import com.plogging.ecorun.databinding.FragmentMapBinding
-import com.plogging.ecorun.event.EventImpl
-import com.plogging.ecorun.event.RxBus
 import com.plogging.ecorun.ui.main.MainViewModel
 import com.plogging.ecorun.util.extension.GpsExtension
 import com.plogging.ecorun.util.extension.createDrawableFromView
@@ -152,10 +150,6 @@ class MapFragment : BaseFragment<FragmentMapBinding, MapViewModel>() {
 
     override fun clickListener() {
         binding.btnPloggingStart.setOnClickListener {
-            if (mainViewModel.responseCode.value != 200) {
-                RxBus.post(EventImpl.NetworkErrorEvent())
-                return@setOnClickListener
-            }
             if (allGranted() && gpsHelper.isGPSOn.value == true) {
                 fusedLocationClient?.removeLocationUpdates(locationCallback)
                 findNavController().navigate(R.id.action_map_to_running)

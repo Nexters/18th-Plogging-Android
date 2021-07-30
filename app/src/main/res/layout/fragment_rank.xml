@@ -68,7 +68,7 @@
             android:layout_height="72dp"
             android:layout_marginStart="@dimen/margin_24"
             android:scaleType="centerCrop"
-            android:src="@drawable/sample"
+            tools:src="@drawable/sample"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"

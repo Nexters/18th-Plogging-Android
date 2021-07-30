@@ -25,6 +25,7 @@ import com.plogging.ecorun.util.GridSpacingItemDecoration
 import com.plogging.ecorun.util.extension.*
 import com.plogging.ecorun.util.glide.GlideApp
 import dagger.hilt.android.AndroidEntryPoint
+import io.reactivex.rxkotlin.addTo
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.distinctUntilChangedBy
@@ -44,7 +45,6 @@ class UserFragment : BaseFragment<FragmentUserBinding, UserViewModel>() {
         super.onCreate(savedInstanceState)
         initSharedViewModel()
         initAdapter()
-        initSpinner()
         backPress()
     }
 
@@ -53,6 +53,7 @@ class UserFragment : BaseFragment<FragmentUserBinding, UserViewModel>() {
         // 플로깅이나 프로필의 변경된 사항을 적용하기위해 plogging 가져오는 메서드를 onViewCreated에 구현
         if (fromRankUserData == null) initMyView()
         else initOtherUserView()
+        initSpinner()
         getPlogging()
         responseApi()
         customBottom()
@@ -118,6 +119,8 @@ class UserFragment : BaseFragment<FragmentUserBinding, UserViewModel>() {
                     viewModel.searchType.value = position
                     ploggingType = position
                     viewModel.getUserPloggingData()
+                        ?.subscribe { adapter.submitData(lifecycle, it) }
+                        ?.addTo(disposables)
                     moveToZeroPosition = true
                 }
 
@@ -127,19 +130,11 @@ class UserFragment : BaseFragment<FragmentUserBinding, UserViewModel>() {
 
     @SuppressLint("SetTextI18n")
     private fun responseApi() {
-        viewModel.plogging.observe(viewLifecycleOwner) { adapter.submitData(lifecycle, it) }
         viewModel.userData.observe(viewLifecycleOwner) {
             binding.tvUserPloggingTotalScore.text = it.scoreMonthly.toShort4() + "점"
             binding.tvUserPloggingDistanceNumber.text =
                 it.distanceMonthly.toFloat().meterToKilometer().distanceToShort4() + "km"
             binding.tvUserPloggingScore.text = it.trashMonthly.toShort4() + "개"
-        }
-        // 뒤늦게 로그인이 되었을 때 비동기로 플로깅 가져오기
-        mainViewModel.responseCode.observe(viewLifecycleOwner) {
-            if (it == 200 && !viewModel.isRequestUserPlogging.value!!) {
-                viewModel.getUserData()
-                viewModel.getUserPloggingData()
-            }
         }
     }
 
@@ -148,7 +143,6 @@ class UserFragment : BaseFragment<FragmentUserBinding, UserViewModel>() {
             SharedPreference.getUserEmail(requireContext())
         else fromRankUserData?.userId
         viewModel.getUserData()
-        viewModel.getUserPloggingData()
     }
 
     private fun showErrorState(loadState: CombinedLoadStates) {
@@ -169,7 +163,7 @@ class UserFragment : BaseFragment<FragmentUserBinding, UserViewModel>() {
             setMargins(binding.rvUserPlogging, 0, 0, 0, 82.dpToPx(requireContext()))
         } else {
             mainViewModel.showBottomNav.value = null
-            setMargins(binding.rvUserPlogging, 0, 0, 0, 0)
+            setMargins(binding.rvUserPlogging, 0, 0, 0, 82.dpToPx(requireContext()))
         }
     }
 

@@ -6,7 +6,7 @@
         motion:constraintSetEnd="@+id/end"
         motion:constraintSetStart="@id/start"
         motion:duration="@android:integer/config_shortAnimTime">
-        <KeyFrameSet></KeyFrameSet>
+        <KeyFrameSet />
     </Transition>
 
     <Transition
@@ -14,7 +14,7 @@
         motion:constraintSetEnd="@+id/invisible"
         motion:constraintSetStart="@id/start"
         motion:duration="@android:integer/config_shortAnimTime">
-        <KeyFrameSet></KeyFrameSet>
+        <KeyFrameSet />
     </Transition>
 
     <ConstraintSet android:id="@+id/start">
@@ -42,8 +42,9 @@
             android:id="@+id/bottom_nav"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            motion:layout_constraintBottom_toBottomOf="parent"
+            android:scaleY="2"
             motion:layout_constraintEnd_toEndOf="parent"
-            motion:layout_constraintStart_toStartOf="parent" />
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="parent" />
     </ConstraintSet>
 </MotionScene>

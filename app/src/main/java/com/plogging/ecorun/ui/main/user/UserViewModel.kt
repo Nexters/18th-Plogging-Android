@@ -9,9 +9,9 @@ import com.plogging.ecorun.data.model.MyDatabasePlogging
 import com.plogging.ecorun.data.repository.auth.AuthRepository
 import com.plogging.ecorun.data.repository.plogging.PloggingPagingRepository
 import com.plogging.ecorun.data.response.UserDetailResponse
-import com.plogging.ecorun.util.observer.DefaultFlowableObserver
 import com.plogging.ecorun.util.observer.DefaultSingleObserver
 import dagger.hilt.android.lifecycle.HiltViewModel
+import io.reactivex.Flowable
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Inject
 
@@ -22,35 +22,23 @@ class UserViewModel @ExperimentalCoroutinesApi
     private val ploggingPagingRepository: PloggingPagingRepository,
     private val authRepository: AuthRepository
 ) : BaseViewModel() {
-    val plogging = MutableLiveData<PagingData<MyDatabasePlogging>>()
-    val isRequestUserPlogging = MutableLiveData(false)
     val userData = MutableLiveData<UserDetailResponse>()
     val searchType = MutableLiveData<Int>()
     val userId = MutableLiveData<String>()
 
     @ExperimentalCoroutinesApi
-    fun getUserPloggingData() {
-        userId.value ?: return
-        searchType.value ?: return
-        ploggingPagingRepository.getUserPloggingData(
+    fun getUserPloggingData(): Flowable<PagingData<MyDatabasePlogging>>? {
+        userId.value ?: return null
+        searchType.value ?: return null
+        return ploggingPagingRepository.getUserPloggingData(
             userId = userId.value!!,
             searchType = searchType.value!!
         )
             .cachedIn(viewModelScope)
-            .subscribe(object : DefaultFlowableObserver<PagingData<MyDatabasePlogging>>() {
-                override fun onComplete() {
-                    isRequestUserPlogging.value = true
-                }
-
-                override fun onNext(data: PagingData<MyDatabasePlogging>?) {
-                    plogging.value = data!!
-                }
-            })
     }
 
     fun getUserData() {
         userId.value ?: return
-        isRequestUserPlogging.value = true
         authRepository.getUserInfo(userId.value!!)
             .subscribe(object : DefaultSingleObserver<UserDetailResponse>() {
                 override fun onSuccess(data: UserDetailResponse) {

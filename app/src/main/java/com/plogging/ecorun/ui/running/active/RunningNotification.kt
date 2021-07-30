@@ -28,6 +28,7 @@ object RunningNotification {
     }
 
     fun generateNotification(context: Context): Notification {
+
         val builder = NotificationCompat.Builder(context, CHANNEL_ID)
         return builder.setContentTitle("플로깅 중입니다!")
             .setSmallIcon(R.drawable.auth_logo)
