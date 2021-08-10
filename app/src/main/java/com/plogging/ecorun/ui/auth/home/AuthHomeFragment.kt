@@ -71,7 +71,14 @@ class AuthHomeFragment : BaseFragment<FragmentAuthBinding, AuthHomeViewModel>() 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         responseApi()
+        observeSocialSignIn()
         permittedLocation()
+    }
+
+    private fun observeSocialSignIn() {
+        viewModel.isSuccessSocialSignInSubject.subscribe {
+            if (it == 200 || it == 201) saveUserImage()
+        }.addTo(disposables)
     }
 
     private fun permittedLocation() {
@@ -80,8 +87,8 @@ class AuthHomeFragment : BaseFragment<FragmentAuthBinding, AuthHomeViewModel>() 
     }
 
     private fun responseApi() {
-        viewModel.isSavedUser.observe(viewLifecycleOwner) {
-            if (it) saveUserImage()
+        viewModel.isSavedUserSubject.subscribe({
+            if (it) viewModel.socialSignIn()
             else {
                 showLoadingPage(false)
                 val bundle =
@@ -91,7 +98,7 @@ class AuthHomeFragment : BaseFragment<FragmentAuthBinding, AuthHomeViewModel>() 
                     )
                 findNavController().navigate(R.id.action_auth_home_to_auth_nick_name, bundle)
             }
-        }
+        }, {}).addTo(disposables)
         viewModel.responseCode.observe(viewLifecycleOwner) {
             if (it != 200) showLoadingPage(false)
         }
@@ -99,7 +106,7 @@ class AuthHomeFragment : BaseFragment<FragmentAuthBinding, AuthHomeViewModel>() 
 
     private fun saveUserImage() {
         CoroutineScope(Dispatchers.Main).launch {
-            var bitmap: Bitmap? = null
+            var bitmap: Bitmap?
             val url = if (viewModel.uri.value!!.startsWith("http:"))
                 URL("https://eco-run.duckdns.org/profile/base/profile-1.PNG")
             else URL(viewModel.uri.value)
