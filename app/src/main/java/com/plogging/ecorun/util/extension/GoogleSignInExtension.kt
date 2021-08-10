@@ -17,7 +17,7 @@ import io.reactivex.Single
 
 fun googleIntent(context: Context, fragment: FragmentActivity): Intent {
     val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-        .requestIdToken(fragment.getString(R.string.default_web_client_id))
+        .requestIdToken(fragment.getString(R.string.firebase_web_client_id))
         .requestEmail()
         .build()
     val googleSignInClient = GoogleSignIn.getClient(context, gso)
@@ -26,7 +26,7 @@ fun googleIntent(context: Context, fragment: FragmentActivity): Intent {
 
 fun googleLoginSingle(context: Context, fragment: Fragment): Single<String> {
     val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-        .requestIdToken(fragment.getString(R.string.default_web_client_id))
+        .requestIdToken(fragment.getString(R.string.firebase_web_client_id))
         .requestEmail()
         .build()
     val googleSignInClient = GoogleSignIn.getClient(context, gso)

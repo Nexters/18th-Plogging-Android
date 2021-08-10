@@ -49,7 +49,7 @@ class NickNameFragment : BaseFragment<FragmentNickNameBinding, NickNameViewModel
 
     private fun observingText() {
         binding.etAuthNickName.addTextChangedListener {
-            binding.btnNickName.isEnabled = it.toString().isNotEmpty() && it.toString().length <= 9
+            binding.btnNickName.isEnabled = it.toString().isNotBlank() && it.toString().length <= 9
         }
     }
 

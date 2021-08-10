@@ -77,7 +77,7 @@ fun String.toShort4(): String = when {
 fun String.inputComma(): String = DecimalFormat("#,###").format(this.toFloat())
 
 fun isMatched(s0: String?, s1: String?): Boolean? {
-    if (s1.isNullOrBlank()) return null
+    if (s1.isNullOrEmpty()) return null
     return s0 == s1
 }
 

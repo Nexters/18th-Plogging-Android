@@ -3,7 +3,6 @@ package com.plogging.ecorun.ui.running.save
 import android.net.Uri
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.google.gson.Gson
 import com.plogging.ecorun.base.BaseViewModel
 import com.plogging.ecorun.data.model.Score
 import com.plogging.ecorun.data.model.SendPlogging
@@ -20,7 +19,7 @@ import javax.inject.Inject
 @HiltViewModel
 class SaveViewModel @Inject constructor(private val repository: PloggingRepository) :
     BaseViewModel() {
-    private lateinit var sendPloggingData: String
+    private lateinit var sendPloggingData: SendPlogging
     val trashList = MutableLiveData<IntArray>()
     var imageBody: MultipartBody.Part? = null
     val responseCode = MutableLiveData<Int>()
@@ -46,7 +45,7 @@ class SaveViewModel @Inject constructor(private val repository: PloggingReposito
         trashList.value?.mapIndexed { index, i ->
             if (i != 0) trash.add(Trash(trashType = index + 1, pickCount = i))
         }
-        sendPloggingData = Gson().toJson(SendPlogging(ploggingMetaData, trash))
+        sendPloggingData = SendPlogging(ploggingMetaData, trash)
         repository.getScore(sendPloggingData)
             .subscribe(object : DefaultSingleObserver<ScoreResponse>() {
                 override fun onSuccess(response: ScoreResponse) {
@@ -65,10 +64,8 @@ class SaveViewModel @Inject constructor(private val repository: PloggingReposito
             distance.value!!.toInt(),
             runningTime.value!!
         )
-        sendPloggingData = Gson().toJson(SendPlogging(ploggingMetaData, trash))
-        val data =
-            MultipartBody.Part.createFormData("ploggingData", sendPloggingData)
-        repository.savePlogging(imageBody!!, data)
+        sendPloggingData = SendPlogging(ploggingMetaData, trash)
+        repository.savePlogging(imageBody!!, sendPloggingData)
             .subscribe(object : DefaultSingleObserver<BaseResponse>() {
                 override fun onSuccess(response: BaseResponse) {
                     responseCode.value = response.rc + 1

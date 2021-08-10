@@ -42,6 +42,7 @@ class ChangePasswordViewModel @Inject constructor(private val repository: AuthRe
 
                 override fun onError(e: Throwable) {
                     super.onError(e)
+                    responseCode.value = 400
                     if (e is HttpException) responseCode.value = e.code()
                 }
             })

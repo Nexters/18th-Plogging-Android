@@ -38,12 +38,10 @@ class UserFragment : BaseFragment<FragmentUserBinding, UserViewModel>() {
     override fun getViewBinding(): FragmentUserBinding = FragmentUserBinding.inflate(layoutInflater)
     private val adapter by lazy { UserPagingAdapter(fromRankUserData) }
     override val viewModel: UserViewModel by viewModels()
-    private lateinit var mainViewModel: MainViewModel
     private var moveToZeroPosition = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        initSharedViewModel()
         initAdapter()
         backPress()
     }
@@ -58,12 +56,6 @@ class UserFragment : BaseFragment<FragmentUserBinding, UserViewModel>() {
         responseApi()
         customBottom()
         setTooltip()
-    }
-
-    private fun initSharedViewModel() {
-        parentFragment?.parentFragment?.let {
-            mainViewModel = ViewModelProvider(it).get(MainViewModel::class.java)
-        }
     }
 
     private fun initAdapter() {
@@ -159,10 +151,14 @@ class UserFragment : BaseFragment<FragmentUserBinding, UserViewModel>() {
 
     private fun customBottom() {
         if (fromRankUserData == null) { // 자신의 플로깅
-            mainViewModel.showBottomNav.value = true
+            parentFragment?.parentFragment?.let {
+                ViewModelProvider(it).get(MainViewModel::class.java).showBottomNav.value = true
+            }
             setMargins(binding.rvUserPlogging, 0, 0, 0, 82.dpToPx(requireContext()))
         } else {
-            mainViewModel.showBottomNav.value = null
+            parentFragment?.parentFragment?.let {
+                ViewModelProvider(it).get(MainViewModel::class.java).showBottomNav.value = null
+            }
             setMargins(binding.rvUserPlogging, 0, 0, 0, 82.dpToPx(requireContext()))
         }
     }

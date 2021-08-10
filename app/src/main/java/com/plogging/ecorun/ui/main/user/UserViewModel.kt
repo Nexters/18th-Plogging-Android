@@ -1,5 +1,6 @@
 package com.plogging.ecorun.ui.main.user
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
@@ -42,6 +43,7 @@ class UserViewModel @ExperimentalCoroutinesApi
         authRepository.getUserInfo(userId.value!!)
             .subscribe(object : DefaultSingleObserver<UserDetailResponse>() {
                 override fun onSuccess(data: UserDetailResponse) {
+                    Log.d("userData", "${data}")
                     userData.value = data
                 }
             })

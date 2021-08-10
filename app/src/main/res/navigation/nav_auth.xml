@@ -47,7 +47,11 @@
 
         <action
             android:id="@+id/action_auth_home_to_auth_nick_name"
-            app:destination="@id/nav_auth_nick_name" />
+            app:destination="@id/nav_auth_nick_name"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_auth_to_permission"
             app:destination="@id/nav_plogging_permission" />
@@ -80,12 +84,12 @@
         <action
             android:id="@+id/action_register_to_main"
             app:destination="@+id/main"
-            app:popUpTo="@id/nav_auth_find_pw"
+            app:popUpTo="@id/nav_auth_home"
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_register_to_on_boarding"
             app:destination="@+id/graph_on_boarding"
-            app:popUpTo="@id/nav_auth_find_pw"
+            app:popUpTo="@id/nav_auth_home"
             app:popUpToInclusive="true" />
     </fragment>
 
@@ -103,6 +107,14 @@
         <action
             android:id="@+id/action_sign_in_to_find_pw"
             app:destination="@+id/nav_auth_find_pw"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_sign_in_to_nick_name"
+            app:destination="@id/nav_auth_nick_name"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"

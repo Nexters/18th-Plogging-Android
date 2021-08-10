@@ -25,7 +25,6 @@ class RankFragment : BaseFragment<FragmentRankBinding, RankViewModel>() {
     override fun getViewBinding(): FragmentRankBinding = FragmentRankBinding.inflate(layoutInflater)
     private val rankViewPagerAdapter by lazy { RankViewPagerAdapter(this@RankFragment) }
     override val viewModel: RankViewModel by viewModels()
-    private lateinit var mainViewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -102,12 +101,11 @@ class RankFragment : BaseFragment<FragmentRankBinding, RankViewModel>() {
 
     private fun initBottomView() {
         binding.ivRankMyProfile.setImageURI(SharedPreference.getUserImage(requireContext()))
-        mainViewModel.showBottomNav.value = true
     }
 
     private fun initSharedViewModel() {
         parentFragment?.parentFragment?.let {
-            mainViewModel = ViewModelProvider(it).get(MainViewModel::class.java)
+            ViewModelProvider(it).get(MainViewModel::class.java).showBottomNav.value = true
         }
     }
 

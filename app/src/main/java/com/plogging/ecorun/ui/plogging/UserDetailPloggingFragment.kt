@@ -20,6 +20,7 @@ import com.plogging.ecorun.ui.running.save.TrashRecyclerAdapter
 import com.plogging.ecorun.util.extension.*
 import com.plogging.ecorun.util.glide.GlideApp
 import dagger.hilt.android.AndroidEntryPoint
+import io.reactivex.rxkotlin.addTo
 import java.net.URL
 
 @AndroidEntryPoint
@@ -103,7 +104,7 @@ class UserDetailPloggingFragment :
                 .subscribe({
                     putExtra(Intent.EXTRA_STREAM, it)
                     startActivity(Intent.createChooser(this, "에코런 입니다."))
-                }, {})
+                }, {}).addTo(disposables)
             type = "image/jpeg"
         }
     }

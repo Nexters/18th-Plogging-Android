@@ -27,6 +27,7 @@ class UserDetailPloggingViewModel @Inject constructor(private val repository: Pl
 
                 override fun onError(e: Throwable) {
                     super.onError(e)
+                    responseCode.value = 500
                     Log.d("stackTraceToString", "${e.stackTraceToString()}")
                 }
             })

@@ -127,13 +127,13 @@ class ChangePasswordFragment :
     private fun verifiedButton() {
         viewModel.changePwButtonEnable()
         viewModel.buttonEnableSubject.observeOn(AndroidSchedulers.mainThread())
-            .subscribe { binding.btnChangePwNext.isEnabled = it }
+            .subscribe { binding.btnChangePw.isEnabled = it }
             .addTo(disposables)
     }
 
     override fun clickListener() {
         binding.include.ivBack.setOnClickListener { findNavController().popBackStack() }
-        binding.btnChangePwNext.setOnClickListener {
+        binding.btnChangePw.setOnClickListener {
             viewModel.oldPassword.value = binding.etChangeCurrentPw.text.toString()
             viewModel.newPassword.value = binding.etChangeNewPw.text.toString()
             viewModel.changePassword()
