@@ -1,5 +1,6 @@
 package com.plogging.ecorun.ui.auth.signin
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.plogging.ecorun.base.BaseViewModel
 import com.plogging.ecorun.data.model.User
@@ -19,7 +20,10 @@ import javax.inject.Inject
 @HiltViewModel
 class SignInViewModel @Inject constructor(private val repository: AuthRepository) :
     BaseViewModel() {
+    val isSuccessSocialSignInSubject = PublishSubject.create<Boolean>()
+    val isSuccessNaverSignInSubject = PublishSubject.create<Boolean>()
     val isSignInButtonEnableSubject = PublishSubject.create<Boolean>()
+    val isSavedUserSubject = PublishSubject.create<Boolean>()
     val isValidIdSubject = PublishSubject.create<Boolean>()
     val isValidPwSubject = PublishSubject.create<Boolean>()
     val customSignInSuccess = MutableLiveData<Boolean>()
@@ -38,6 +42,7 @@ class SignInViewModel @Inject constructor(private val repository: AuthRepository
         repository.signIn(userInfo)
             .subscribe(object : DefaultSingleObserver<UserResponse>() {
                 override fun onSuccess(response: UserResponse) {
+                    Log.e("userResponse", "${response.rc}, ${response.rcmsg}")
                     name.value = response.userName
                     uri.value = response.userImg!!
                     customSignInSuccess.value = true
@@ -58,8 +63,8 @@ class SignInViewModel @Inject constructor(private val repository: AuthRepository
             .subscribe(object : DefaultSingleObserver<BaseResponse>() {
                 override fun onSuccess(response: BaseResponse) {
                     when (response.rc) {
-                        200 -> isSavedUser.value = false    // DB에 없는 회원 닉네임 설정으로 이동
-                        201 -> socialSignIn()               // DB에 있는 회원 소셜 로그인
+                        200 -> isSavedUserSubject.onNext(false)    // DB에 없는 회원 닉네임 설정으로 이동
+                        201 -> isSavedUserSubject.onNext(true)               // DB에 있는 회원 소셜 로그인
                     }
                 }
 
@@ -79,11 +84,12 @@ class SignInViewModel @Inject constructor(private val repository: AuthRepository
                 override fun onSuccess(response: UserResponse) {
                     name.value = response.userName
                     uri.value = response.userImg!!
-                    isSavedUser.value = true
+                    isSuccessSocialSignInSubject.onNext(true)
                 }
 
                 override fun onError(e: Throwable) {
                     super.onError(e)
+                    isSuccessSocialSignInSubject.onNext(false)
                     if (e is HttpException) responseCode.value = e.code()
                     else responseCode.value = 500
                 }
@@ -96,11 +102,13 @@ class SignInViewModel @Inject constructor(private val repository: AuthRepository
                 override fun onSuccess(response: NaverUserResponse) {
                     id.value = response.naverUser.email + ":${NAVER}"
                     name.value = response.naverUser.name
+                    isSuccessNaverSignInSubject.onNext(true)
                     isSavedSocialUser()
                 }
 
                 override fun onError(e: Throwable) {
                     super.onError(e)
+                    isSuccessNaverSignInSubject.onNext(false)
                     if (e is HttpException) responseCode.value = e.code()
                     else responseCode.value = 500
                 }

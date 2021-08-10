@@ -66,6 +66,7 @@ class SignInFragment : BaseFragment<FragmentSignInBinding, SignInViewModel>() {
         observeEditText()
         responseApi()
         signInButtonEnable()
+        observeSocialSignIn()
     }
 
     private fun initView() {
@@ -87,8 +88,8 @@ class SignInFragment : BaseFragment<FragmentSignInBinding, SignInViewModel>() {
     }
 
     private fun responseApi() {
-        viewModel.isSavedUser.observe(viewLifecycleOwner) {
-            if (it) saveUserImage()
+        viewModel.isSavedUserSubject.subscribe {
+            if (it) viewModel.socialSignIn()
             else {
                 showLoadingPage(false)
                 val bundle =
@@ -96,9 +97,10 @@ class SignInFragment : BaseFragment<FragmentSignInBinding, SignInViewModel>() {
                         "email" to viewModel.id.value,
                         "socialType" to viewModel.userType.value
                     )
-                findNavController().navigate(R.id.action_auth_home_to_auth_nick_name, bundle)
+                findNavController().navigate(R.id.action_sign_in_to_nick_name, bundle)
             }
-        }
+        }.addTo(disposables)
+
         viewModel.customSignInSuccess.observe(viewLifecycleOwner) {
             if (it) saveUserImage()
             else {
@@ -111,9 +113,15 @@ class SignInFragment : BaseFragment<FragmentSignInBinding, SignInViewModel>() {
         }
     }
 
+    private fun observeSocialSignIn() {
+        viewModel.isSuccessSocialSignInSubject.subscribe {
+            if (it) saveUserImage()
+        }.addTo(disposables)
+    }
+
     private fun saveUserImage() {
         CoroutineScope(Dispatchers.Main).launch {
-            var bitmap: Bitmap? = null
+            var bitmap: Bitmap?
             val url = if (viewModel.uri.value!!.startsWith("http:"))
                 URL("https://eco-run.duckdns.org/profile/base/profile-1.PNG")
             else URL(viewModel.uri.value)
